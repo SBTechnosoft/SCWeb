@@ -17,4 +17,6 @@ define('TNS','localhost');
 define('DB_SERVER_USERNAME', 'root');
 define('DB_SERVER_PASSWORD','');
 define('DB_NAME','swaminarayancycle_db');
+
+$cur_date=date('Y-m-d H:i:s');
 ?>

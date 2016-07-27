@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <?php include("include/header.php");?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -68,7 +68,7 @@
 <!-- Loader --> 
 <script src="plugins/loader/js/classie.js"></script> 
 <script src="plugins/loader/js/pathLoader.js"></script> 
-<script src="plugins/loader/js/main.js"></script> 
+
 
 
 

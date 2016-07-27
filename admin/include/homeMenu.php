@@ -9,30 +9,30 @@
     </div>
 </section>
 
-<div class="header header-home">
+
   
   
-  <div class="navbar yamm navbar-default ">
+  <div class="navbar yamm navbar-default">
     <div class="container">
       <nav id="navbar-collapse-1" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="index.php">Home</a></li>
-          <li class="active"><a href="<?php echo HTTP_SERVER.'index.php?url=PROD';?>">Products</a></li>
+          <li><a href="index.php" class="active">Home</a></li>
+          <li class="dropdown yamm-classic"><a href="" data-toggle="dropdown" class="dropdown-toggle">Product<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+			  <li><a  href="<?php echo HTTP_SERVER.'index.php?url=CAT';?>">Add Category</a></li>
+              <li><a  href="<?php echo HTTP_SERVER.'index.php?url=COMP';?>">Add Company</a></li>
+              <li><a  href="<?php echo HTTP_SERVER.'index.php?url=PROD';?>">Add Product</a></li>
+              
+              
+            </ul>
+          </li>
           <li><a href="blog.php">Blog</a></li>
           <li><a href="event.php">Event</a></li>
          <li><a href="about.php">About Us</a></li>
 		  <li><a href="contactus.php">Contact Us</a></li>
+		  
           <!-- Classic dropdown -->
-          <!--<li class="dropdown yamm-classic"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Classic<b class="caret"></b></a>
-            <ul class="dropdown-menu ">
-              <li><a  href="#"> QUECHUA FORCLAZ 500 SOFTSHELL HIKING WEAR </a></li>
-              <li><a  href="#"> FORCLAZ GOFTSHELL HIKING WEAR</a></li>
-              <li><a  href="#"> SOFTSHELL HIKING 300 WEAR </a></li>
-              <li><a  href="#"> Paenitet me789 quod tultus plastic</a></li>
-              <li><a  href="#"> FORCLAZ 500 SOFTSHELL HIKING WEAR</a></li>
-              <li><a  href="#"> QUECHUA FORCLAZ 500LL HIKING WEAR</a> </li>
-            </ul>
-          </li>-->
+        
           <!-- Pictures -->
          <!-- <li class="dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Mega Menu<b class="caret"></b></a>
             <ul class="dropdown-menu">
@@ -93,4 +93,4 @@
       </nav>
     </div>
   </div>
-</div>
+
