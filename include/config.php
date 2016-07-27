@@ -1,8 +1,8 @@
 <?php
 // HTTP server path
-define('HTTP_SERVER', 'http://localhost/SwaminarayanCycleStore/');
+define('HTTP_SERVER', 'http://localhost/SwaminarayanCycleStore/SCWeb');
 // document root
-define('DIR_WS_DOCUMENT_ROOT', "E:\\xampp\\htdocs\\SwaminarayanCycleStore\\");
+define('DIR_WS_DOCUMENT_ROOT', "E:\\xampp\\htdocs\\SwaminarayanCycleStore\\SCWeb\\");
 // user section directory structure
 define('DIR_INCLUDES',HTTP_SERVER.'include/');
 define('DIR_CSS',HTTP_SERVER.'css/');
