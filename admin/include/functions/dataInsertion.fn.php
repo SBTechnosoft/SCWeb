@@ -39,4 +39,13 @@ function insertPic($prod_id,$conn,$new_img)
 	 $sqlInsert = "INSERT INTO `product_img`(`prod_id`,`prod_img_dtl`) VALUES ('".$prod_id."','".$new_img."')";
 	$resultArraypic= $conn -> insertQuery($sqlInsert);
 }
+
+//insert blog category data
+function insertBlogCategoryData($conn,$blog_name,$blog_desc,$is_display,$cur_date)
+{
+	
+	$sqlInsert = "INSERT INTO blog_category_mst(blog_cat_name,blog_cat_desc,is_display,created_at) VALUES ('".$blog_name."','".$blog_desc."','".$is_display."','".$cur_date."')";
+	$resultArray = $conn -> insertQuery($sqlInsert);
+	
+}
 ?>

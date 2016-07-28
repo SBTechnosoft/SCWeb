@@ -69,4 +69,23 @@ function UpdateSpecData($conn,$prod_spec_frame,$prod_spec_travel,$prod_spec_fork
 	return $conn -> insertQuery($sqlUpdate);
 	
 }
+
+//update blog category data
+	function UpdateBlogCategoryData($conn,$catName,$desc,$is_display,$cur_date,$id)
+{
+	 $sqlUpdate="update `blog_category_mst` set
+	blog_cat_name='".$catName."',
+	blog_cat_desc='".$desc."',
+	is_display='".$is_display."',
+	updated_at='".$cur_date."' where blog_cat_id='".$id."'";
+	return $conn -> insertQuery($sqlUpdate);
+}
+//Update Blog Category Display
+function UpdateBlogCategoryDisplay($conn,$is_display,$id,$cur_date)
+{
+	$sqlUpdate="update `blog_category_mst` set
+	is_display='".$is_display."',
+	updated_at='".$cur_date."' where blog_cat_id='".$id."'";
+	return $conn -> insertQuery($sqlUpdate);
+}
 ?>

@@ -40,4 +40,22 @@ function getSingleProduct($conn)
 	$sqlFetch="SELECT * FROM company_mst cm,category_mst c,product_mst pm,product_img pi where pi.prod_id=pm.prod_id and pm.cat_id=c.cat_id and pm.company_id=cm.company_id and prod_img_id=".$_REQUEST['id'];
 	return $conn -> getResultArray($sqlFetch);
 }
+//get technology data
+function getTechnologyDtl($conn)
+{
+	$sqlFetch="SELECT * FROM product_technology_dtl c,product_mst pm,product_img pi where pi.prod_id=pm.prod_id and pm.prod_id=c.prod_id and prod_img_id=".$_REQUEST['id'];
+	return $conn -> getResultArray($sqlFetch);
+}
+//get specification data
+function getSpecData($conn)
+{
+	$sqlFetch="SELECT * FROM prod_spec_dtl c,product_mst pm,product_img pi where pi.prod_id=pm.prod_id and pm.prod_id=c.prod_id and prod_img_id=".$_REQUEST['id'];
+	return $conn -> getResultArray($sqlFetch);
+}
+//get product  at home menu
+function getProd($conn)
+{
+	 $sqlFetch="select * from product_img i,product_mst m where m.prod_id=i.prod_id and m.deleted_at='0000-00-00 00:00:00' ORDER BY m.prod_id DESC LIMIT 10";
+	 return $conn -> getResultArray($sqlFetch);
+}
 ?>

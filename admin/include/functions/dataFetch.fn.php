@@ -50,4 +50,10 @@ function getProductArray($conn,$id)
 	$sqlFetch="select * from  prod_spec_dtl ps,product_technology_dtl pt,product_mst pm where pm.prod_id=pt.prod_id and pt.prod_id=ps.prod_id and pm.prod_id ='".$id."'";
 	return $conn -> getResultArray($sqlFetch);
 }
+//Get Blog Category Data
+function showBlogCategoryData($conn)
+{
+	$sqlFetch="select blog_cat_id,blog_cat_name,blog_cat_desc,is_display from blog_category_mst where deleted_at='0000-00-00 00:00:00'";
+	return $conn -> getResultArray($sqlFetch);
+}
 ?>

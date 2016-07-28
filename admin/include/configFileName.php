@@ -8,4 +8,5 @@ define('FILENAME_PRODUCT',DIR_WS_INCLUDES.'product.php');
 define('FILENAME_CATEGORY',DIR_WS_INCLUDES.'Category.php');
 define('FILENAME_COMPANY',DIR_WS_INCLUDES.'Company.php');
 define('FILENAME_PRODUCTSHOW',DIR_WS_INCLUDES.'productShow.php');
+define('FILENAME_BLOGCAT',DIR_WS_INCLUDES.'blog_cat.php');
 ?>

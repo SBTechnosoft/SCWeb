@@ -87,15 +87,16 @@
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12  ">
         <section class="main-content" role="main">
-          <div class="row">
-            <div class="col-md-5">
-              <div class="product-image-left animated" data-animation="bounceInUp">
-                <div class="clearfix" id="image-block">
-				<?php
+		<?php
 					$rowMainCategory=getSingleProduct($conn);
 					$countCat=count($rowMainCategory);
 					for($i=0;$i<$countCat;$i++)
 						{ ?>
+          <div class="row">
+            <div class="col-md-5">
+              <div class="product-image-left animated" data-animation="bounceInUp">
+                <div class="clearfix" id="image-block">
+				
                   <div id="slider-product" class="flexslider">
                     <ul class="slides">
 						
@@ -103,7 +104,7 @@
 						
                     </ul>
                   </div>
-				  <?php }?>
+				  
                   <div id="carousel" class="flexslider">
                     <ul class="slides">
                       <li> <img src="media/item/4/1.jpg" width="600" height="700" alt="img"/> </li>
@@ -124,11 +125,11 @@
             
             <div class="col-md-7">
               <div class="product-right animated" data-animation="bounceInUp">
-                <h3 class="product-title">QUECHUA FORCLAZ500 SOFTSHELL HIKING WEAR</h3>
-                <div class="product-desc">The Corsair Gaming Series GS600 is the ideal price/performance choice for mid-spec gaming PC</div>
+                <h3 class="product-title"><?php echo $rowMainCategory[$i]['prod_name'];?></h3>
+                
                 <div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> 16 Review (s)  / <a class="add-rev-link" href="#tab-info-anchore">Add a Review </a></div>
                 <hr>
-                <div class="price-box"> <span class="price-regular-single">$120.00</span> <span class="price-old">$200.00</span> <span class="price-reduction">70%</span> </div>
+                <div class="price-box"> <span class="price-regular-single">Rs.<?php echo $rowMainCategory[$i]['prod_prize'];?></span> </div>
                 <hr>
                 <div class="product-button-group">
                   <div class="qty"> <a class="minus_btn"><i class="fa fa-minus"></i> </a>
@@ -143,7 +144,7 @@
                 </div>
                 <hr>
                 <div class="shorty-desc">
-                  <p> Pergo coctione, aliter atque fructuosa negotium structura. Malo B. Option.  Ille vivere. Ut ad te id est in mensa. Levir meus, priusquam oppugnarent tempus quis, admonere dicitur. Credo quod idem mihi praesidium. img  Suspicio? Bere conatus sum ad te in omni tempore.</p>
+                  <p> <?php echo $rowMainCategory[$i]['prod_desc'];?></p>
                 </div>
                 <hr>
                 <div class="footer-panel">
@@ -170,86 +171,175 @@
                 <div class="product-label"> <img src="media/label/guarantee.png" alt="img"/> </div>
               </div>
             </div>
-             </div>
-            
+           </div>
+			<?php }?>			
              <div class="row">
             <div class="col-md-9  col-sm-9 product-info animated" data-animation="bounceInUp">
               <div id="tab-info-anchore"></div>
               
               <!-- Nav tabs -->
               <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab">DESCRIPTION</a></li>
-                <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab">PRODUCT INFO</a></li>
-                <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab">REVIEWS</a></li>
+                <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab">Technology</a></li>
+                <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab">Specification</a></li>
+                <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab">Size Chart</a></li>
               </ul>
               
               <!-- Tab panes -->
               <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="tab1">
-                  <p>Pergo coctione, et ego, et tu oblivisci Pinkman. Obliviscendum hoc unquam factum. Intelligamus hoc in sola SINGULTO multo aliter atque fructuosa negotium structura. Malo B. Option. </p>
-                  <p>Ille vivere. Ut ad te quaerebam ... purgare caeli. Sunt uh ... nonnullus propter errorem qui de rebus inter nos et iacere puto suus in causa, id est in mensa. Levir meus, priusquam oppugnarent tempus quis, admonere dicitur. Credo quod idem mihi praesidium.</p>
-                  <p>&nbsp;</p>
-                  <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                      <h4><i class="fa fa-flag"></i> One Font, 479 Icons</h4>
-                      In a single collection, Font Awesome is a pictographic language of web-related actions.
-                      <hr>
-                    </div>
-                    
-                    <div class="col-md-6 col-sm-6">
-                      <h4><i class="fa fa-pencil"></i> CSS Control</h4>
-                      Easily style icon color, size, shadow, and anything that's possible with CSS.
-                      <hr>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                      <h4><i class="fa fa-eye"></i> Perfect on Retina Displays</h4>
-                      Font Awesome icons are vectors, which mean they're gorgeous on high-resolution displays.
-                      
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                      <h4><i class="fa fa-desktop"></i> Desktop Friendly</h4>
-                      To use on the desktop or for a complete set of vectors,
-                      check out the <a href="./cheatsheet/">cheatsheet</a>. </div>
-                    
-                  </div>
+                     <div class="row">
+						<?php
+								$rowMainCategory2=getTechnologyDtl($conn);
+								$countCat2=count($rowMainCategory2);
+								for($i=0;$i<$countCat2;$i++)
+						{ ?>
+							<div class="col-md-6 col-sm-6">
+								<h4>Name</h4>
+								<li><?php echo $rowMainCategory2[$i]['prod_tech_name'];?></li>
+							<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>Description</h4>
+								<li><?php echo $rowMainCategory2[$i]['prod_tech_desc'];?></li>
+								<hr>
+							</div>
+					   <?php }?>
+					</div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="tab2">
-                  <p>Pergo coctione, et ego, et tu oblivisci Pinkman. Obliviscendum hoc unquam factum. Intelligamus hoc in sola SINGULTO multo aliter atque fructuosa negotium structura. Malo B. Option. </p>
-                  <p>Ille vivere. Ut ad te quaerebam ... purgare caeli. Sunt uh ... nonnullus propter errorem qui de rebus inter nos et iacere puto suus in causa, id est in mensa. Levir meus, priusquam oppugnarent tempus quis, admonere dicitur. Credo quod idem mihi praesidium.</p>
-                  <img src="media/item/info-item.jpg" width="300" height="207"  class="size-medium  alignright"  alt="img"/>
-                  <p>Suspicio? Bene ... tunc ibimus? Quis uh ... CONEXUS locus his diebus? Quisque semper aliquid videtur, in volutpat mauris. Nolo enim dicere. Vobis neque ab aliis. Ego feci memetipsum explicans. Gus mortuus est. Lorem opus habeo. </p>
-                  <p>Jackson Isai? Tu quoque ... A te quidem a ante. Vos scitis quod blinking res Ive 'been vocans super vos? Et conteram illud, et conteram hoc. Maledicant druggie excors. Iam hoc tu facere conatus sum ad te in omni tempore? </p>
-                  <p>Ludum mutavit. Verbum est ex. Et ... sunt occidat. Videtur quod est super omne oppidum. Quis transfretavit tu iratus es contudit cranium cum dolor apparatus. Qui curis! Modo nobis certamen est, qui non credunt at. </p>
-                  <p>Nonne vides quid sit? Tu es ... Jesse me respice. Tu ... blowfish sunt. A blowfish! Cogitare. Statura pusillus, nec sapientium panem, nec artificum. Sed predators facile prædam blowfish secretum telum non se habet. Non ille? Quid faciam blowfish, Isai. Blowfish quid faciat? In blowfish inflat, purus? </p>
-                  <p>Blowfish librantur in se quatuor, quinquies maior quam normalis, et quare? Quare id faciam? Ut terrorem facit, qui quid. Terrent! Ut alter, scarier pisces agminis off. Et quod tu es? Vos blowfish. Tu iustus in omnibus visio. Vides ... suus ' suus 'non aliud aerem. Nunc ... qui cum partibus blowfish Isai? Tu damnare ius. Vos blowfish. Dicere iterum. Dicere illam quasi velis eam. Es BLOWFISH! </p>
+					<div class="row">
+						<?php
+									$rowMainCategory3=getSpecData($conn);
+									$countCat3=count($rowMainCategory3);
+									for($i=0;$i<$countCat3;$i++)
+									{ ?>
+							<div class="col-md-6 col-sm-6">
+								<h4>Frame</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_frame'];?></li>
+							<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>Travel</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_travel'];?></li>
+								<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>Fork</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_fork'];?></li>
+							<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>Rear Shock</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_rear_shock'];?></li>
+								<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>Remote System</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_remote_system'];?></li>
+							<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>Headset</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_headset'];?></li>
+								<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>Rear Derailleur</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_rear_drailleur'];?></li>
+							<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>Front Derailleur</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_front_drailleur'];?></li>
+								<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>Shifters</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_shifters'];?></li>
+							<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>Brakes</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_brakes'];?></li>
+								<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>Crankset</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_crankset'];?></li>
+							<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>BB-Set</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_travel'];?></li>
+								<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>Handlebar</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_handelbar'];?></li>
+							<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>H'stem</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_hstem'];?></li>
+								<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>Seatpost</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_seat_post'];?></li>
+							<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>Seat</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_seat'];?></li>
+								<hr>
+							</div>
+								<div class="col-md-6 col-sm-6">
+								<h4>Hub (Front)</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_hub_front'];?></li>
+							<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>Hub (Rear)</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_hub_rear'];?></li>
+								<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>Chain</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_chain'];?></li>
+							<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>Cassette</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_cassets'];?></li>
+								<hr>
+							</div>
+								<div class="col-md-6 col-sm-6">
+								<h4>Spokes</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_spokes'];?></li>
+							<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>Rims</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_rims'];?></li>
+								<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>Tires</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_tires'];?></li>
+							<hr>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<h4>Approx weights in KG</h4>
+								<li><?php echo $rowMainCategory3[$i]['prod_spec_weight'];?></li>
+								<hr>
+							</div>
+					   <?php }?>
+					</div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="tab3">
-                  <div class="rew_blk clearfix">
-                    <h5>Excellent </h5>
-                    <div class="top_row clearfix">
-                      <div class="date"><span class="fa fa-calendar"></span>1/3/2020</div>
-                      <a class="user" href="#"><span class="fa fa-user"></span>Sheldon</a>
-                      <div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
-                    </div>
-                    <p>Etiam pretium, arcu id mattis aliquet, est neque sagittis quam, id mollis leo urna non dui. Phasellus lacinia facilisis ipsum, a tempor nibh. Aliquam nec interdum mi. Nunc laoreet molestie massa, at euismod ipsum fringilla id. Vivamus vehicula metus velit, sit amet congue turpis suscipit in. Etiam interdum felis sed consequat varius. Aliquam erat volutpat. </p>
-                  </div>
-                  <div class="rew_blk clearfix">
-                    <h5>Awesome!</h5>
-                    <div class="top_row clearfix">
-                      <div class="date"><span class="fa fa-calendar"></span>3/12/2020</div>
-                      <a class="user" href="#"><span class="fa fa-user"></span>Sasha</a>
-                      <div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> </div>
-                    </div>
-                    <p>Etiam pretium, arcu id mattis aliquet, est neque sagittis quam, id mollis leo urna non dui. Phasellus lacinia facilisis ipsum, a tempor nibh. Aliquam nec interdum mi. Nunc laoreet molestie massa, at euismod ipsum fringilla id. Vivamus vehicula metus velit, sit amet congue turpis suscipit in.</p>
-                  </div>
-                  <form accept-charset="UTF-8" action="action.php" method="post">
-                    <input id="ratings-hidden" name="rating" type="hidden">
-                    <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea>
-                    <div class="text-right form-star-box">
-                      <div  class="starrr" data-rating='0'></div>
-                      <button class="btn btn-success btn-lg" type="submit">Save</button>
-                    </div>
-                  </form>
+                  
+                 
+                  
                 </div>
               </div>
             </div>

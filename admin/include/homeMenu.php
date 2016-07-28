@@ -27,7 +27,16 @@
               
             </ul>
           </li>
-          <li><a href="blog.php">Blog</a></li>
+          <li class="dropdown yamm-classic"><a href="" data-toggle="dropdown" class="dropdown-toggle">Blog<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+			  <li><a  href="<?php echo HTTP_SERVER.'index.php?url=BCAT';?>">Add Blog Category</a></li>
+              <li><a  href="<?php //echo HTTP_SERVER.'index.php?url=COMP';?>">Add Blog Tag</a></li>
+              <li><a  href="<?php //echo HTTP_SERVER.'index.php?url=PROD';?>">Add Blog</a></li>
+			  
+              
+              
+            </ul>
+          </li>
           <li><a href="event.php">Event</a></li>
          <li><a href="about.php">About Us</a></li>
 		  <li><a href="contactus.php">Contact Us</a></li>

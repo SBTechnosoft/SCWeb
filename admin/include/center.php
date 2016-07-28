@@ -17,6 +17,9 @@ if (isset($_GET['url']))
 				case 'PRODALL':
                     $url = FILENAME_PRODUCTSHOW;
                     break;
+				case 'BCAT':
+                    $url = FILENAME_BLOGCAT;
+                    break;
 				default:
 				$url= FILENAME_PRODUCT;
 				break;
