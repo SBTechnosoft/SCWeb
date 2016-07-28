@@ -16,7 +16,7 @@ function getCompanyName($conn)
 
 function getProdImg($conn)
 {
-	 $sqlFetch="select prod_id,prod_img_id,prod_img_dtl from product_img where prod_id in(select prod_id from product_mst where deleted_at='0000-00-00 00:00:00')";
+	 $sqlFetch="select * from product_img i,product_mst m where m.prod_id=i.prod_id and m.deleted_at='0000-00-00 00:00:00'";
 	 return $conn -> getResultArray($sqlFetch);
 }
 

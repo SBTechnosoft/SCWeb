@@ -75,7 +75,7 @@
 <main class="section layout-col-2" id="main">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-3 sidebar-resize"    >
+      <div class="col-xs-12 col-sm-12 col-md-3 sidebar-resize">
         <aside class="sidebar ">
           <div class="widget widget-category">
             <h3 class="widget-title"><span>categories</span></h3>

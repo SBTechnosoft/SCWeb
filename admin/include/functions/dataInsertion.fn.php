@@ -48,4 +48,26 @@ function insertBlogCategoryData($conn,$blog_name,$blog_desc,$is_display,$cur_dat
 	$resultArray = $conn -> insertQuery($sqlInsert);
 	
 }
+//insert tag data
+function insertTagData($conn,$tag_name,$tag_desc,$is_display,$cur_date)
+{
+	
+	$sqlInsert = "INSERT INTO  blog_tag_mst(blog_tag_name,blog_tag_desc,is_display,created_at) VALUES ('".$tag_name."','".$tag_desc."','".$is_display."','".$cur_date."')";
+	$resultArray = $conn -> insertQuery($sqlInsert);
+	
+}
+//insert blog post data
+function insertblogPostData($conn,$post_name,$post_desc,$blog_cat_id,$is_display,$cur_date)
+{
+	
+	$sqlInsert = "INSERT INTO  blog_post(blog_post_name,blog_post_desc,blog_cat_id,is_display,created_at) VALUES ('".$post_name."','".$post_desc."','".$blog_cat_id."','".$is_display."','".$cur_date."')";
+	$resultArray = $conn -> insertQuery($sqlInsert);
+	
+}
+
+function insertBlogTagsrel($conn,$blog_id,$tagid)
+{
+	$sqlInsert="insert into blog_real_tag (blog_post_id,blog_tag_id) values('".$blog_id."','".$tagid."')";
+	return $conn -> insertQuery($sqlInsert);
+}
 ?>

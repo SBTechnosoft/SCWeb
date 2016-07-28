@@ -30,8 +30,8 @@
           <li class="dropdown yamm-classic"><a href="" data-toggle="dropdown" class="dropdown-toggle">Blog<b class="caret"></b></a>
             <ul class="dropdown-menu">
 			  <li><a  href="<?php echo HTTP_SERVER.'index.php?url=BCAT';?>">Add Blog Category</a></li>
-              <li><a  href="<?php //echo HTTP_SERVER.'index.php?url=COMP';?>">Add Blog Tag</a></li>
-              <li><a  href="<?php //echo HTTP_SERVER.'index.php?url=PROD';?>">Add Blog</a></li>
+              <li><a  href="<?php echo HTTP_SERVER.'index.php?url=BTAG';?>">Add Blog Tag</a></li>
+              <li><a  href="<?php echo HTTP_SERVER.'index.php?url=BLOG';?>">Add Blog</a></li>
 			  
               
               

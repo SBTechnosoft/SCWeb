@@ -88,4 +88,45 @@ function UpdateBlogCategoryDisplay($conn,$is_display,$id,$cur_date)
 	updated_at='".$cur_date."' where blog_cat_id='".$id."'";
 	return $conn -> insertQuery($sqlUpdate);
 }
+
+//update tag display
+function UpdateTagDisplay($conn,$is_display,$id,$cur_date)
+{
+	 $sqlUpdate="update `blog_tag_mst` set
+	is_display='".$is_display."',
+	updated_at='".$cur_date."' where blog_tag_id='".$id."'";
+	return $conn -> insertQuery($sqlUpdate);
+}
+
+//update tag data
+function UpdateTagData($conn,$catName,$desc,$is_display,$cur_date,$id)
+{
+	 $sqlUpdate="update `blog_tag_mst` set
+	blog_tag_name='".$catName."',
+	blog_tag_desc='".$desc."',
+	is_display='".$is_display."',
+	updated_at='".$cur_date."' where blog_tag_id='".$id."'";
+	return $conn -> insertQuery($sqlUpdate);
+}
+//update blog post data
+	
+	function UpdateBlogPostData($conn,$catName,$desc,$blog_cat_id,$is_display,$cur_date,$id)
+{
+	 $sqlUpdate="update `blog_post` set
+	blog_post_name='".$catName."',
+	blog_post_desc='".$desc."',
+	blog_cat_id='".$blog_cat_id."',
+	is_display='".$is_display."',
+	update_at='".$cur_date."' where blog_post_id='".$id."'";
+	return $conn -> insertQuery($sqlUpdate);
+}
+
+//update blog post display
+function UpdateBlogPostDisplay($conn,$is_display,$id,$cur_date)
+{
+	 $sqlUpdate="update `blog_post` set
+	is_display='".$is_display."',
+	update_at='".$cur_date."' where blog_post_id='".$id."'";
+	return $conn -> insertQuery($sqlUpdate);
+}
 ?>

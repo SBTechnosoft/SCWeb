@@ -20,6 +20,12 @@ if (isset($_GET['url']))
 				case 'BCAT':
                     $url = FILENAME_BLOGCAT;
                     break;
+				case 'BTAG':
+                    $url = FILENAME_BLOGTAG;
+                    break;
+				case 'BLOG':
+                    $url = FILENAME_BLOG;
+                    break;
 				default:
 				$url= FILENAME_PRODUCT;
 				break;

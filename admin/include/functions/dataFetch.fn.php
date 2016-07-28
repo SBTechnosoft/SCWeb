@@ -56,4 +56,51 @@ function showBlogCategoryData($conn)
 	$sqlFetch="select blog_cat_id,blog_cat_name,blog_cat_desc,is_display from blog_category_mst where deleted_at='0000-00-00 00:00:00'";
 	return $conn -> getResultArray($sqlFetch);
 }
+//get tag data
+function showTagData($conn)
+{
+	$sqlFetch="select blog_tag_id,blog_tag_name,blog_tag_desc,is_display from blog_tag_mst where deleted_at='0000-00-00 00:00:00'";
+	return $conn -> getResultArray($sqlFetch);
+}
+//Get Blog Category At Blog page
+function showBlogCatData($conn)
+{
+	$sqlFetch="select blog_cat_id,blog_cat_name,blog_cat_desc,is_display from blog_category_mst where deleted_at='0000-00-00 00:00:00'";
+	return $conn -> getResultArray($sqlFetch);
+}
+//get tag data
+function showTagData1($conn)
+{
+	$sqlFetch="select blog_tag_id,blog_tag_name,blog_tag_desc,is_display from blog_tag_mst where deleted_at='0000-00-00 00:00:00'";
+	return $conn -> getResultArray($sqlFetch);
+}
+//get blog data
+function showBlogPostData($conn)
+{
+	$sqlFetch="select blog_post_id,blog_post_name,blog_post_desc,blog_cat_id,is_display from blog_post where deleted_at='0000-00-00 00:00:00'";
+	return $conn -> getResultArray($sqlFetch);
+}
+function getBlogTags($conn)
+{
+	$sqlFetch="SELECT `blog_tag_id`,`blog_tag_name` FROM `blog_tag_mst`";
+	
+	return $conn -> getResultArray($sqlFetch);
+}
+function getSelectblogId($conn,$id)
+{
+	$sqlFetch="SELECT `blog_cat_id`,`blog_cat_name` FROM `blog_category_mst` where `blog_cat_id`='".$id."'";
+	
+	return $conn -> getResultArray($sqlFetch);
+}
+function getBlogTagsId($conn,$id)
+{
+	$sqlFetch="select blog_post_id,blog_tag_id from blog_real_tag where blog_post_id='".$id."'";
+	return $conn -> getResultArray($sqlFetch);
+}
+function getSelecttagId($conn,$id)
+{
+	$sqlFetch="SELECT `blog_tag_id`,`blog_tag_name` FROM `blog_tag_mst` where `blog_tag_id`='".$id."'";
+	
+	return $conn -> getResultArray($sqlFetch);
+}
 ?>
