@@ -65,7 +65,7 @@
 						<tbody id="show_cat">
 							<?php include('show_Category.php');?>
 						</tbody>
-					</table>
+				</table>
            </article>
         </section>
       </div>
@@ -159,7 +159,7 @@ function removeCat(cat_id)
 	{
 		return false;
 	}
-	 //window.location.reload();
+	
 }
 </script>
 <script type="text/javascript">

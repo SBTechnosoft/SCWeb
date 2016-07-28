@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
-
-
+	
 </head>
 <body class="animated-all">
 
@@ -25,15 +24,20 @@
               <section class="section-comment">
 					<div id="comment-reply-form">
 						<form method="post" id="company_form" name="company_form" class="form-full-width">
+							<input  id="txthidden" name="txthidden" type="hidden"  value="">
 							<div class="row">
 								<div class=" col-md-6">
 									<div class="form-group">
 										<input type="text" placeholder="Enter Company Name" id="comp_name" name="comp_name" required >
 									</div>
 								</div>
-								
 							</div>
-                      
+							<?php
+								if(isset($_POST['editcompid']))
+								{
+									$editcompid=$_POST['editcompid'];
+								}
+							?>
 							<div class="row">
 								<div class="col-md-1">
 									<input type="button" class="btn-primary" value="Save" name="comp_submit" id=	"comp_submit" onclick="postData()" />
@@ -42,6 +46,18 @@
 						</form>
 					</div>
                </section>
+			   <table class="table table-responsive"> 
+						<thead>
+							<tr>
+								<th>Company Name</th>
+								
+								<th colspan="2"><center>Action</center></th>
+							</tr>
+						</thead>
+						<tbody id="show_comp">
+							<?php include('show_Company.php');?>
+						</tbody>
+				</table>
            </article>
         </section>
       </div>
@@ -82,7 +98,7 @@ function postData()
 		 },
 		 success: function(data){
 			  alert("Record Inserted Successfully!!!");
-			  //$("#show_cat").html(data);
+			  $("#show_comp").html(data);
 		 }
 		});
 		document.getElementById("company_form").reset();
@@ -90,7 +106,7 @@ function postData()
 	else
 	{
 		
-		//var editcatid=$('#txthidden').val(); 
+		var editcompid=$('#txthidden').val(); 
 		$.ajax({
 		 type: "POST",
 		 async : false,
@@ -98,18 +114,56 @@ function postData()
 		  data: {
 			  'edit' : 1,
 			 'comp_name':comp_name,
-			 // 'editcatid':editcatid,
+			 'editcompid':editcompid,
 		 },
 		 success: function(data){
 			  alert("Record Updated Successfully!!!");
-			  //$("#show_cat").html(data);
+			  $("#show_comp").html(data);
 		 }
 		});
 	}
 	 document.getElementById("company_form").reset();
 	 document.getElementById('comp_submit').value="Save";
 }
-
+//Remove Company
+function removeComp(comp_id)
+{
+	var comp_id=comp_id;
+	if (confirm("Are you sure you want to delete this?"))
+	{
+		$.ajax({
+		 type: "POST",
+		 async : false,
+		 url: "<?php echo DIR_INCLUDES.'company_post.php';?>",
+		  data: {
+			  'remove' : 1,
+			  'comp_id':comp_id,
+		 },
+		 success: function(data){
+			  alert("Record deleted Successfully!!!");
+			   $("#show_comp").html(data);
+		 }
+		});
+	}
+	else
+	{
+		return false;
+	}
+	
+}
+</script>
+<script type="text/javascript">
+//Edit Company
+function editCompany(editcompid,name)
+{
+	$('#comp_name').val(name);
+	$('#txthidden').val(editcompid);
+	
+	document.getElementById('comp_submit').value="Update";
+	
+	var editcompid=editcompid;
+	$.post("index.php?url=COMP", {"editcompid": editcompid});
+}
 </script>
 </body>
 </html>

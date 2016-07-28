@@ -91,20 +91,19 @@
             <div class="col-md-5">
               <div class="product-image-left animated" data-animation="bounceInUp">
                 <div class="clearfix" id="image-block">
+				<?php
+					$rowMainCategory=getSingleProduct($conn);
+					$countCat=count($rowMainCategory);
+					for($i=0;$i<$countCat;$i++)
+						{ ?>
                   <div id="slider-product" class="flexslider">
                     <ul class="slides">
-                      <li> <a  href="media/item/4/1.jpg"> <img src="media/item/4/1.jpg" width="600" height="700" alt="img"/></a> </li>
-                      <li> <a  href="media/item/4/2.jpg"> <img src="media/item/4/2.jpg" width="600" height="700" alt="img"/></a> </li>
-                      <li> <a  href="media/item/4/3.jpg"> <img src="media/item/4/3.jpg" width="600" height="700" alt="img"/></a> </li>
-                      <li> <a  href="media/item/4/4.jpg"> <img src="media/item/4/4.jpg" width="600" height="700" alt="img"/></a> </li>
-                      <li> <a  href="media/item/4/5.jpg"> <img src="media/item/4/5.jpg" width="600" height="700" alt="img"/></a> </li>
-                      <li> <a  href="media/item/4/1.jpg"> <img src="media/item/4/1.jpg" width="600" height="700" alt="img"/></a> </li>
-                      <li> <a  href="media/item/4/2.jpg"> <img src="media/item/4/2.jpg" width="600" height="700" alt="img"/></a> </li>
-                      <li> <a  href="media/item/4/3.jpg"> <img src="media/item/4/3.jpg" width="600" height="700" alt="img"/></a> </li>
-                      <li> <a  href="media/item/4/4.jpg"> <img src="media/item/4/4.jpg" width="600" height="700" alt="img"/></a> </li>
-                      <li> <a  href="media/item/4/5.jpg"> <img src="media/item/4/5.jpg" width="600" height="700" alt="img"/></a> </li>
+						
+                      <li> <a href="<?php echo DIR_PRODUCT.$rowMainCategory[$i]['prod_img_dtl'];?>"> <img src="<?php echo DIR_PRODUCT.$rowMainCategory[$i]['prod_img_dtl'];?>" width="600" height="700" alt="img"/></a> </li>
+						
                     </ul>
                   </div>
+				  <?php }?>
                   <div id="carousel" class="flexslider">
                     <ul class="slides">
                       <li> <img src="media/item/4/1.jpg" width="600" height="700" alt="img"/> </li>
@@ -125,7 +124,7 @@
             
             <div class="col-md-7">
               <div class="product-right animated" data-animation="bounceInUp">
-                <h3 class="product-title">QUECHUA FORCLAZ                        500 SOFTSHELL HIKING WEAR</h3>
+                <h3 class="product-title">QUECHUA FORCLAZ500 SOFTSHELL HIKING WEAR</h3>
                 <div class="product-desc">The Corsair Gaming Series GS600 is the ideal price/performance choice for mid-spec gaming PC</div>
                 <div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> 16 Review (s)  / <a class="add-rev-link" href="#tab-info-anchore">Add a Review </a></div>
                 <hr>

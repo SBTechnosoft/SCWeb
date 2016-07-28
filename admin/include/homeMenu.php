@@ -22,6 +22,7 @@
 			  <li><a  href="<?php echo HTTP_SERVER.'index.php?url=CAT';?>">Add Category</a></li>
               <li><a  href="<?php echo HTTP_SERVER.'index.php?url=COMP';?>">Add Company</a></li>
               <li><a  href="<?php echo HTTP_SERVER.'index.php?url=PROD';?>">Add Product</a></li>
+			  <li><a  href="<?php echo HTTP_SERVER.'index.php?url=PRODALL';?>">Product View</a></li>
               
               
             </ul>

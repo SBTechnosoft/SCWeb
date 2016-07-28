@@ -14,6 +14,9 @@ if (isset($_GET['url']))
 				case 'COMP':
                     $url = FILENAME_COMPANY;
                     break;
+				case 'PRODALL':
+                    $url = FILENAME_PRODUCTSHOW;
+                    break;
 				default:
 				$url= FILENAME_PRODUCT;
 				break;

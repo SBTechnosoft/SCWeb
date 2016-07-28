@@ -11,7 +11,7 @@ define('DIR_WS_INCLUDES', DIR_WS_DOCUMENT_ROOT.'include\\');
 define('DIR_WS_FUNCTIONS', DIR_WS_INCLUDES .'functions\\');
 define('DIR_WS_CLASSES', DIR_WS_INCLUDES.'classes\\');
 define('DIR_WS_LANGUAGES', DIR_WS_INCLUDES.'languages\\');
-
+define('DIR_PRODUCT',HTTP_SERVER.'upload/product/');
 //Databse Access
 define('TNS','localhost');
 define('DB_SERVER_USERNAME', 'root');
