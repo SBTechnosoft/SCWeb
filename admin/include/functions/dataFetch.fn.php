@@ -103,4 +103,10 @@ function getSelecttagId($conn,$id)
 	
 	return $conn -> getResultArray($sqlFetch);
 }
+
+function latestGallery($conn)
+{
+	$sqlFetch="select * from gallery_mst";
+	 return $conn -> getResultArray($sqlFetch);
+}
 ?>

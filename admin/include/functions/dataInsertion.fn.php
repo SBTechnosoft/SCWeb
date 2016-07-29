@@ -70,4 +70,13 @@ function insertBlogTagsrel($conn,$blog_id,$tagid)
 	$sqlInsert="insert into blog_real_tag (blog_post_id,blog_tag_id) values('".$blog_id."','".$tagid."')";
 	return $conn -> insertQuery($sqlInsert);
 }
+
+//insert Gallery data
+function insertGalleryMstData($conn,$gallary_img_name,$is_display)
+{
+	
+	$sqlInsert = "INSERT INTO gallery_mst(gallary_img_name,is_display) VALUES ('".$gallary_img_name."','".$is_display."')";
+	$resultArray = $conn -> insertQuery($sqlInsert);
+	
+}
 ?>

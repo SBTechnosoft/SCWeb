@@ -83,62 +83,8 @@
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-9">
         <section class="main-content" role="main">
-          <article class="post media-image   format-image animated" data-animation="bounceInUp">
-            <div class="entry-media">
-              <div class="box-date-post"> <span class="date-1">16 </span> <span class="date-2"> JULY</span> </div>
-              <div class="entry-thumbnail">
-                <div class="sticky-post"><i class="icon-pin"></i></div>
-                <div class="post-type-media type-image"><i class="icon-picture"></i></div>
-                <div class="img-overlay "> <a   class="link-view-more"></a> </div>
-                <a   href="media/830x400/1.jpg"><img src="media/830x400/1.jpg"  alt="img"/></a> </div>
-            </div>
-            <div class="entry-main">
-              <h3 class="entry-title"> <a href="blog_detail.php" data-hover="ALIQUAM MOLLIS NEQUE UT ULLAMCORPER TEMPOR DOLOR TORTOR VARIUS">ALIQUAM MOLLIS NEQUE UT ULLAMCORPER TEMPOR DOLOR TORTOR VARIUS</a> </h3>
-              <div class="entry-content">
-                <p>Phasellus vehicula auctor nisi. Curabitur sed magna vitae massa  Aenean purus. Donec sodales nisi et felis Fus ce sollicitudin, ligula eu  Praesent sed eld
-                  ts Nulla posuere. Etiam eleifend, odio non tempor adipiscing, justo  Aenean vulputate. Morbi faucibus ipsum eu ipsum. Fusce cursus dapibus ligula.  Proin
-                  rih on cus dui ut posuere varius, justo risus luctus mauris, id  Suspendisse consectetuer tincidunt neque. Nulla commodo imperdiet metus. Cras temnpus
-                  dolor  Donec eget ligula. In erat arcu tincidunt eget, viverra at vehicula. Aliquam dolor urna interdum ut dignissim eget sagittis eget eros. </p>
-                <div class="entry-footer"> <a href="blog_detail.php" class="view-post-btn">READ MORE</a> </div>
-              </div>
-            </div>
-          </article>
-          <article class="post media-image   format-carousel animated" data-animation="bounceInUp">
-            <div class="entry-media">
-              <div class="box-date-post"> <span class="date-1">16 </span> <span class="date-2"> JULY</span> </div>
-              <div class="entry-thumbnail">
-                <div class="post-type-media type-slider"><i class="icon-camera"></i></div>
-                <div class="img-overlay "> <a   class="link-view-more">+</a> </div>
-                <ul class="carousel-post">
-                  <li> <a   href="media/830x400/1.jpg"><img src="media/830x400/2.jpg"  alt="img"/></a></li>
-                  <li> <a   href="media/830x400/1.jpg"><img src="media/830x400/1.jpg"  alt="img"/></a></li>
-                  <li> <a   href="media/830x400/1.jpg"><img src="media/830x400/3.jpg"  alt="img"/></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="entry-main">
-              <h3 class="entry-title"> <a href="blog_detail.php" data-hover="ALIQUAM MOLLIS NEQUE UT ULLAMCORPER TEMPOR DOLOR TORTOR VARIUS">ALIQUAM MOLLIS NEQUE UT ULLAMCORPER TEMPOR DOLOR TORTOR VARIUS</a> </h3>
-              <div class="entry-content">
-                <p>Phasellus vehicula auctor nisi. Curabitur sed magna vitae massa  Aenean purus. Donec sodales nisi et felis Fus ce sollicitudin, ligula eu  Praesent sed eld
-                  ts Nulla posuere. Etiam eleifend, odio non tempor adipiscing, justo  Aenean vulputate. Morbi faucibus ipsum eu ipsum. Fusce cursus dapibus ligula.  Proin
-                  rih on cus dui ut posuere varius, justo risus luctus mauris, id  Suspendisse consectetuer tincidunt neque. Nulla commodo imperdiet metus. Cras temnpus
-                  dolor  Donec eget ligula. In erat arcu tincidunt eget, viverra at vehicula. Aliquam dolor urna interdum ut dignissim eget sagittis eget eros. </p>
-                <div class="entry-footer"> <a href="blog_detail.php" class="view-post-btn">READ MORE</a> </div>
-              </div>
-            </div>
-          </article>
-          <article class="post media-image   format-image animated" data-animation="bounceInUp">
-            <div class="entry-media">
-              <div class="box-date-post"> <span class="date-1">16 </span> <span class="date-2"> JULY</span> </div>
-              <div class="entry-thumbnail">
-                <div class="post-type-media type-image"><i class="icomoon-quote-left"></i></div>
-                <a href="#">
-                <div class="blockquote">
-                  <p>Fusce ut odio get eleifend tincidunt vestibulum ring al rsus in metus. Sep interd umli uam scelerisque. Nam odiodui vestibulum amolestie pulvinar Suspendisse nulla. Sed felis. Sed ornare eleifend tellus. Maecenas mattis massa  Nullam justo massa, adipiscing a convallis ultricies luctus et dolor. Ut  Integer et urna. Ut conse quat tincidunt tortor. Pellentesque congue semper felis. Nullam odio justo pharetra et sagittis adsc dignissim nec metus class.</p>
-                  <span class="blockquote-autor">JOHN ALEXANDER</span> </div>
-                </a> </div>
-            </div>
-          </article>
+		<?php include('./blog_filter.php'); ?>
+				
           <nav class="pagination">
             <ul>
               <li class="active"><a href="#" class="btn btn-primary"><span>1</span></a></li>
@@ -164,15 +110,34 @@
           <div class="widget widget-category">
             <h3 class="widget-title"><span>categories</span></h3>
             <ul class="category-list unstyled clearfix">
-              <li><a href="#">Technology</a></li>
-              <li><a href="#">News</a></li>
-              <li><a href="#">Photography</a></li>
-              <li><a href="#">Design</a></li>
-              <li><a href="#">Web Design</a></li>
+              <li><a href="blog.php">All</a></li>
+			  <?php
+				 $rowMainCategory=getBlogCat($conn);
+				 $countCat=count($rowMainCategory);
+				 for($i=0;$i<$countCat;$i++)
+				 { 
+			 ?>
+              <li><a href="blog.php?<?php echo 'cat_name='.$rowMainCategory[$i]['blog_cat_name'].'&catid='.$rowMainCategory[$i]['blog_cat_id']?>"><?php echo $rowMainCategory[$i]['blog_cat_name']; ?></a></li>
+			<?php }?>
             </ul>
           </div>
           <!-- // CATEGORY LIST WIDGET --> 
-          
+          <!-- TAGS WIDGET -->
+          <div class="widget widget-tags">
+            <h3 class="widget-title"><span>Tags cloud</span></h3>
+            <ul class="tag-cloud unstyled clearfix">
+              <li><a href="blog.php">All</a></li>
+			  <?php
+				$rowMainblogTag=getBlogTag($conn);
+				$countblogTag=count($rowMainblogTag);
+				for($i=0;$i<$countblogTag;$i++)
+				{ 
+			  ?>
+              <li><a href="blog.php?<?php echo 'tag_name='.$rowMainblogTag[$i]['blog_tag_name'].'&tagid='.$rowMainblogTag[$i]['blog_tag_id']?>"><?php echo $rowMainblogTag[$i]['blog_tag_name']; ?></a></li>
+			<?php }?>
+            </ul>
+          </div>
+          <!-- // TAGS WIDGET -->
           <!-- TABBED CONTENT WIDGET -->
           <div class="widget widget-tabbed">
             <ul class="nav nav-tabs">
@@ -315,20 +280,7 @@
           </div>
           <!-- // FLICKR STREAM --> 
           
-          <!-- TAGS WIDGET -->
-          <div class="widget widget-tags">
-            <h3 class="widget-title"><span>Tags cloud</span></h3>
-            <ul class="tag-cloud unstyled clearfix">
-              <li><a href="#">Creative</a></li>
-              <li><a href="#">Responsive</a></li>
-              <li><a href="#">Portfolio</a></li>
-              <li><a href="#">HTML</a></li>
-              <li><a href="#">CSS</a></li>
-              <li><a href="#">Retina</a></li>
-              <li><a href="#">Clean</a></li>
-            </ul>
-          </div>
-          <!-- // TAGS WIDGET -->
+          
           
           <div class="widget widget-newsletter ">
             <h3 class="widget-title"><span>Newsletter</span></h3>

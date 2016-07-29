@@ -28,4 +28,9 @@ function removeBlogPostData($conn,$id,$cur_date)
 	 $sqlremove="update `blog_post` set deleted_at='".$cur_date."' where blog_post_id='".$id."'";
 	return $conn -> insertQuery($sqlremove);
 }
+function removegallery($conn,$id)
+{
+	$sqlremove="delete from `gallery_mst` where  gallery_id='".$id."'";
+	return $conn -> insertQuery($sqlremove);
+}
 ?>

@@ -26,6 +26,9 @@ if (isset($_GET['url']))
 				case 'BLOG':
                     $url = FILENAME_BLOG;
                     break;
+				case 'GALLERY':
+                    $url = FILENAME_GALLERY;
+                    break;
 				default:
 				$url= FILENAME_PRODUCT;
 				break;

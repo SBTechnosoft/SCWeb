@@ -13,7 +13,7 @@ include_once (DIR_WS_FUNCTIONS.'dataFetch.fn.php');
 include_once (DIR_WS_FUNCTIONS.'dataInsertion.fn.php');
 include_once (DIR_WS_FUNCTIONS.'dataEdit.fn.php');
 include_once (DIR_WS_FUNCTIONS.'dataRemove.fn.php');
-
+include_once (DIR_WS_FUNCTIONS.'uploadImage.fn.php');
 $conn=new mysqlDb();
 
 

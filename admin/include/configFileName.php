@@ -11,4 +11,5 @@ define('FILENAME_PRODUCTSHOW',DIR_WS_INCLUDES.'productShow.php');
 define('FILENAME_BLOGCAT',DIR_WS_INCLUDES.'blog_cat.php');
 define('FILENAME_BLOGTAG',DIR_WS_INCLUDES.'blog_tag.php');
 define('FILENAME_BLOG',DIR_WS_INCLUDES.'blog.php');
+define('FILENAME_GALLERY',DIR_WS_INCLUDES.'gallery.php');
 ?>

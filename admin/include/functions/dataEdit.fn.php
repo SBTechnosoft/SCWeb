@@ -129,4 +129,11 @@ function UpdateBlogPostDisplay($conn,$is_display,$id,$cur_date)
 	update_at='".$cur_date."' where blog_post_id='".$id."'";
 	return $conn -> insertQuery($sqlUpdate);
 }
+
+//update Gallerydata
+function updateGalleryMstData($conn,$gallary_img_name,$is_display,$id)
+{
+	 $sqlUpdate="update gallery_mst set	gallary_img_name='".$gallary_img_name."',is_display='".$is_display."' where gallery_id='".$id."'";
+	return $conn -> insertQuery($sqlUpdate);
+}
 ?>
