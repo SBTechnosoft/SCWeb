@@ -109,4 +109,14 @@ function latestGallery($conn)
 	$sqlFetch="select * from gallery_mst";
 	 return $conn -> getResultArray($sqlFetch);
 }
+
+//select services data
+
+function getSelectservices($conn)
+{
+	$sqlFetch="SELECT `services_id`,`services_name`,`services_price`,`services_detail`,`is_display`,`created_at`,`update_at`,`deleted_at` FROM `services_dtl` where `deleted_at` = '0000-00-00 00:00:00' ";
+	
+	return $conn -> getResultArray($sqlFetch);
+}
+
 ?>

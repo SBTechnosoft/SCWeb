@@ -299,19 +299,7 @@
               </li>
             </ul>
           </div>
-          <div class="subcategory-list" id="subcategories">
-            <ul>
-              <li class="x-hover sub-heading"> <span  class="x-hover-text">Subcategories</span></li>
-              <li class="x-hover"> <a href="#" class="x-hover-text"> Bicycles &amp; Accessories</a></li>
-              <li class="x-hover"> <a href="#" class="x-hover-text">Badminton</a></li>
-              <li class="x-hover"> <a href="#" class="x-hover-text">Fitness Accessories</a></li>
-              <li class="x-hover"> <a href="#" class="x-hover-text">Fitness Equipment</a></li>
-              <li class="x-hover"> <a href="#" class="x-hover-text">Outdoor Adventure Gear</a></li>
-              <li class="x-hover"> <a href="#" class="x-hover-text">Active Wear</a></li>
-              <li class="x-hover"> <a href="#" class="x-hover-text">Swimming Equipments</a></li>
-              <li class="x-hover"> <a href="#" class="x-hover-text">Water Sports</a></li>
-            </ul>
-          </div>
+         
           <div class="filter-panel">
             <div class="panel panel-line">
               <div class="panel-body">

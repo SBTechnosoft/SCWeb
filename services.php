@@ -68,23 +68,21 @@
 
   <div class="page-header">
   <div class="container">
-    <h3 class="page-title float-left">Blog</h3>
+    <h3 class="page-title float-left">Services</h3>
     <ol class="breadcrumb float-right">
-      <li><a href="#">Blog</a></li>
+      <li><a href="#">Services</a></li>
      
     </ol>
   </div>
 </div>
-
-
 
 <main class="section" id="main">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-9">
         <section class="main-content" role="main">
-		<?php include('./blog_filter.php'); ?>
-				
+		<?php include('./service_page.php'); ?>
+          
           <nav class="pagination">
             <ul>
               <li class="active"><a href="#" class="btn btn-primary"><span>1</span></a></li>
@@ -97,43 +95,20 @@
         </section>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-3">
-        <aside class="sidebar">
-          <div class="widget widget-search ">
-            <h3 class="widget-title"><span>Search Blog</span></h3>
-            <form role="search" method="get" id="searchform" class="searchform" action="/">
-              <input type="text" placeholder="Search" value="" name="s"  >
-              <button> <i class="fa fa-search"></i> </button>
-            </form>
-          </div>
-          
+       <aside class="sidebar">
+              
           <!-- CATEGORY LIST WIDGET -->
           <div class="widget widget-category">
-            <h3 class="widget-title"><span>categories</span></h3>
+            <h3 class="widget-title"><span>Services</span></h3>
             <ul class="category-list unstyled clearfix">
-              <li><a href="blog.php">All</a></li>
-			  <?php
-				 $rowMainCategory=getBlogCat($conn);
-				 $countCat=count($rowMainCategory);
-				 for($i=0;$i<$countCat;$i++)
-				 { 
-			 ?>
-              <li><a href="blog.php?<?php echo 'cat_name='.$rowMainCategory[$i]['blog_cat_name'].'&catid='.$rowMainCategory[$i]['blog_cat_id']?>"><?php echo $rowMainCategory[$i]['blog_cat_name']; ?></a></li>
-			<?php }?>
-            </ul>
-          </div>
-          <!-- // CATEGORY LIST WIDGET --> 
-          <!-- TAGS WIDGET -->
-          <div class="widget widget-tags">
-            <h3 class="widget-title"><span>Tags cloud</span></h3>
-            <ul class="tag-cloud unstyled clearfix">
-              <li><a href="blog.php">All</a></li>
-			  <?php
-				$rowMainblogTag=getBlogTag($conn);
-				$countblogTag=count($rowMainblogTag);
-				for($i=0;$i<$countblogTag;$i++)
+			<?php
+				$rowMainService=getserviceCat($conn);
+				$countSer=count($rowMainService);
+				for($i=0;$i<$countSer;$i++)
 				{ 
-			  ?>
-              <li><a href="blog.php?<?php echo 'tag_name='.$rowMainblogTag[$i]['blog_tag_name'].'&tagid='.$rowMainblogTag[$i]['blog_tag_id']?>"><?php echo $rowMainblogTag[$i]['blog_tag_name']; ?></a></li>
+			?>
+              <li><a href="services.php?<?php echo 'serName='.$rowMainService[$i]['services_name'].'&serId='.$rowMainService[$i]['services_id']?>"><?php echo $rowMainService[$i]['services_name']; ?></a></li>
+              
 			<?php }?>
             </ul>
           </div>

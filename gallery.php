@@ -31,9 +31,7 @@
 <!-- Switcher Only -->
 
 
-
 </head>
-
 <body class="animated-all">
 
 
@@ -64,27 +62,44 @@
 <!-- end demo_changer --> 
 <!-- End Switcher -->
 
-<div i<?php include(FILENAME_HOMEMENU);?>	
-
-  <div class="page-header">
+<?php include(FILENAME_HOMEMENU);?>	
+<div class="page-header">
   <div class="container">
-    <h3 class="page-title float-left">Blog</h3>
+    <h3 class="page-title float-left">Gallery</h3>
     <ol class="breadcrumb float-right">
-      <li><a href="#">Blog</a></li>
-     
+      <li><a href="#">Gallery</a></li>
+      <li class="active">Gallery</li>
     </ol>
   </div>
 </div>
-
-
-
-<main class="section" id="main">
+<main class="section layout-col-2" id="main">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-9">
+  
+      <div class="col-xs-12 col-sm-12 col-md-12  col-resize ">
         <section class="main-content" role="main">
-		<?php include('./blog_filter.php'); ?>
-				
+         
+          
+         
+          <div class="catalog-grid">
+			<ul class=" product-grid">
+			<?php
+			  $rowMainGallery=getGallery($conn);
+			  $countgallery=count($rowMainGallery);
+			 for($i=0;$i<$countgallery;$i++)
+			{ ?>
+				<li class="  animated"   data-animation="bounceInUp" >
+                <div class="product-container">
+                  <div class="product-image"> 
+                    <div class="btn-action-item">
+					<a href="<?php echo DIR_GALLERY.$rowMainGallery[$i]['gallary_img_name'];?>" class="magnific"><i class="icomoon-eye-open"></i></a> </div>
+                   <img class="" src="<?php echo DIR_GALLERY.$rowMainGallery[$i]['gallary_img_name'];?>" width="600" height="900" alt="img"/></div>
+					
+                </div>
+              </li>
+			<?php }?>
+			</ul>
+          </div>
           <nav class="pagination">
             <ul>
               <li class="active"><a href="#" class="btn btn-primary"><span>1</span></a></li>
@@ -96,64 +111,24 @@
           </nav>
         </section>
       </div>
-      <div class="col-xs-12 col-sm-12 col-md-3">
-        <aside class="sidebar">
-          <div class="widget widget-search ">
-            <h3 class="widget-title"><span>Search Blog</span></h3>
-            <form role="search" method="get" id="searchform" class="searchform" action="/">
-              <input type="text" placeholder="Search" value="" name="s"  >
-              <button> <i class="fa fa-search"></i> </button>
-            </form>
-          </div>
-          
-          <!-- CATEGORY LIST WIDGET -->
-          <div class="widget widget-category">
-            <h3 class="widget-title"><span>categories</span></h3>
-            <ul class="category-list unstyled clearfix">
-              <li><a href="blog.php">All</a></li>
-			  <?php
-				 $rowMainCategory=getBlogCat($conn);
-				 $countCat=count($rowMainCategory);
-				 for($i=0;$i<$countCat;$i++)
-				 { 
-			 ?>
-              <li><a href="blog.php?<?php echo 'cat_name='.$rowMainCategory[$i]['blog_cat_name'].'&catid='.$rowMainCategory[$i]['blog_cat_id']?>"><?php echo $rowMainCategory[$i]['blog_cat_name']; ?></a></li>
-			<?php }?>
-            </ul>
-          </div>
-          <!-- // CATEGORY LIST WIDGET --> 
-          <!-- TAGS WIDGET -->
-          <div class="widget widget-tags">
-            <h3 class="widget-title"><span>Tags cloud</span></h3>
-            <ul class="tag-cloud unstyled clearfix">
-              <li><a href="blog.php">All</a></li>
-			  <?php
-				$rowMainblogTag=getBlogTag($conn);
-				$countblogTag=count($rowMainblogTag);
-				for($i=0;$i<$countblogTag;$i++)
-				{ 
-			  ?>
-              <li><a href="blog.php?<?php echo 'tag_name='.$rowMainblogTag[$i]['blog_tag_name'].'&tagid='.$rowMainblogTag[$i]['blog_tag_id']?>"><?php echo $rowMainblogTag[$i]['blog_tag_name']; ?></a></li>
-			<?php }?>
-            </ul>
-          </div>
-        </aside>
-      </div>
     </div>
   </div>
 </main>
+
+
 <?php include(FILENAME_FOOTER);?>	
 
 
 
+
 <!-- AlLL SCRIPTS & PLUGINS --> 
+
 
 <!-- SWITCHER --> 
 <script src="plugins/switcher/js/bootstrap-select.js"></script> 
 <script src="plugins/switcher/js/evol.colorpicker.min.js" type="text/javascript"></script> 
 <script src="plugins/switcher/js/dmss.js"></script> 
 <!-- MAIN SCRIPTS--> 
-
 
 <!--Blazy image-->
 <script type="text/javascript" src="js/blazy.min.js"></script> 
@@ -183,6 +158,8 @@
 <script src="plugins/smart-menu/smart-menu.js"></script> 
 <!-- User agent --> 
 <script type="text/javascript" src="js/cssua.min.js"></script> 
+
+
 
 <!--SHOP SCRIPTS -->
 

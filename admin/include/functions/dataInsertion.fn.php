@@ -79,4 +79,12 @@ function insertGalleryMstData($conn,$gallary_img_name,$is_display)
 	$resultArray = $conn -> insertQuery($sqlInsert);
 	
 }
+//insert services data
+function insertServicesData($conn,$services_name,$services_price,$desc,$is_display,$cur_date)
+{
+	
+	$sqlInsert = "INSERT INTO  services_dtl(services_name,services_price,services_detail,is_display,created_at) VALUES ('".$services_name."','".$services_price."','".$desc."','".$is_display."','".$cur_date."')";
+	$resultArray = $conn -> insertQuery($sqlInsert);
+	
+}
 ?>

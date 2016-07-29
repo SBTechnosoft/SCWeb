@@ -29,6 +29,9 @@ if (isset($_GET['url']))
 				case 'GALLERY':
                     $url = FILENAME_GALLERY;
                     break;
+				case 'SERV':
+                    $url = FILENAME_SERVICES;
+                    break;
 				default:
 				$url= FILENAME_PRODUCT;
 				break;

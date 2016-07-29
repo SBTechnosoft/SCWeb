@@ -71,8 +71,8 @@ else
 ?>
 				<li class="  animated"   data-animation="bounceInUp" >
                 <div class="product-container">
-                  <div class="product-image"> <span class="label-sale">sale</span>
-                    <div class="btn-action-item"> <a href="product.html" class="btn-cart  x-hover"> <i class="fa fa-shopping-cart"></i></a> <a href="product.html"> <i class="icomoon-heart"></i></a> <a  href="include/product-only-content.html" data-toggle="modal" data-target="#quick-view-id47" > <i class="icomoon-search"></i></a> <a href="media/item/4/2.jpg" class="magnific"> <i class="icomoon-eye-open"></i></a> </div>
+                  <div class="product-image"> 
+                    <div class="btn-action-item"> <a href="<?php echo DIR_PRODUCT.$rowMainProd[$i]['prod_img_dtl'];?>" class="magnific"> <i class="icomoon-eye-open"></i></a> </div>
                     <a href="product_detail.php?id=<?php echo $rowMainProd[$i]['prod_img_id'];?>"> <img class="" src="<?php echo DIR_PRODUCT.$rowMainProd[$i]['prod_img_dtl'];?>" width="600" height="700" alt="img"/></a>  </div>
                   <div class="product-bottom">
                     <h3 class="product-name x-hover"><span class="x-hover-text"><?php echo $rowMainProd[$i]['prod_name'];?></span></h3>

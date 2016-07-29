@@ -136,4 +136,14 @@ function updateGalleryMstData($conn,$gallary_img_name,$is_display,$id)
 	 $sqlUpdate="update gallery_mst set	gallary_img_name='".$gallary_img_name."',is_display='".$is_display."' where gallery_id='".$id."'";
 	return $conn -> insertQuery($sqlUpdate);
 }
+//update services data
+function UpdateServicesData($conn,$services_name,$services_price,$is_display,$cur_date,$id)
+{
+	 $sqlUpdate="update `services_dtl` set
+	services_name='".$services_name."',
+	services_price='".$services_price."',
+	is_display='".$is_display."',
+	update_at='".$cur_date."' where services_id='".$id."'";
+	return $conn -> insertQuery($sqlUpdate);
+}
 ?>

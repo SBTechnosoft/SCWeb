@@ -70,7 +70,7 @@
         <ul>
           <li><a href="index.php">Home</a></li>
           <li><a href="catalog.html">Catalog</a></li>
-          <li><a href="product.html"  >Product</a></li>
+          <li><a href="product.html">Product</a></li>
         </ul>
       </li>
       <li ><a href="page.html"><span>Page</span> <small>X-Sport page </small></a></li>
@@ -86,6 +86,8 @@
         <ul class="nav navbar-nav">
           <li><a href="index.php">Home</a></li>
           <li class="active"><a href="product.php">Products</a></li>
+		   <li><a href="services.php">Services</a></li>
+		  <li><a href="gallery.php">Gallery</a></li>
           <li><a href="blog.php">Blog</a></li>
           <li><a href="event.php">Event</a></li>
          <li><a href="about.php">About Us</a></li>

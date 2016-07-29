@@ -33,4 +33,10 @@ function removegallery($conn,$id)
 	$sqlremove="delete from `gallery_mst` where  gallery_id='".$id."'";
 	return $conn -> insertQuery($sqlremove);
 }
+//remove services data
+function removeservicesData($conn,$id,$cur_date)
+{
+	 $sqlremove="update `services_dtl` set deleted_at='".$cur_date."' where services_id	='".$id."'";
+	return $conn -> insertQuery($sqlremove);
+}
 ?>

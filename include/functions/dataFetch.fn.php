@@ -96,4 +96,34 @@ function singleCatblog($conn,$id)
 	$sqlFetch = "select * from blog_post where is_display=0 and deleted_at='0000-00-00 00:00:00' and blog_cat_id='".$id."'";
 	 return $conn -> getResultArray($sqlFetch);
 }
+//get gallery image
+function getGallery($conn)
+{
+	$sqlFetch="select * from gallery_mst where is_display=0";
+	return $conn -> getResultArray($sqlFetch);
+}
+
+
+//get services
+function getservice($conn)
+{
+	$sqlFetch="SELECT `services_id`,`services_name`,`services_price`,`services_detail`,`is_display`,
+				`created_at`,`update_at`,`deleted_at`  FROM `services_dtl` where `deleted_at` = '0000-00-00 00:00:00' and is_display=0 LIMIT 1";
+	return $conn -> getResultArray($sqlFetch);
+}
+
+//get services by click
+function getserviceId($conn,$id)
+{
+	$sqlFetch="SELECT `services_id`,`services_name`,`services_price`,`services_detail`,`is_display`,
+				`created_at`,`update_at`,`deleted_at`  FROM `services_dtl` where `deleted_at` = '0000-00-00 00:00:00' and is_display=0 and services_id='".$id."'";
+	return $conn -> getResultArray($sqlFetch);
+}
+//get services category
+function getserviceCat($conn)
+{
+	$sqlFetch="SELECT `services_id`,`services_name`,`services_price`,`services_detail`,`is_display`,
+				`created_at`,`update_at`,`deleted_at`  FROM `services_dtl` where `deleted_at` = '0000-00-00 00:00:00' and is_display=0";
+	return $conn -> getResultArray($sqlFetch);
+}
 ?>
