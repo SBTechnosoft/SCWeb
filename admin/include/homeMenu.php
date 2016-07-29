@@ -38,8 +38,8 @@
             </ul>
           </li>
 		   <li><a href="<?php echo HTTP_SERVER.'index.php?url=GALLERY';?>">Gallery</a></li>
-          <li><a href="event.php">Event</a></li>
-		    <li><a href="<?php echo HTTP_SERVER.'index.php?url=SERV';?>">Services</a></li>
+           <li><a href="<?php echo HTTP_SERVER.'index.php?url=SERV';?>">Services</a></li>
+		   <li><a href="<?php echo HTTP_SERVER.'index.php?url=EVENT';?>">Event</a></li>
          <li><a href="about.php">About Us</a></li>
 		  <li><a href="contactus.php">Contact Us</a></li>
 		  

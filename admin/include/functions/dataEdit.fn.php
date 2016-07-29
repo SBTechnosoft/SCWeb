@@ -146,4 +146,84 @@ function UpdateServicesData($conn,$services_name,$services_price,$is_display,$cu
 	update_at='".$cur_date."' where services_id='".$id."'";
 	return $conn -> insertQuery($sqlUpdate);
 }
+
+//update event  display
+function UpdateventDisplay($conn,$is_display,$id,$cur_date)
+{
+	 $sqlUpdate="update `event_mst` set
+	is_display='".$is_display."',
+	update_at='".$cur_date."' where event_id='".$id."'";
+	return $conn -> insertQuery($sqlUpdate);
+}
+//update event data
+function UpdateEventData($conn,$event_name,$start_date,$end_date,$event_desc,$event_place,$is_display,$cur_date,$id)
+{
+	 $sqlUpdate="update `event_mst` set
+	event_name='".$event_name."',
+	start_date_time='".$start_date."',
+	end_date_time='".$end_date."',
+	event_desc='".$event_desc."',
+	event_place='".$event_place."',
+	is_display='".$is_display."',
+	update_at='".$cur_date."' where event_id='".$id."'";
+	
+	return $conn -> insertQuery($sqlUpdate);
+}
+//update Organizer data
+function UpdateOrgData($conn,$org_name,$org_no,$org_website,$id)
+{
+	 $sqlUpdate="update `event_organizer` set org_name='".$org_name."',org_contact='".$org_no."',org_website='".$org_website."' where event_id='".$id."'";
+	return $conn -> insertQuery($sqlUpdate);
+}
+//update Sponser data
+function UpdateSponData($conn,$spon_name,$spon_logo,$spon_no,$spon_website,$id)
+{
+	 $sqlUpdate="update `event_sponcer` set spon_name='".$spon_name."',spon_logo='".$spon_logo."',spon_no='".$spon_no."',spon_website='".$spon_website."' where event_id='".$id."'";
+	return $conn -> insertQuery($sqlUpdate);
+}
+//update event logo 
+function UpdateEventData12($conn,$event_logo_dtl,$cur_date,$id)
+{
+	 $sqlUpdate="update `event_mst` set
+	event_logo_dtl='".$event_logo_dtl."',
+	update_at='".$cur_date."' where event_id='".$id."'";
+	
+	return $conn -> insertQuery($sqlUpdate);
+}
+//update event banner 
+function UpdateEventData13($conn,$event_baner_dtl,$cur_date,$id)
+{
+	 $sqlUpdate="update `event_mst` set
+	event_baner_dtl='".$event_baner_dtl."',
+	update_at='".$cur_date."' where event_id='".$id."'";
+	
+	return $conn -> insertQuery($sqlUpdate);
+}
+//update organiztion logo
+function UpdateOrgData14($conn,$org_logo_dtl,$id)
+{
+	 $sqlUpdate="update `event_organizer` set
+	org_logo_dtl='".$org_logo_dtl."'
+	 where event_id='".$id."'";
+	
+	return $conn -> insertQuery($sqlUpdate);
+}
+//update sponser logo
+function UpdateOrgData15($conn,$spon_logo,$id)
+{
+	 $sqlUpdate="update `event_sponcer` set
+	spon_logo='".$spon_logo."'
+	 where event_id='".$id."'";
+	
+	return $conn -> insertQuery($sqlUpdate);
+}
+//update gallery data
+function UpdateGalleryData1($conn,$event_gallery_dtl,$id)
+{
+	 $sqlUpdate="update `event_gallery` set
+	event_gallery_dtl='".$event_gallery_dtl."'
+	 where event_id='".$id."'";
+	
+	return $conn -> insertQuery($sqlUpdate);
+}
 ?>

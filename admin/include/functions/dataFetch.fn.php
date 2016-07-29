@@ -118,5 +118,17 @@ function getSelectservices($conn)
 	
 	return $conn -> getResultArray($sqlFetch);
 }
-
+//fetch event data
+function latestevent($conn)
+{
+	$sqlFetch="select * from event_mst e,event_organizer o,event_sponcer s where s.event_id=o.event_id and o.event_id=e.event_id and  deleted_at='0000-00-00 00:00:00'";
+	
+	
+	 return $conn -> getResultArray($sqlFetch);
+}
+function latestevent1($conn)
+{
+	$sqlFetch="select * from event_mst e,event_gallery g where g.event_id=e.event_id LIMIT 1";
+	 return $conn -> getResultArray($sqlFetch);
+}
 ?>

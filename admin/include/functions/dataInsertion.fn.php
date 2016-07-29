@@ -87,4 +87,39 @@ function insertServicesData($conn,$services_name,$services_price,$desc,$is_displ
 	$resultArray = $conn -> insertQuery($sqlInsert);
 	
 }
+
+//insert event data
+function insertEventData($conn,$event_name,$start_date_time,$end_date_time,$event_logo_dtl,$event_baner_dtl,$event_desc,$event_place,$is_display,$cur_date)
+{
+	
+	$sqlInsert = "INSERT INTO  event_mst(event_name,start_date_time,end_date_time,event_logo_dtl,event_baner_dtl,event_desc,event_place,is_display,created_at) VALUES ('".$event_name."','".$start_date_time."','".$end_date_time."','".$event_logo_dtl."','".$event_baner_dtl."','".$event_desc."','".$event_place."','".$is_display."','".$cur_date."')";
+	$resultArray = $conn -> insertQuery($sqlInsert);
+	
+}
+
+
+//insert organizer data
+function insertOrganizerData($conn,$event_id,$org_name,$org_logo_dtl,$org_no,$org_website)
+{
+	
+	$sqlInsert = "INSERT INTO  event_organizer(event_id,org_name,org_logo_dtl,org_contact,org_website) VALUES ('".$event_id."','".$org_name."','".$org_logo_dtl."','".$org_no."','".$org_website."')";
+	$resultArray = $conn -> insertQuery($sqlInsert);
+	
+}
+//insert Event GAllery data
+function insertGalleryData($conn,$event_id,$event_gallery_dtl)
+{
+	
+	$sqlInsert = "INSERT INTO event_gallery(event_id,event_gallery_dtl) VALUES ('".$event_id."','".$event_gallery_dtl."')";
+	$resultArray = $conn -> insertQuery($sqlInsert);
+	
+}
+//insert event sponser data
+function insertsponserData($conn,$event_id,$spon_name,$spon_logo,$spon_no,$spon_website)
+{
+	
+	$sqlInsert = "INSERT INTO event_sponcer(event_id,spon_name,spon_logo,spon_no,spon_website) VALUES ('".$event_id."','".$spon_name."','".$spon_logo."','".$spon_no."','".$spon_website."')";
+	$resultArray = $conn -> insertQuery($sqlInsert);
+	
+}
 ?>

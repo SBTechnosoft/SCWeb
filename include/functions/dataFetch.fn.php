@@ -126,4 +126,17 @@ function getserviceCat($conn)
 				`created_at`,`update_at`,`deleted_at`  FROM `services_dtl` where `deleted_at` = '0000-00-00 00:00:00' and is_display=0";
 	return $conn -> getResultArray($sqlFetch);
 }
+//get event 
+function getEventPost($conn)
+{
+	$sqlFetch="SELECT * FROM event_mst  where deleted_at = '0000-00-00 00:00:00' and is_display=0";
+	return $conn -> getResultArray($sqlFetch);
+}
+
+
+function getSingleEvent($conn)
+{
+	$sqlFetch="SELECT * FROM event_mst where event_id=".$_REQUEST['id'];
+	return $conn -> getResultArray($sqlFetch);
+}
 ?>

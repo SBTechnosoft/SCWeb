@@ -13,4 +13,5 @@ define('FILENAME_BLOGTAG',DIR_WS_INCLUDES.'blog_tag.php');
 define('FILENAME_BLOG',DIR_WS_INCLUDES.'blog.php');
 define('FILENAME_GALLERY',DIR_WS_INCLUDES.'gallery.php');
 define('FILENAME_SERVICES',DIR_WS_INCLUDES.'services.php');
+define('FILENAME_EVENT',DIR_WS_INCLUDES.'event.php');
 ?>

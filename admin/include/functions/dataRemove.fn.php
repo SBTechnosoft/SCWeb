@@ -39,4 +39,10 @@ function removeservicesData($conn,$id,$cur_date)
 	 $sqlremove="update `services_dtl` set deleted_at='".$cur_date."' where services_id	='".$id."'";
 	return $conn -> insertQuery($sqlremove);
 }
+//remove event data
+function removeEventData($conn,$id,$cur_date)
+{
+	 $sqlremove="update `event_mst` set deleted_at='".$cur_date."' where event_id='".$id."'";
+	return $conn -> insertQuery($sqlremove);
+}
 ?>

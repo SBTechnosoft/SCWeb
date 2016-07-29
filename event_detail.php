@@ -83,72 +83,87 @@
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-9">
         <section class="main-content" role="main">
+		
           <article class="post media-image   format-image animated" data-animation="bounceInUp">
+		  <?php
+						$rowslider=getSingleEvent($conn);
+						$countslider=count($rowslider);
+						for($i=0;$i<$countslider;$i++)
+						{ ?>
             <div class="entry-media">
-              <div class="box-date-post"> <span class="date-1">16 </span> <span class="date-2"> JULY</span> </div>
+              <div class="box-date-post"> <span class="date-1"><?php echo date('d',strtotime($rowslider[$i]['start_date_time'])); ?> </span> <span class="date-2"><?php echo date('M',strtotime($rowslider[$i]['start_date_time'])); ?></span> </div>
               <div class="entry-thumbnail">
                 <div class="sticky-post"><i class="icon-pin"></i></div>
                 <div class="post-type-media type-image"><i class="icon-picture"></i></div>
                 <div class="img-overlay "> <a  href="media/830x400/1.jpg" class="link-view-more magnific"></a> </div>
-                <a   href="media/830x400/1.jpg"><img src="media/830x400/1.jpg" width="830" height="400" alt=""/></a> </div>
+                <img src="<?php echo DIR_EVENTBANER.$rowslider[$i]['event_baner_dtl'];?>" width="830" height="400" alt=""/> </div>
             </div>
             <div class="entry-main">
-              <h3 class="entry-title"> <a href="post.html" data-hover="ALIQUAM MOLLIS NEQUE UT ULLAMCORPER TEMPOR DOLOR TORTOR VARIUS">ALIQUAM MOLLIS NEQUE UT ULLAMCORPER TEMPOR DOLOR TORTOR VARIUS</a> </h3>
+              <h3 class="entry-title"> <?php echo $rowslider[$i]['event_name']; ?> </h3>
               <div class="entry-content">
-                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales dapibus dui, sed iaculis metus facilisis sed. Etiam scelerisque molestie purus vel mollis. Mauris dapibus quam id turpis dignissim rutrum. Phasellus placerat nunc in nulla pretium pellentesque. Aliquam erat volutpat. In nec enim dui, in hendrerit enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Vivamus at tortor at est mattis aliquam non id est. Quisque pretium suscipit faucibus. Fusce vestibulum mollis interdum. Duis a nibh at odio aliquet varius. Pellentesque feugiat nulla nec ipsum suscipit ut varius elit posuere. Nunc tellus urna, viverra ac porta ac, commodo et libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque ullamcorper nisl id justo ultrices hendrerit. Vivamus dignissim ultrices erat, vitae placerat ligula lacinia non. In arcu nunc, aliquet a condimentum et </p>
-                <blockquote>
-                  <p>Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas</p>
-                </blockquote>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sodales dapibus dui, sed iaculis metus facilisis sed. Etiam scelerisque molestie purus vel mollis. Mauris dapibus quam id turpis dignissim rutrum. Phasellus placerat nunc in nulla pretium pellentesque. Aliquam erat volutpat. In nec enim dui, in hendrerit enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Vivamus at tortor at est mattis aliquam non id est. Quisque pretium suscipit faucibus. Fusce vestibulum mollis interdum. Duis a nibh at odio aliquet varius. Pellentesque feugiat nulla nec ipsum suscipit ut varius elit posuere. Nunc tellus urna, viverra ac porta ac, commodo et libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque ullamcorper nisl id justo ultrices hendrerit. Vivamus dignissim ultrices erat, vitae placerat ligula lacinia non. In arcu nunc, aliquet a condimentum et </p>
-                
-                
+                     <p><?php echo $rowslider[$i]['event_desc']; ?></p>
+					                                            
               </div>
             </div>
-            
-      
-      
-      
-      <div class="footer-panel">  
-      
-      
-      <ul class="tag-cloud unstyled clearfix">
-              <li><a href="#">Creative</a></li>
-              <li><a href="#">Responsive</a></li>
-              <li><a href="#">Portfolio</a></li>
-              <li><a href="#">HTML</a></li>
-              <li><a href="#">CSS</a></li>
-              <li><a href="#">Retina</a></li>
-              <li><a href="#">Clean</a></li>
-            </ul>  
-      
-      
-      
-      <div class="social-box">
-      
-      
-      <h4>SHARE THIS STORY</h4>  
-            
-            
-            <ul class="social-links">
-            <li><a target="_blank" href="https://www.facebook.com/"><i class="icomoon-facebook"></i></a></li>
-            <li class=""><a target="_blank" href="https://twitter.com/"><i class="icomoon-twitter"></i></a></li>
-            <li><a target="_blank" href="https://www.google.com/"><i class="icomoon-googleplus"></i></a></li>
-            <li><a target="_blank" href="https://www.pinterest.com/"><i class="icomoon-pinterest"></i></a></li>
-          </ul>
+						<?php }?>
+			<div class="col-md-9  col-sm-9 product-info animated" data-animation="bounceInUp">
+              <div id="tab-info-anchore"></div>
+              
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab">DESCRIPTION</a></li>
+               
+              </ul>
+              
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="tab1">
+                  <p>Pergo coctione, et ego, et tu oblivisci Pinkman. Obliviscendum hoc unquam factum. Intelligamus hoc in sola SINGULTO multo aliter atque fructuosa negotium structura. Malo B. Option. </p>
+                  <p>Ille vivere. Ut ad te quaerebam ... purgare caeli. Sunt uh ... nonnullus propter errorem qui de rebus inter nos et iacere puto suus in causa, id est in mensa. Levir meus, priusquam oppugnarent tempus quis, admonere dicitur. Credo quod idem mihi praesidium.</p>
+                  <p>&nbsp;</p>
+                  <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                      <h4><i class="fa fa-flag"></i> One Font, 479 Icons</h4>
+                      In a single collection, Font Awesome is a pictographic language of web-related actions.
+                      <hr>
+                    </div>
+                    
+                    <div class="col-md-6 col-sm-6">
+                      <h4><i class="fa fa-pencil"></i> CSS Control</h4>
+                      Easily style icon color, size, shadow, and anything that's possible with CSS.
+                      <hr>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                      <h4><i class="fa fa-eye"></i> Perfect on Retina Displays</h4>
+                      Font Awesome icons are vectors, which mean they're gorgeous on high-resolution displays.
+                      
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                      <h4><i class="fa fa-desktop"></i> Desktop Friendly</h4>
+                      To use on the desktop or for a complete set of vectors,
+                      check out the <a href="./cheatsheet/">cheatsheet</a>. </div>
+                    
+                  </div>
+                </div>
+                
+               
+              </div>
+            </div>
+    <div class="footer-panel">  
+       <div class="social-box">
+           <h4>SHARE THIS STORY</h4>  
+              <ul class="social-links">
+				<li><a target="_blank" href="https://www.facebook.com/"><i class="icomoon-facebook"></i></a></li>
+				<li class=""><a target="_blank" href="https://twitter.com/"><i class="icomoon-twitter"></i></a></li>
+				<li><a target="_blank" href="https://www.google.com/"><i class="icomoon-googleplus"></i></a></li>
+				<li><a target="_blank" href="https://www.pinterest.com/"><i class="icomoon-pinterest"></i></a></li>
+              </ul>
+        </div>
+    </div>
+        <section class="about-autor">
           
-          
-          </div>
-          
-          
-          </div>
-          
-          
-          
-          
-          <section class="about-autor">
-          
-             <div class="comments-header"><span>About Author</span>  </div>
-          <article class="comment img">
+             <div class="comments-header"><span>Organizer</span>  </div>
+				<article class="comment img">
                     <div class="avatar-placeholder"> <img width="269" height="345" alt="img" src="media/270x337/1.jpg"></div>
                     <header class="comment-header"> <cite class="comment-author">Rosie Thompson</cite>
                       <time datetime="2012-10-27 15:20" class="comment-datetime"><span aria-hidden="true" class="icon-clock"></span> 27 October 2013, 15:20</time>
@@ -157,7 +172,7 @@
                       <p>Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque.</p>
                       <div class="transform-revers comment-reply"> <i class="fa fa-share"></i> <a href="#"> Reply </a></div>
                     </div>
-                  </article>
+                 </article>
           
           </section>
           
@@ -282,26 +297,14 @@
       <div class="col-xs-12 col-sm-12 col-md-3">
         <aside class="sidebar">
           <div class="widget widget-search ">
-            <h3 class="widget-title"><span>Search Blog</span></h3>
+            <h3 class="widget-title"><span>Search Event</span></h3>
             <form role="search" method="get" id="searchform" class="searchform" action="/">
               <input type="text" placeholder="Search" value="" name="s"  >
               <button> <i class="fa fa-search"></i> </button>
             </form>
           </div>
           
-          <!-- CATEGORY LIST WIDGET -->
-          <div class="widget widget-category">
-            <h3 class="widget-title"><span>categories</span></h3>
-            <ul class="category-list unstyled clearfix">
-              <li><a href="#">Technology</a></li>
-              <li><a href="#">News</a></li>
-              <li><a href="#">Photography</a></li>
-              <li><a href="#">Design</a></li>
-              <li><a href="#">Web Design</a></li>
-            </ul>
-          </div>
-          <!-- // CATEGORY LIST WIDGET --> 
-          
+         
           <!-- TABBED CONTENT WIDGET -->
           <div class="widget widget-tabbed">
             <ul class="nav nav-tabs">
@@ -435,136 +438,7 @@
               </div>
             </div>
           </div>
-          <!-- // TABBED CONTENT WIDGET --> 
-          
-          <!-- FLICKR STREAM -->
-          <div class="widget widget-flickr">
-            <h3 class="widget-title"><span>FLICKR photos</span></h3>
-            <ul id="flickr-feed2" class="flickr-feed">
-            </ul>
-          </div>
-          <!-- // FLICKR STREAM --> 
-          
-          <!-- TAGS WIDGET -->
-          <div class="widget widget-tags">
-            <h3 class="widget-title"><span>Tags cloud</span></h3>
-            <ul class="tag-cloud unstyled clearfix">
-              <li><a href="#">Creative</a></li>
-              <li><a href="#">Responsive</a></li>
-              <li><a href="#">Portfolio</a></li>
-              <li><a href="#">HTML</a></li>
-              <li><a href="#">CSS</a></li>
-              <li><a href="#">Retina</a></li>
-              <li><a href="#">Clean</a></li>
-            </ul>
-          </div>
-          <!-- // TAGS WIDGET -->
-          
-          <div class="widget widget-newsletter ">
-            <h3 class="widget-title"><span>Search Blog</span></h3>
-            <form role="search" method="get" id="newsletterform" class="newsletterform" action="/">
-              <input type="text" placeholder="Enter ID" value="" name="s"  >
-              <button>SUBMIT</button>
-            </form>
-          </div>
-          
-          <!--  WIDGET -->
-          <div class="widget widget-latest-post">
-            <h3 class="widget-title"><span>LATEST POSTS</span></h3>
-            <div class="x-carousel2"> 
-              
-              <!--Use BX carousel if more than 5 items--> 
-              
-              <script>
-    
-   $(document).ready(function(){ 
-
-  $('.x-carousel2 ul').bxSlider({
-         minSlides: 1, // item 5
-          maxSlides: 1, // item 4
-         slideWidth: 330,
-        infiniteLoop:true ,
-         auto: true,
-          nextText: '',
-          prevText: '',
-		  pagerSelector:'1'
-  });
- 
-});
-
-   </script>
-              <ul >
-                <li>
-                  <div class="media"> <a href="#"> <img src="media/730x625/2.jpg" width="730" height="625" alt="img"/></a>
-                    <div class="media-desc">
-                      <h5 class="entry-title"> PRAESENT DIAM LIBERO INTERDUM 
-                        AT FRINGILLA IDINTERDUM</h5>
-                      <time class="entry-datetime" datetime="2013-10-27" title="2013-10-27"> <a href="#"> <i class="fa fa-clock-o"></i> 11 March , 2013</a> </time>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media"> <a href="#"> <img src="media/730x625/3.jpg" width="730" height="625" alt="img"/></a>
-                    <div class="media-desc">
-                      <h5 class="entry-title"> PRAESENT DIAM LIBERO INTERDUM 
-                        AT FRINGILLA IDINTERDUM</h5>
-                      <time class="entry-datetime" datetime="2013-10-27" title="2013-10-27"> <a href="#"> <i class="fa fa-clock-o"></i> 11 March , 2013</a> </time>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media"> <a href="#"><img src="media/730x625/4.jpg" width="730" height="625" alt="img"/></a>
-                    <div class="media-desc">
-                      <h5 class="entry-title"> PRAESENT DIAM LIBERO INTERDUM 
-                        AT FRINGILLA IDINTERDUM</h5>
-                      <time class="entry-datetime" datetime="2013-10-27" title="2013-10-27"> <a href="#"> <i class="fa fa-clock-o"></i> 11 March , 2013</a> </time>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <ul class="entry-list unstyled">
-              <li>
-                <div class="entry-thumbnail"> <a class="img" href="#"> <img src="media/270x337/3.jpg" width="269" height="345" alt="img"/></a> </div>
-                <div class="entry-main">
-                  <div class="entry-header">
-                    <h5 class="entry-title"><a href="#"> Aliquam interdum  eget sagittis eget eros.</a></h5>
-                  </div>
-                  <div class="entry-meta">
-                    <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 7 March , 2020</a> </time>
-                  </div>
-                </div>
-                <div class="clearfix"></div>
-              </li>
-              <li>
-                <div class="entry-thumbnail"> <a class="img" href="#"> <img src="media/270x337/1.jpg" width="269" height="345" alt="img"/></a> </div>
-                <div class="entry-main">
-                  <div class="entry-header">
-                    <h5 class="entry-title"><a href="#">Phasellus vehicula auctor nisi.</a></h5>
-                  </div>
-                  <div class="entry-meta">
-                    <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 27 March , 2020</a> </time>
-                  </div>
-                </div>
-                <div class="clearfix"></div>
-              </li>
-              <li>
-                <div class="entry-thumbnail"> <a class="img" href="#"> <img src="media/270x337/2.jpg" width="269" height="345" alt="img"/></a> </div>
-                <div class="entry-header">
-                  <h5 class="entry-title"><a href="#">Cras temnpus dolor Donec eget ligula</a></h5>
-                </div>
-                <div class="entry-main">
-                  <div class="entry-meta">
-                    <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 12 March , 2020</a> </time>
-                  </div>
-                </div>
-                <div class="clearfix"></div>
-              </li>
-            </ul>
-          </div>
-          <!-- //  WIDGET --> 
-          
-        </aside>
+       </aside>
       </div>
     </div>
   </div>

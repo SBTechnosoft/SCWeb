@@ -13,6 +13,11 @@ define('DIR_WS_CLASSES', DIR_WS_INCLUDES.'classes\\');
 define('DIR_WS_LANGUAGES', DIR_WS_INCLUDES.'languages\\');
 define('DIR_PRODUCT',HTTP_SERVER.'upload/product/');
 define('DIR_GALLERY',HTTP_SERVER.'upload/gallery/');
+define('DIR_EVENT',HTTP_SERVER.'upload/event/');
+define('DIR_EVENTGALL',HTTP_SERVER.'upload/eventgallary/');
+define('DIR_EVENTORG',HTTP_SERVER.'upload/organizerlogo/');
+define('DIR_EVENTSPON',HTTP_SERVER.'upload/sponserlogo/');
+define('DIR_EVENTBANER',HTTP_SERVER.'upload/eventbaner/');
 //Databse Access
 define('TNS','localhost');
 define('DB_SERVER_USERNAME', 'root');

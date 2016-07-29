@@ -32,6 +32,9 @@ if (isset($_GET['url']))
 				case 'SERV':
                     $url = FILENAME_SERVICES;
                     break;
+				case 'EVENT':
+                    $url = FILENAME_EVENT;
+                    break;
 				default:
 				$url= FILENAME_PRODUCT;
 				break;
