@@ -12,63 +12,15 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 <script src="js/modernizr.js"></script>
-
-
-
-
-<!-- Switcher Only -->
-
-
-<link rel="stylesheet" id="switcher-css" type="text/css" href="plugins/switcher/css/switcher.css" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/pink.css" title="pink" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/purple.css" title="purple" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/blue.css" title="blue" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/green.css" title="green" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/red.css" title="red" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/yellow.css" title="yellow" media="all" />
-
-
-<!-- Switcher Only -->
-
-
 </head>
 <body class="animated-all">
-
-
-<!-- Start Switcher -->
-<div class="demo_changer">
-  <div class="demo-icon"> <i class="fa fa-cog fa-spin fa-2x"></i> </div>
-  <!-- end opener icon -->
-  <div class="form_holder">
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="predefined_styles">
-          <h4>Color Skins </h4>
-          <!-- MODULE #3 --> 
-          <a href="" rel="pink" class="styleswitch"><img src="plugins/switcher/images/icons/pink.png" alt="img"></a> <a href="" rel="purple" class="styleswitch"><img src="plugins/switcher/images/icons/purple.png" alt="img"></a> <a href="" rel="blue" class="styleswitch"><img src="plugins/switcher/images/icons/blue.png" alt="img"></a> <a href="" rel="green" class="styleswitch"><img src="plugins/switcher/images/icons/green.png" alt="img"></a> <a href="" rel="red" class="styleswitch"><img src="plugins/switcher/images/icons/red.png" alt="img"></a> <a href="" rel="yellow" class="styleswitch"><img src="plugins/switcher/images/icons/yellow.png" alt="img"></a> 
-          <!-- END MODULE #3 --> 
-          
-        </div>
-        <!-- end predefined_styles --> 
-      </div>
-      <!-- end col --> 
-      
-      <!-- end col --> 
-    </div>
-    <!-- end row --> 
-  </div>
-  <!-- end form_holder --> 
-</div>
-<!-- end demo_changer --> 
-<!-- End Switcher -->
-
 <?php include(FILENAME_HOMEMENU);?>	
 <div class="page-header">
   <div class="container">
-    <h3 class="page-title float-left">Shop</h3>
+    <h3 class="page-title float-left">Products</h3>
     <ol class="breadcrumb float-right">
-      <li><a href="#">Shop</a></li>
-      <li class="active">catalog</li>
+      <li><a href="index.php">Home</a></li>
+      <li class="active">Products</li>
     </ol>
   </div>
 </div>
@@ -131,12 +83,16 @@
                       </select>
                     </li>
                     <li>
-                      <select  tabindex="1">
-                        <option value="">SELECT  Color</option>
-                        <option value="1">Red</option>
-                        <option value="9">Blue</option>
-                        <option value="2">White</option>
-                        <option value="3">Black</option>
+                      <select>
+					  <option value="">Seclect Color</option>
+					  <?php
+						$rowMainColor=getColor($conn);
+						$countColor=count($rowMainColor);
+						for($i=0;$i<$countColor;$i++)
+						{ 
+					  ?>                        
+                        <option value="<?php echo $rowMainColor[$i]['prod_color'];?>"></option>
+                        <?php }?>
                       </select>
                     </li>
                   </ul>
@@ -195,7 +151,7 @@
               </div>
             </div>
           </div>
-          <div class="widget widget-banner"> <a href="#"><img src="media/promo/1.jpg" width="270" height="230" alt="img"/></a> </div>
+          
           
           <!-- OUR SOCIAL NETWORK WIDGET -->
           <div class="widget widget-special">

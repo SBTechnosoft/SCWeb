@@ -8,5 +8,4 @@
 
 
 <!-- Master CSS -->
-<link href="<?php echo DIR_CSS.'master.css';?>" rel="stylesheet">
-<link href="<?php echo DIR_CSS.'blog.css';?>" rel="stylesheet">
+<link href="<?php echo DIR_CSS.'master.css';?>" rel="stylesheet" type="text/css">

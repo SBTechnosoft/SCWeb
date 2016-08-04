@@ -56,12 +56,7 @@ if(isset($_REQUEST['prod_id']))
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 <script src="js/modernizr.js"></script>
-<script src="plugins/smart-menu/smart-menu.js"></script> 
-
-
-
-<!--Scripts-->
-<script type="text/javascript" src="js/scripts.js"></script> 
+ 
 </head>
 <body class="animated-all">
 
@@ -71,6 +66,7 @@ if(isset($_REQUEST['prod_id']))
     <ol class="breadcrumb float-right">
       <li><a href="#">Product</a></li>
       <li class="active">Add Product</li>
+	  
     </ol>
   </div>
 </div>
@@ -320,6 +316,12 @@ if(isset($_REQUEST['prod_id']))
   </div>
 </main>
 </br>
+<script src="plugins/smart-menu/smart-menu.js"></script> 
+
+
+
+<!--Scripts-->
+<script type="text/javascript" src="js/scripts.js"></script>
 <script type="text/javascript">
 
 function postData()

@@ -23,14 +23,14 @@ function getProdImg($conn)
 function singlecatprod($conn,$id)
 {
 	
-	$sqlFetch = "select prod_id,prod_img_id,prod_img_dtl from product_img where prod_id in (select prod_id from product_mst where cat_id in (select cat_id from category_mst where deleted_at='0000-00-00 00:00:00' and cat_id='".$id."'))";
+	$sqlFetch = "SELECT * FROM category_mst c,company_mst cm,product_mst pm,product_img pi where pi.prod_id=pm.prod_id and  pm.company_id=cm.company_id and pm.cat_id=c.cat_id and c.cat_id='".$id."'";
 	 return $conn -> getResultArray($sqlFetch);
 }
 
 function singlecompprod($conn,$id)
 {
 	
-	$sqlFetch = "select prod_id,prod_img_id,prod_img_dtl from product_img where prod_id in (select prod_id from product_mst where company_id in (select company_id from company_mst where deleted_at='0000-00-00 00:00:00' and company_id='".$id."'))";
+	$sqlFetch = "SELECT * FROM company_mst cm,category_mst c,product_mst pm,product_img pi where pi.prod_id=pm.prod_id and pm.cat_id=c.cat_id and pm.company_id=cm.company_id and cm.company_id='".$id."'";
 	 return $conn -> getResultArray($sqlFetch);
 }
 
@@ -40,6 +40,20 @@ function getSingleProduct($conn)
 	$sqlFetch="SELECT * FROM company_mst cm,category_mst c,product_mst pm,product_img pi where pi.prod_id=pm.prod_id and pm.cat_id=c.cat_id and pm.company_id=cm.company_id and prod_img_id=".$_REQUEST['id'];
 	return $conn -> getResultArray($sqlFetch);
 }
+
+//get detail of similiar product on company
+function getsimilarProduct($conn,$id)
+{
+	$sqlFetch="SELECT * FROM product_mst s,product_img p where p.prod_id=s.prod_id and s.company_id='".$id."'";
+	return $conn -> getResultArray($sqlFetch);
+}
+//get detail of similiar product on category
+function getsimilarCatProduct($conn,$id)
+{
+	$sqlFetch="SELECT * FROM product_img p,product_mst s where s.prod_id=p.prod_id and s.cat_id='".$id."'";
+	return $conn -> getResultArray($sqlFetch);
+}
+
 //get technology data
 function getTechnologyDtl($conn)
 {
@@ -129,14 +143,64 @@ function getserviceCat($conn)
 //get event 
 function getEventPost($conn)
 {
-	$sqlFetch="SELECT * FROM event_mst  where deleted_at = '0000-00-00 00:00:00' and is_display=0";
+	$sqlFetch="SELECT * FROM event_mst where deleted_at='0000-00-00 00:00:00' and is_display=0 and start_date_time > now()";
 	return $conn -> getResultArray($sqlFetch);
 }
 
 
 function getSingleEvent($conn)
 {
-	$sqlFetch="SELECT * FROM event_mst where event_id=".$_REQUEST['id'];
+	$sqlFetch="SELECT * FROM event_mst m,event_organizer o,event_sponcer s where s.event_id=o.event_id and o.event_id=m.event_id and m.event_id=".$_REQUEST['id'];
 	return $conn -> getResultArray($sqlFetch);
+}
+
+//get event upcoming
+function getEventUp($conn)
+{
+	$sqlFetch="SELECT * FROM event_mst  where deleted_at = '0000-00-00 00:00:00' and is_display=0 and start_date_time > now()";
+	return $conn -> getResultArray($sqlFetch);
+}
+
+//get event recent
+function getEventNow($conn)
+{
+	$sqlFetch="SELECT * FROM event_mst  where deleted_at = '0000-00-00 00:00:00' and is_display=0 and start_date_time<now() ORDER BY event_id DESC LIMIT 3";
+	return $conn -> getResultArray($sqlFetch);
+}
+function getContactDetail($conn)
+{
+	$sqlFetch="select * from contact_dtl LIMIT 1";
+	 return $conn -> getResultArray($sqlFetch);
+}
+// Details color
+function getColor($conn)
+{
+	$sqlFetch = "SELECT `prod_color` FROM `product_mst` GROUP BY prod_color";
+	return $conn->getResultArray($sqlFetch);
+}
+//get event on index page
+function getEventIndex($conn)
+{
+	$sqlFetch="SELECT * FROM event_mst where deleted_at='0000-00-00 00:00:00' and is_display=0 and start_date_time > now()  LIMIT 5";
+	return $conn -> getResultArray($sqlFetch);
+}
+// Details achivement detail
+function getAchive($conn)
+{
+	$sqlFetch = "SELECT * FROM `achivement_mst` where deleted_at='0000-00-00 00:00:00' and is_display=0";
+	return $conn->getResultArray($sqlFetch);
+}
+// Details testimonial detail
+function gettest($conn)
+{
+	$sqlFetch = "SELECT * FROM `testimonial_mst` where deleted_at='0000-00-00 00:00:00' and is_display=0";
+	return $conn->getResultArray($sqlFetch);
+}
+
+// Details achivement detail on page
+function getAchiveDetail($conn)
+{
+	$sqlFetch = "SELECT * FROM `achivement_mst` where achive_id=".$_REQUEST['id'];
+	return $conn->getResultArray($sqlFetch);
 }
 ?>

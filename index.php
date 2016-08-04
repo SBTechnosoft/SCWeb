@@ -12,47 +12,9 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 <script src="js/modernizr.js"></script>
-
-<!-- Switcher Only -->
-
-<link rel="stylesheet" id="switcher-css" type="text/css" href="plugins/switcher/css/switcher.css" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/pink.css" title="pink" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/purple.css" title="purple" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/blue.css" title="blue" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/green.css" title="green" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/red.css" title="red" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/yellow.css" title="yellow" media="all" />
-
-<!-- Switcher Only -->
-
 </head>
 
 <body class="animated-all">
-
-<!-- Start Switcher -->
-<div class="demo_changer">
-  <div class="demo-icon"> <i class="fa fa-cog fa-spin fa-2x"></i> </div>
-  <!-- end opener icon -->
-  <div class="form_holder">
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="predefined_styles">
-          <h4>Color Skins </h4>
-          <!-- MODULE #3 --> 
-          <a href="" rel="pink" class="styleswitch"><img src="plugins/switcher/images/icons/pink.png" alt="img"></a> <a href="" rel="purple" class="styleswitch"><img src="plugins/switcher/images/icons/purple.png" alt="img"></a> <a href="" rel="blue" class="styleswitch"><img src="plugins/switcher/images/icons/blue.png" alt="img"></a> <a href="" rel="green" class="styleswitch"><img src="plugins/switcher/images/icons/green.png" alt="img"></a> <a href="" rel="red" class="styleswitch"><img src="plugins/switcher/images/icons/red.png" alt="img"></a> <a href="" rel="yellow" class="styleswitch"><img src="plugins/switcher/images/icons/yellow.png" alt="img"></a> 
-          <!-- END MODULE #3 --> 
-          
-        </div>
-        <!-- end predefined_styles --> 
-      </div>
-      <!-- end col --> 
-      
-      <!-- end col --> 
-    </div>
-    <!-- end row --> 
-  </div>
-  <!-- end form_holder --> 
-</div>
 <?php include(FILENAME_HOMEMENU);?>	
 <!-- SECTION -->
 <div id="iview">
@@ -101,16 +63,16 @@
       <section class="xcarousel-4 animated" data-animation="bounceInUp" >
         <div class="x-frame" >
           <ul class="x-slider product-grid">
-		  <?php 
-				$rowMainProd=getProd($conn);
-				$count=count($rowMainProd);
-				for($i=0;$i<$count;$i++)
-				{ 
-		  ?>
+		  <?php
+			$rowMainProd=getProd($conn);
+			$countProd=count($rowMainProd);
+			for($i=0;$i<$countProd;$i++)
+			{ 
+		?>
             <li>
               <div class="product-container">
-                <div class="product-image"> <span class="label-sale">sale</span>
-                  <div class="btn-action-item"> <a href="product.html" class="btn-cart  x-hover"> <i class="fa fa-shopping-cart"></i></a> <a href="product.html"> <i class="icomoon-heart"></i></a> <a  href="include/product-only-content.html" data-toggle="modal" data-target="#quick-view-id47" > <i class="icomoon-search"></i></a> <a href="media/item/4/2.jpg" class="magnific"> <i class="icomoon-eye-open"></i></a> </div>
+                <div class="product-image"> 
+                  <div class="btn-action-item"> <a href="<?php echo DIR_PRODUCT.$rowMainProd[$i]['prod_img_dtl'];?>" class="magnific"> <i class="icomoon-eye-open"></i></a> </div>
                     <a href="product_detail.php?id=<?php echo $rowMainProd[$i]['prod_img_id'];?>"> <img class="" src="<?php echo DIR_PRODUCT.$rowMainProd[$i]['prod_img_dtl'];?>" width="600" height="700" alt="img"/></a> </div>
                 <div class="product-bottom">
                   <h3 class="product-name x-hover"><span class="x-hover-text"><?php echo $rowMainProd[$i]['prod_name'];?></span></h3>
@@ -210,174 +172,25 @@
       <div class=" xcarousel-1 animated"  data-animation="bounceInUp" >
         <div class="x-frame" >
           <ul class="x-slider">
+		  <?php
+			$rowAchive=getAchive($conn);
+			$countAchive=count($rowAchive);
+			for($i=0;$i<$countAchive;$i++)
+			{ 
+		?>
             <li>
               <div class="x-item-wrap">
-                <div class="avatar"> <img    
-         src="media/xcarousel/ftcarousel1.jpg" width="198" height="120" alt="img">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
+                <div class="avatar"> 
+				<img src="<?php echo DIR_ACHIVEMENT.$rowAchive[$i]['achive_img'];?>" width="198" height="120" alt="img">
+                  <h4><?php echo $rowAchive[$i]['achive_name']; ?></h4>
                 </div>
                 <div class="details">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </p>
-                  <a href="#" class="fa-box-arrow"> <i class="fa fa-chevron-right"></i></a> </div>
+                  <h4><b><?php echo $rowAchive[$i]['achive_name']; ?></b></h4>
+                  <p style="line-height:20px;height:80px;overflow:hidden;"><?php echo $rowAchive[$i]['achive_desc']; ?></p>
+                  <a href="achivement.php?id=<?php echo $rowAchive[$i]['achive_id']; ?>" class="fa-box-arrow"> <i class="fa fa-chevron-right"></i></a> </div>
               </div>
             </li>
-            <li>
-              <div data-animation="fadeIn" class="x-item-wrap">
-                <div class="avatar"> <img   
-         src="media/xcarousel/ftcarousel2.jpg" width="198" height="120" alt="img">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                </div>
-                <div class="details">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </p>
-                  <a href="#" class="fa-box-arrow"> <i class="fa fa-chevron-right"></i></a> </div>
-              </div>
-            </li>
-            <li>
-              <div data-animation="fadeIn" class="x-item-wrap">
-                <div class="avatar"> <img   
-         src="media/xcarousel/ftcarousel3.jpg" width="198" height="120" alt="img">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                </div>
-                <div class="details">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </p>
-                  <a href="#" class="fa-box-arrow"> <i class="fa fa-chevron-right"></i></a> </div>
-              </div>
-            </li>
-            <li>
-              <div data-animation="fadeIn" class="x-item-wrap">
-                <div class="avatar"> <img   
-         src="media/xcarousel/ftcarousel4.jpg" width="198" height="120" alt="img">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                </div>
-                <div class="details">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </p>
-                  <a href="#" class="fa-box-arrow"> <i class="fa fa-chevron-right"></i></a> </div>
-              </div>
-            </li>
-            <li>
-              <div data-animation="fadeIn" class="x-item-wrap">
-                <div class="avatar"> <img   
-         src="media/xcarousel/ftcarousel5.jpg" width="198" height="120" alt="img">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                </div>
-                <div class="details">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </p>
-                  <a href="#" class="fa-box-arrow"> <i class="fa fa-chevron-right"></i></a> </div>
-              </div>
-            </li>
-            <li>
-              <div data-animation="fadeIn" class="x-item-wrap">
-                <div class="avatar"> <img   
-         src="media/xcarousel/ftcarousel6.jpg" width="198" height="120" alt="img">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                </div>
-                <div class="details">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </p>
-                  <a href="#" class="fa-box-arrow"> <i class="fa fa-chevron-right"></i></a> </div>
-              </div>
-            </li>
-            <li>
-              <div data-animation="fadeIn" class="x-item-wrap">
-                <div class="avatar"> <img   
-         src="media/xcarousel/ftcarousel1.jpg" width="198" height="120" alt="img">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                </div>
-                <div class="details">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </p>
-                  <a href="#" class="fa-box-arrow"> <i class="fa fa-chevron-right"></i></a> </div>
-              </div>
-            </li>
-            <li>
-              <div data-animation="fadeIn" class="x-item-wrap">
-                <div class="avatar"> <img   
-         src="media/xcarousel/ftcarousel2.jpg" width="198" height="120" alt="img">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                </div>
-                <div class="details">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </p>
-                  <a href="#" class="fa-box-arrow"> <i class="fa fa-chevron-right"></i></a> </div>
-              </div>
-            </li>
-            <li>
-              <div data-animation="fadeIn" class="x-item-wrap">
-                <div class="avatar"> <img   
-         src="media/xcarousel/ftcarousel3.jpg" width="198" height="120" alt="img">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                </div>
-                <div class="details">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </p>
-                  <a href="#" class="fa-box-arrow"> <i class="fa fa-chevron-right"></i></a> </div>
-              </div>
-            </li>
-            <li>
-              <div data-animation="fadeIn" class="x-item-wrap">
-                <div class="avatar"> <img   
-         src="media/xcarousel/ftcarousel4.jpg" width="198" height="120" alt="img">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                </div>
-                <div class="details">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </p>
-                  <a href="#" class="fa-box-arrow"> <i class="fa fa-chevron-right"></i></a> </div>
-              </div>
-            </li>
-            <li>
-              <div data-animation="fadeIn" class="x-item-wrap">
-                <div class="avatar"> <img   
-          src="media/xcarousel/ftcarousel5.jpg" width="198" height="120" alt="img">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                </div>
-                <div class="details">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </p>
-                  <a href="#" class="fa-box-arrow"> <i class="fa fa-chevron-right"></i></a> </div>
-              </div>
-            </li>
-            <li>
-              <div data-animation="fadeIn" class="x-item-wrap">
-                <div class="avatar"> <img   
-         src="media/xcarousel/ftcarousel6.jpg" width="198" height="120" alt="img">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                </div>
-                <div class="details">
-                  <h4>EXTREME LEVEL
-                    OF SPORTS</h4>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </p>
-                  <a href="#" class="fa-box-arrow"> <i class="fa fa-chevron-right"></i></a> </div>
-              </div>
-            </li>
+			<?php }?>
           </ul>
         </div>
         <div class="x-navigation navigation"> <a class="btn slider-direction prev-page" href="javascript:void(0);"><i class="icomoon-arrow-left2"></i></a> <a class="btn  slider-direction next-page" href="javascript:void(0);"><i class="icomoon-arrow-right2"></i></a> </div>
@@ -395,139 +208,8 @@
 <!-- SECTION -->
 
 <section  class="home-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <div class="heading-wrap animated"  data-animation="bounceInUp" >
-          <div class="small-logo"><img width="106" height="36" alt="logo" src="img/logo-black.png"></div>
-          <h2 class="section-heading">SPORTS OFFERED</h2>
-          <h3 class="section-subheading hang hang">WE’RE ALL ABOUT XTREME SPORTS</h3>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="text-center" >
-        <ul id="filter" class="clearfix">
-          <li><a href="" class="current btn" data-filter="*">ALL SPORTS</a></li>
-          <li><a href="" class="btn" data-filter=".portfolio">WATER SPORTS</a></li>
-          <li><a href="" class="btn" data-filter=".cutaway">JUMPING</a></li>
-          <li><a href="" class="btn" data-filter=".corporative">BIKES</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="isotope-frame animated" data-animation="bounceInUp">
-    <div class="isotope-filter">
-      <div class="isotope-item portfolio"> <img   width="475" height="300"  
-          src="media/1000x625/1.jpg" alt="img"/>
-        <div class="slide-desc">
-          <h3>Lorem ipsum </h3>
-          <div class="isotope-desc-content">
-            <p>Levir meus, priusquam oppugnarent tempus quis, admonere dicitur. Credo quod idem mihi praesidium. </p>
-          </div>
-          <a data-target="#myModal-id-12" class="btn-icon outline-outward" data-toggle="modal" href="include/modal-box-portfolio12.html"> <i class="fa fa-file-text"></i> Explorer Now </a> </div>
-      </div>
-      <div  class="isotope-item cutaway"><img   width="475" height="300"  
-          src="media/1000x625/2.jpg" alt="img"/>
-        <div class="slide-desc">
-          <h3>Lorem ipsum </h3>
-          <div class="isotope-desc-content">
-            <p>Levir meus, priusquam oppugnarent tempus quis, admonere dicitur. Credo quod idem mihi praesidium. </p>
-          </div>
-          <a  class="btn-icon outline-outward magnific" href="media/1000x625/3.jpg" > <i class="fa fa-file-image-o"></i> Explorer Now </a> </div>
-      </div>
-      <div class="isotope-item corporative"> <img   width="475" height="300"  
-          src="media/1000x625/3.jpg" alt="img"/>
-        <div class="slide-desc">
-          <h3>Lorem ipsum </h3>
-          <div class="isotope-desc-content">
-            <p>Levir meus, priusquam oppugnarent tempus quis, admonere dicitur. Credo quod idem mihi praesidium. </p>
-          </div>
-          <a class="btn-icon outline-outward video-popab"  href="https://vimeo.com/107685992?width=1160&amp;height=610"> <i class="fa fa-file-video-o"></i> Explorer Now </a> </div>
-      </div>
-      <div class="isotope-item portfolio"> <img   width="475" height="300"  
-          src="media/1000x625/4.jpg" alt="img"/>
-        <div class="slide-desc">
-          <h3>Lorem ipsum </h3>
-          <div class="isotope-desc-content">
-            <p>Levir meus, priusquam oppugnarent tempus quis, admonere dicitur. Credo quod idem mihi praesidium. </p>
-          </div>
-          <a data-target="#myModal-id-12" class="btn-icon outline-outward" data-toggle="modal" href="include/modal-box-portfolio12.html"> <i class="fa fa-file-text"></i> Explorer Now </a> </div>
-      </div>
-      <div class="isotope-item portfolio"> <img   width="475" height="300"  
-          src="media/1000x625/5.jpg" alt="img"/>
-        <div class="slide-desc">
-          <h3>Lorem ipsum </h3>
-          <div class="isotope-desc-content">
-            <p>Levir meus, priusquam oppugnarent tempus quis, admonere dicitur. Credo quod idem mihi praesidium. </p>
-          </div>
-          <a data-target="#myModal-id-12" class="btn-icon outline-outward" data-toggle="modal" href="include/modal-box-portfolio12.html"> <i class="fa fa-file-text"></i> Explorer Now </a> </div>
-      </div>
-      <div  class="isotope-item cutaway"> <img   width="475" height="300"  
-          src="media/1000x625/6.jpg" alt="img"/>
-        <div class="slide-desc">
-          <h3>Lorem ipsum </h3>
-          <div class="isotope-desc-content">
-            <p>Levir meus, priusquam oppugnarent tempus quis, admonere dicitur. Credo quod idem mihi praesidium. </p>
-          </div>
-          <a  class="btn-icon outline-outward magnific" href="media/1000x625/7.jpg" > <i class="fa fa-file-image-o"></i> Explorer Now </a> </div>
-      </div>
-      <div class="isotope-item corporative"> <img   width="475" height="300"  
-          src="media/1000x625/7.jpg" alt="img"/>
-        <div class="slide-desc">
-          <h3>Lorem ipsum </h3>
-          <div class="isotope-desc-content">
-            <p>Levir meus, priusquam oppugnarent tempus quis, admonere dicitur. Credo quod idem mihi praesidium. </p>
-          </div>
-          <a class="btn-icon outline-outward video-popab"  href="https://vimeo.com/107685992?width=1160&amp;height=610"> <i class="fa fa-file-video-o"></i> Explorer Now </a> </div>
-      </div>
-      <div class="isotope-item portfolio"> <img   width="475" height="300"  
-          src="media/1000x625/1.jpg" alt="img"/>
-        <div class="slide-desc">
-          <h3>Lorem ipsum </h3>
-          <div class="isotope-desc-content">
-            <p>Levir meus, priusquam oppugnarent tempus quis, admonere dicitur. Credo quod idem mihi praesidium. </p>
-          </div>
-          <a data-target="#myModal-id-12" class="btn-icon outline-outward" data-toggle="modal" href="include/modal-box-portfolio12.html"> <i class="fa fa-file-text"></i> Explorer Now </a> </div>
-      </div>
-      <div  class="isotope-item cutaway"><img   width="475" height="300"  
-          src="media/1000x625/2.jpg" alt="img"/>
-        <div class="slide-desc">
-          <h3>Lorem ipsum </h3>
-          <div class="isotope-desc-content">
-            <p>Levir meus, priusquam oppugnarent tempus quis, admonere dicitur. Credo quod idem mihi praesidium. </p>
-          </div>
-          <a  class="btn-icon outline-outward magnific" href="media/1000x625/7.jpg" > <i class="fa fa-file-image-o"></i> Explorer Now </a> </div>
-      </div>
-      <div class="isotope-item corporative"> <img   width="475" height="300"  
-          src="media/1000x625/3.jpg" alt="img"/>
-        <div class="slide-desc">
-          <h3>Lorem ipsum </h3>
-          <div class="isotope-desc-content">
-            <p>Levir meus, priusquam oppugnarent tempus quis, admonere dicitur. Credo quod idem mihi praesidium. </p>
-          </div>
-          <a class="btn-icon outline-outward video-popab"  href="https://vimeo.com/107685992?width=1160&amp;height=610"> <i class="fa fa-file-video-o"></i> Explorer Now </a> </div>
-      </div>
-      <div class="isotope-item portfolio"> <img   width="475" height="300"  
-          src="media/1000x625/4.jpg" alt="img"/>
-        <div class="slide-desc">
-          <h3>Lorem ipsum </h3>
-          <div class="isotope-desc-content">
-            <p>Levir meus, priusquam oppugnarent tempus quis, admonere dicitur. Credo quod idem mihi praesidium. </p>
-          </div>
-          <a data-target="#myModal-id-12" class="btn-icon outline-outward" data-toggle="modal" href="include/modal-box-portfolio12.html"> <i class="fa fa-file-text"></i> Explorer Now </a> </div>
-      </div>
-      <div class="isotope-item portfolio"> <img   width="475" height="300"  
-          src="media/1000x625/5.jpg" alt="img"/>
-        <div class="slide-desc">
-          <h3>Lorem ipsum </h3>
-          <div class="isotope-desc-content">
-            <p>Levir meus, priusquam oppugnarent tempus quis, admonere dicitur. Credo quod idem mihi praesidium. </p>
-          </div>
-          <a data-target="#myModal-id-12" class="btn-icon outline-outward" data-toggle="modal" href="include/modal-box-portfolio12.html"> <i class="fa fa-file-text"></i> Explorer Now </a> </div>
-      </div>
-    </div>
-  </div>
+  
+  
   
   <!--  Inserts  contents for ID 12   -->
   
@@ -574,63 +256,35 @@
     <div class="row">
       <div class="cd-events-wrapper cd-container animated" data-animation="bounceInUp">
         <ul class="cd-events">
+		<?php
+			$rowMainEventPost=getEventIndex($conn);
+			$countPost=count($rowMainEventPost);
+			for($i=0;$i<$countPost;$i++)
+			{ 
+		?>
           <li>
             <div class=" col-sm-12 col-md-2 col-lg-2"  >
-              <div class="events-image"><img src="media/1000x625/2.jpg"  alt="img"/> </div>
-              <a href="#0" class="cd-see-all btn  hang">See all events</a> </div>
+              <div class="events-image"><img src="<?php echo DIR_EVENTBANER.$rowMainEventPost[$i]['event_baner_dtl'];?>"  alt="img"/> </div>
+              <a href="event_detail.php?id=<?php echo $rowMainEventPost[$i]['event_id'];?>" class="cd-see-all btn  hang">See event</a> </div>
             <div class=" col-sm-12 col-md-6 col-lg-6"  >
               <div class="events-content">
-                <h3>EVENT: <strong>TORANTO MEGA SKIING</strong></h3>
-                <div class="events-date">APRIL  1 - 3, 2015</div>
-                <p>Aenean urna tellus sodales aliquam egestas quis convallis cursus, magna. Fusce sa scelerisque. Proin tempor rci vestibulum adipiscing. Etiam blanditd Vestibulum nis Duis nibh dui porttitor eu rhoncus uted. Fusce lacus alc neque interdum pulvinarl Integer vel ante ut. </p>
+                <h3>EVENT: <strong><?php echo $rowMainEventPost[$i]['event_name']; ?></strong></h3>
+                <div class="events-date"><?php echo date('d-M-y',strtotime($rowMainEventPost[$i]['start_date_time'])); ?></div>
+                <p style="line-height:20px;height:60px;overflow:hidden;"><?php echo $rowMainEventPost[$i]['event_desc']; ?></p>
               </div>
             </div>
             <div class=" col-sm-12 col-md-4 col-lg-4"  >
               <div class="x-coutdown">
                 <h5> THE COUNTDOWN BEGINS</h5>
                 <div class="x-coutdown">
-                  <div id="x-coutdown-timer" data-countdown="2015/09/07"></div>
+                  <div id="x-coutdown-timer" data-countdown="<?php echo date('Y',strtotime($rowMainEventPost[$i]['start_date_time'])); ?>/<?php echo date('m',strtotime($rowMainEventPost[$i]['start_date_time'])); ?>/<?php echo date('d',strtotime($rowMainEventPost[$i]['start_date_time'])); ?>"></div>
                 </div>
               </div>
             </div>
           </li>
-          <li>
-            <div class=" col-sm-2 col-md-2 col-lg-2"  >
-              <div class="events-image"><img src="media/1000x625/3.jpg"  alt="img"/> </div>
-              <a href="#0" class="cd-see-all btn  hang">See all events</a> </div>
-            <div class=" col-sm-6 col-md-6 col-lg-6"  >
-              <div class="events-content">
-                <h3>EVENT: <strong>TORANTO MEGA SKIING</strong></h3>
-                <div class="events-date">SEPTEMBER 10 - 15, 2014</div>
-                <p>Aenean urna tellus sodales aliquam egestas quis convallis cursus, magna. Fusce sa scelerisque. Proin tempor rci vestibulum adipiscing. Etiam blanditd Vestibulum nis Duis nibh dui porttitor eu rhoncus uted. Fusce lacus alc neque interdum pulvinarl Integer vel ante ut. </p>
-              </div>
-            </div>
-            <div class=" col-sm-4 col-md-4 col-lg-4"  >
-                <div class="x-coutdown">
-                  <div id="x-coutdown-timer" data-countdown="2015/07/09"></div>
-                </div>
-            </div>
-          </li>
-          <li>
-            <div class=" col-sm-2 col-md-2 col-lg-2"  >
-              <div class="events-image"><img src="media/1000x625/4.jpg"  alt="img"/> </div>
-              <a href="#0" class="cd-see-all btn  hang">See all events</a> </div>
-            <div class=" col-sm-6 col-md-6 col-lg-6"  >
-              <div class="events-content">
-                <h3>EVENT: <strong>TORANTO MEGA SKIING</strong></h3>
-                <div class="events-date">SEPTEMBER 10 - 15, 2014</div>
-                <p>Aenean urna tellus sodales aliquam egestas quis convallis cursus, magna. Fusce sa scelerisque. Proin tempor rci vestibulum adipiscing. Etiam blanditd Vestibulum nis Duis nibh dui porttitor eu rhoncus uted. Fusce lacus alc neque interdum pulvinarl Integer vel ante ut. </p>
-              </div>
-            </div>
-            <div class=" col-sm-4 col-md-4 col-lg-4"  >
-              <div class="x-coutdown">
-                <h5> THE COUNTDOWN BEGINS </h5>
-                <div class="x-coutdown">
-                  <div id="x-coutdown-timer" data-countdown="2015/08/19"></div>
-                </div>
-              </div>
-            </div>
-          </li>
+				<?php }?>
+          
+          
         </ul>
         <!-- cd-events --> 
         
@@ -662,128 +316,11 @@ $('[data-countdown]').each(function() {
 });
 
    </script> 
-   
-   
-   
-        
-      </div>
+ </div>
       
       <!--Modal Events Grid-->
       
-      <div class="cd-events-all">
-        <div class="cd-events-all-wrapper">
-          <ul>
-            <li class="cd-events-item">
-              <div class="cd-events-item-image"> <img src="media/xcarousel/ftcarousel1.jpg" width="195" height="120" alt="img"/></div>
-              <div class="events-content">
-                <h3>EVENT: <strong>TORANTO MEGA SKIING</strong></h3>
-                <div class="events-date">SEPTEMBER 10 - 15, 2014</div>
-                <p>Paenitet me quod tu me rogas? Oh, sic, qui stultus plastic continentis rogavi te ut emas. Vides non manducare acidum hydrofluoric per plastic. Erit autem dissolvere metalli petram, vitrum, tellus. Ita quod illic '. Quam de aliquo cum aliqua interdum, maybe? Aliquid viride, huh? Quam vos sunt etiam vivere? </p>
-                <p>Quinquaginta septem est - pars tua, triginta quinque millia. Est autem extra plus quindecim, tota tua est, quom meruisset. Fac nos fecit. SIC. Puto quia una res potest - venimus in cognitionem. Vide pretium in manibus. Sed finge iustum faciens quod qualibet septimana. SIC. Duis duas libras triginta quinque milia pondo. </p>
-                <p> Sentio sicut ego vobis exponam: sed vias breve iterum conabor. Fugere hoc maior difficultas est nobis. Perdet eam batch nostri. Et delebis eam ac omnia opus est vestigium, ut possimus coques. Sin id, quod morte morieris. Locus non est peccatum. Nec apud hos. </p>
-                <p>Aut si rem a me pecuniam in Midiam elit. Nec ego in imperio elit. Id quod sum sub potestate felis. Etiam Id est - problema solvenda. Skyler est simplex partitio - introducam pecuniam, pecuniam launder. Id quod vobis deerat. </p>
-              </div>
-            </li>
-            <li class="cd-events-item">
-              <div class="cd-events-item-image"> <img src="media/xcarousel/ftcarousel2.jpg" width="195" height="120" alt="img"/></div>
-              <div class="events-content">
-                <h3>EVENT: <strong>TORANTO MEGA SKIING</strong></h3>
-                <div class="events-date">SEPTEMBER 12 - 15, 2014</div>
-                <p>Paenitet me quod tu me rogas? Oh, sic, qui stultus plastic continentis rogavi te ut emas. Vides non manducare acidum hydrofluoric per plastic. Erit autem dissolvere metalli petram, vitrum, tellus. Ita quod illic '. Quam de aliquo cum aliqua interdum, maybe? Aliquid viride, huh? Quam vos sunt etiam vivere? </p>
-                <p>Quinquaginta septem est - pars tua, triginta quinque millia. Est autem extra plus quindecim, tota tua est, quom meruisset. Fac nos fecit. SIC. Puto quia una res potest - venimus in cognitionem. Vide pretium in manibus. Sed finge iustum faciens quod qualibet septimana. SIC. Duis duas libras triginta quinque milia pondo. </p>
-                <p> Sentio sicut ego vobis exponam: sed vias breve iterum conabor. Fugere hoc maior difficultas est nobis. Perdet eam batch nostri. Et delebis eam ac omnia opus est vestigium, ut possimus coques. Sin id, quod morte morieris. Locus non est peccatum. Nec apud hos. </p>
-              </div>
-            </li>
-            <li class="cd-events-item">
-              <div class="cd-events-item-image"> <img src="media/xcarousel/ftcarousel3.jpg" width="195" height="120" alt="img"/></div>
-              <div class="events-content">
-                <h3>EVENT: <strong>TORANTO  SKIING</strong></h3>
-                <div class="events-date">SEPTEMBER 17 - 12, 2014</div>
-                <p>Paenitet me quod tu me rogas? Oh, sic, qui stultus plastic continentis rogavi te ut emas. Vides non manducare acidum hydrofluoric per plastic. Erit autem dissolvere metalli petram, vitrum, tellus. Ita quod illic '. Quam de aliquo cum aliqua interdum, maybe? Aliquid viride, huh? Quam vos sunt etiam vivere? </p>
-                <p>Quinquaginta septem est - pars tua, triginta quinque millia. Est autem extra plus quindecim, tota tua est, quom meruisset. Fac nos fecit. SIC. Puto quia una res potest - venimus in cognitionem. Vide pretium in  vias breve iterum conabor. Fugere hoc maior difficultas est nobis. Perdet eam batch nostri. Et delebis eam ac omnia opus est vestigium, ut possimus coques. Sin id, quod morte morieris. Locus non est peccatum. Nec apud hos. </p>
-                <p>Quinquaginta septem est - pars tua, triginta quinque millia. Est autem extra plus quindecim, tota tua est, quom meruisset. Fac nos fecit. SIC. Puto quia una res potest - venimus in cognitionem. Vide pretium in manibus. Sed finge iustum faciens quod qualibet septimana. SIC. Duis duas libras triginta quinque milia pondo. </p>
-                <p> Sentio sicut ego vobis exponam: sed vias breve iterum conabor. Fugere hoc maior difficultas est nobis. Perdet eam batch nostri. Et delebis eam ac omnia opus est vestigium, ut possimus coques. Sin id, quod morte morieris. Locus non est peccatum. Nec apud hos. </p>
-              </div>
-            </li>
-            <li class="cd-events-item">
-              <div class="cd-events-item-image"> <img src="media/xcarousel/ftcarousel4.jpg" width="195" height="120" alt="img"/></div>
-              <div class="events-content">
-                <h3>EVENT: <strong>TORANTO  SKIING</strong></h3>
-                <div class="events-date">SEPTEMBER 17 - 12, 2014</div>
-                <p>Quinquaginta septem est - pars tua, triginta quinque millia. Est autem extra plus quindecim, tota tua est, quom meruisset. Fac nos fecit. SIC. Puto quia una res potest - venimus in cognitionem. Vide pretium in  vias breve iterum conabor. Fugere hoc maior difficultas est nobis. Perdet eam batch nostri. Et delebis eam ac omnia opus est vestigium, ut possimus coques. Sin id, quod morte morieris. Locus non est peccatum. Nec apud hos. </p>
-                <p>Quinquaginta septem est - pars tua, triginta quinque millia. Est autem extra plus quindecim, tota tua est, quom meruisset. Fac nos fecit. SIC. Puto quia una res potest - venimus in cognitionem. Vide pretium in manibus. Sed finge iustum faciens quod qualibet septimana. SIC. Duis duas libras triginta quinque milia pondo. </p>
-                <p> Sentio sicut ego vobis exponam: sed vias breve iterum conabor. Fugere hoc maior difficultas est nobis. Perdet eam batch nostri. Et delebis eam ac omnia opus est vestigium, ut possimus coques. Sin id, quod morte morieris. Locus non est peccatum. Nec apud hos. </p>
-              </div>
-            </li>
-            <li class="cd-events-item">
-              <div class="cd-events-item-image"> <img src="media/xcarousel/ftcarousel5.jpg" width="195" height="120" alt="img"/></div>
-              <div class="events-content">
-                <h3>EVENT: <strong>TORANTO  SKIING</strong></h3>
-                <div class="events-date">SEPTEMBER 17 - 12, 2014</div>
-                <p>Paenitet me quod tu me rogas? Oh, sic, qui stultus plastic continentis rogavi te ut emas. Vides non manducare acidum hydrofluoric per plastic. Erit autem dissolvere metalli petram, vitrum, tellus. Ita quod illic '. Quam de aliquo cum aliqua interdum, maybe? Aliquid viride, huh? Quam vos sunt etiam vivere? </p>
-                <p>Quinquaginta septem est - pars tua, triginta quinque millia. Est autem extra plus quindecim, tota tua est, quom meruisset. Fac nos fecit. SIC. Puto quia una res potest - venimus in cognitionem. Vide pretium in  vias breve iterum conabor. Fugere hoc maior difficultas est nobis. Perdet eam batch nostri. Et delebis eam ac omnia opus est vestigium, ut possimus coques. Sin id, quod morte morieris. Locus non est peccatum. Nec apud hos. </p>
-                <p>Quinquaginta septem est - pars tua, triginta quinque millia. Est autem extra plus quindecim, tota tua est, quom meruisset. </p>
-                <p> Sentio sicut ego vobis exponam: sed vias breve iterum conabor. Fugere hoc maior difficultas est nobis. Perdet eam batch nostri. Et delebis eam ac omnia opus est vestigium, ut possimus coques. Sin id, quod morte morieris. Locus non est peccatum. Nec apud hos. </p>
-              </div>
-            </li>
-            <li class="cd-events-item">
-              <div class="cd-events-item-image"> <img src="media/xcarousel/ftcarousel1.jpg" width="195" height="120" alt="img"/></div>
-              <div class="events-content">
-                <h3>EVENT: <strong>TORANTO MEGA SKIING</strong></h3>
-                <div class="events-date">SEPTEMBER 10 - 15, 2014</div>
-                <p>Paenitet me quod tu me rogas? Oh, sic, qui stultus plastic continentis rogavi te ut emas. Vides non manducare acidum hydrofluoric per plastic. Erit autem dissolvere metalli petram, vitrum, tellus. Ita quod illic '. Quam de aliquo cum aliqua interdum, maybe? Aliquid viride, huh? Quam vos sunt etiam vivere? </p>
-                <p>Quinquaginta septem est - pars tua, triginta quinque millia. Est autem extra plus quindecim, tota tua est, quom meruisset. Fac nos fecit. SIC. Puto quia una res potest - venimus in cognitionem. Vide pretium in manibus. Sed finge iustum faciens quod qualibet septimana. SIC. Duis duas libras triginta quinque milia pondo. </p>
-                <p> Sentio sicut ego vobis exponam: sed vias breve iterum conabor. Fugere hoc maior difficultas est nobis. Perdet eam batch nostri. Et delebis eam ac omnia opus est vestigium, ut possimus coques. Sin id, quod morte morieris. Locus non est peccatum. Nec apud hos. </p>
-                <p>Aut si rem a me pecuniam in Midiam elit. Nec ego in imperio elit. Id quod sum sub potestate felis. Etiam Id est - problema solvenda. Skyler est simplex partitio - introducam pecuniam, pecuniam launder. Id quod vobis deerat. </p>
-              </div>
-            </li>
-            <li class="cd-events-item">
-              <div class="cd-events-item-image"> <img src="media/xcarousel/ftcarousel2.jpg" width="195" height="120" alt="img"/></div>
-              <div class="events-content">
-                <h3>EVENT: <strong>TORANTO MEGA SKIING</strong></h3>
-                <div class="events-date">SEPTEMBER 12 - 15, 2014</div>
-                <p>Paenitet me quod tu me rogas? Oh, sic, qui stultus plastic continentis rogavi te ut emas. Vides non manducare acidum hydrofluoric per plastic. Erit autem dissolvere metalli petram, vitrum, tellus. Ita quod illic '. Quam de aliquo cum aliqua interdum, maybe? Aliquid viride, huh? Quam vos sunt etiam vivere? </p>
-                <p>Quinquaginta septem est - pars tua, triginta quinque millia. Est autem extra plus quindecim, tota tua est, quom meruisset. Fac nos fecit. SIC. Puto quia una res potest - venimus in cognitionem. Vide pretium in manibus. Sed finge iustum faciens quod qualibet septimana. SIC. Duis duas libras triginta quinque milia pondo. </p>
-                <p> Sentio sicut ego vobis exponam: sed vias breve iterum conabor. Fugere hoc maior difficultas est nobis. Perdet eam batch nostri. Et delebis eam ac omnia opus est vestigium, ut possimus coques. Sin id, quod morte morieris. Locus non est peccatum. Nec apud hos. </p>
-              </div>
-            </li>
-            <li class="cd-events-item">
-              <div class="cd-events-item-image"> <img src="media/xcarousel/ftcarousel3.jpg" width="195" height="120" alt="img"/></div>
-              <div class="events-content">
-                <h3>EVENT: <strong>TORANTO  SKIING</strong></h3>
-                <div class="events-date">SEPTEMBER 17 - 12, 2016</div>
-                <p>Paenitet me quod tu me rogas? Oh, sic, qui stultus plastic continentis rogavi te ut emas. Vides non manducare acidum hydrofluoric per plastic. Erit autem dissolvere metalli petram, vitrum, tellus. Ita quod illic '. Quam de aliquo cum aliqua interdum, maybe? Aliquid viride, huh? Quam vos sunt etiam vivere? </p>
-                <p>Quinquaginta septem est - pars tua, triginta quinque millia. Est autem extra plus quindecim, tota tua est, quom meruisset. Fac nos fecit. SIC. Puto quia una res potest - venimus in cognitionem. Vide pretium in  vias breve iterum conabor. Fugere hoc maior difficultas est nobis. Perdet eam batch nostri. Et delebis eam ac omnia opus est vestigium, ut possimus coques. Sin id, quod morte morieris. Locus non est peccatum. Nec apud hos. </p>
-                <p>Quinquaginta septem est - pars tua, triginta quinque millia. Est autem extra plus quindecim, tota tua est, quom meruisset. Fac nos fecit. SIC. Puto quia una res potest - venimus in cognitionem. Vide pretium in manibus. Sed finge iustum faciens quod qualibet septimana. SIC. Duis duas libras triginta quinque milia pondo. </p>
-                <p> Sentio sicut ego vobis exponam: sed vias breve iterum conabor. Fugere hoc maior difficultas est nobis. Perdet eam batch nostri. Et delebis eam ac omnia opus est vestigium, ut possimus coques. Sin id, quod morte morieris. Locus non est peccatum. Nec apud hos. </p>
-              </div>
-            </li>
-            <li class="cd-events-item">
-              <div class="cd-events-item-image"> <img src="media/xcarousel/ftcarousel4.jpg" width="195" height="120" alt="img"/></div>
-              <div class="events-content">
-                <h3>EVENT: <strong>TORANTO  SKIING</strong></h3>
-                <div class="events-date">SEPTEMBER 27 - 12, 2016</div>
-                <p>Quinquaginta septem est - pars tua, triginta quinque millia. Est autem extra plus quindecim, tota tua est, quom meruisset. Fac nos fecit. SIC. Puto quia una res potest - venimus in cognitionem. Vide pretium in  vias breve iterum conabor. Fugere hoc maior difficultas est nobis. Perdet eam batch nostri. Et delebis eam ac omnia opus est vestigium, ut possimus coques. Sin id, quod morte morieris. Locus non est peccatum. Nec apud hos. </p>
-                <p>Quinquaginta septem est - pars tua, triginta quinque millia. Est autem extra plus quindecim, tota tua est, quom meruisset. Fac nos fecit. SIC. Puto quia una res potest - venimus in cognitionem. Vide pretium in manibus. Sed finge iustum faciens quod qualibet septimana. SIC. Duis duas libras triginta quinque milia pondo. </p>
-                <p> Sentio sicut ego vobis exponam: sed vias breve iterum conabor. Fugere hoc maior difficultas est nobis. Perdet eam batch nostri. Et delebis eam ac omnia opus est vestigium, ut possimus coques. Sin id, quod morte morieris. Locus non est peccatum. Nec apud hos. </p>
-              </div>
-            </li>
-            <li class="cd-events-item">
-              <div class="cd-events-item-image"> <img src="media/xcarousel/ftcarousel5.jpg" width="195" height="120" alt="img"/></div>
-              <div class="events-content">
-                <h3>EVENT: <strong>TORANTO  SKIING</strong></h3>
-                <div class="events-date">SEPTEMBER 12 - 12, 2016</div>
-                <p>Paenitet me quod tu me rogas? Oh, sic, qui stultus plastic continentis rogavi te ut emas. Vides non manducare acidum hydrofluoric per plastic. Erit autem dissolvere metalli petram, vitrum, tellus. Ita quod illic '. Quam de aliquo cum aliqua interdum, maybe? Aliquid viride, huh? Quam vos sunt etiam vivere? </p>
-                <p>Quinquaginta septem est - pars tua, triginta quinque millia. Est autem extra plus quindecim, tota tua est, quom meruisset. Fac nos fecit. SIC. Puto quia una res potest - venimus in cognitionem. Vide pretium in  vias breve iterum conabor. Fugere hoc maior difficultas est nobis. Perdet eam batch nostri. Et delebis eam ac omnia opus est vestigium, ut possimus coques. Sin id, quod morte morieris. Locus non est peccatum. Nec apud hos. </p>
-                <p>Quinquaginta septem est - pars tua, triginta quinque millia. Est autem extra plus quindecim, tota tua est, quom meruisset. </p>
-                <p> Sentio sicut ego vobis exponam: sed vias breve iterum conabor. Fugere hoc maior difficultas est nobis. Perdet eam batch nostri. Et delebis eam ac omnia opus est vestigium, ut possimus coques. Sin id, quod morte morieris. Locus non est peccatum. Nec apud hos. </p>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <!-- cd-events-all-wrapper --> 
-        
-        <a href="#0" class="close-btn">Close</a> </div>
+      
     </div>
   </div>
 </section>
@@ -796,8 +333,8 @@ $('[data-countdown]').each(function() {
       <div class="col-lg-12 text-center">
         <div class="heading-wrap animated"  data-animation="bounceInUp" >
           <div class="small-logo"><img width="106" height="36" alt="logo" src="img/logo-black.png"></div>
-          <h2 class="section-heading">QUALIFIED STAFF</h2>
-          <h3 class="section-subheading hang">WE’RE ALL ABOUT XTREME SPORTS</h3>
+          <h2 class="section-heading">Our Management</h2>
+         
         </div>
       </div>
     </div>
@@ -1199,56 +736,7 @@ $('[data-countdown]').each(function() {
   </div>
 </section>
 
-<!-- SECTION -->
 
-<section class="home-section" style="background-color:#f4f4f4;" >
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <div class="heading-wrap animated"   data-animation="bounceInUp" >
-          <div class="small-logo"><img src="img/logo-black.png" width="106" height="36" alt="logo"></div>
-          <h2 class="section-heading">ABOUT THE CLUB</h2>
-          <h3 class="section-subheading hang hang">WE’RE ALL ABOUT XTREME SPORTS</h3>
-        </div>
-      </div>
-    </div>
-    <div class="row text-center">
-      <div class="col-md-3">
-        <div class="service-item animated"    data-animation="bounceInUp"  >
-          <div class="service-icon"> <img src="img/iconic/01.png" alt="icon"/></div>
-          <h4 class="service-heading">AMAZING EXPERIENCE</h4>
-          <p>Ut eu diam vel leo aliquam consectetu Proin torto elit rutrum donec rhoncu. Cras erad
-            est cursus sed dignissim sed euismod</p>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="service-item animated"    data-animation="bounceInUp"  >
-          <div class="service-icon"> <img src="img/iconic/02.png" alt="icon"/></div>
-          <h4 class="service-heading">TALENTED STAFF</h4>
-          <p>Ut eu diam vel leo aliquam consectetu Proin torto elit rutrum donec rhoncu. Cras erad
-            est cursus sed dignissim sed euismod</p>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="service-item animated"    data-animation="bounceInUp"  >
-          <div class="service-icon"> <img src="img/iconic/03.png" alt="icon"/></div>
-          <h4 class="service-heading">MEDALS WON</h4>
-          <p>Ut eu diam vel leo aliquam consectetu Proin torto elit rutrum donec rhoncu. Cras erad
-            est cursus sed dignissim sed euismod</p>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="service-item animated"    data-animation="bounceInUp"  >
-          <div class="service-icon"> <img src="img/iconic/04.png" alt="icon"/></div>
-          <h4 class="service-heading">REGISTER TODAY</h4>
-          <p>Ut eu diam vel leo aliquam consectetu Proin torto elit rutrum donec rhoncu. Cras erad
-            est cursus sed dignissim sed euismod</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- SECTION -->
 
 <section style="background-color:#f4f4f4;" class="home-section">
   <div class="container">
@@ -1256,7 +744,7 @@ $('[data-countdown]').each(function() {
       <div class="col-lg-12 text-center">
         <div class="heading-wrap animated"  data-animation="bounceInUp" >
           <div class="small-logo"><img width="106" height="36" alt="logo" src="img/logo-black.png"></div>
-          <h2 class="section-heading">HAPPY CLIENTS OF THE CLUB</h2>
+          <h2 class="section-heading">Our Happy Client</h2>
         </div>
       </div>
     </div>
@@ -1264,50 +752,23 @@ $('[data-countdown]').each(function() {
       <section class="xcarousel-3 animated" data-animation="bounceInUp" >
         <div class="x-frame" >
           <ul class="x-slider review-slider">
+		  <?php
+			$rowtest=gettest($conn);
+			$counttest=count($rowtest);
+			for($i=0;$i<$counttest;$i++)
+			{ 
+		?>
             <li>
-              <div class="avatar-review "> <img    
-          src="media/270x337/1.jpg" width="269" height="345" alt="img"/> </div>
+              <div class="avatar-review "> <img src="<?php echo DIR_TESTIMONIAL.$rowtest[$i]['testimonial_img'];?>" width="269" height="500" alt="img"/> </div>
               <div class="details-review">
-                <p>Interd umli Aliquam scelerisque. In sollicd itudin gravida tortor. Class aptent tacitd sociosqu ad litoracel torquent. Suspendisse vehicula rhoncus leo. Integer ante bio nunc accumsan sed tempus rutrum. </p>
+                <p><?php echo $rowtest[$i]['testimonial_desc']; ?> </p>
                 <div class="autor-date"> <i class="fa fa-quote-left"></i>
-                  <h5>Pergo coctione</h5>
-                  <p>Member of the Club</p>
+                  <h5>By Admin</h5>
+
                 </div>
               </div>
             </li>
-            <li>
-              <div class="avatar-review "> <img    
-          src="media/270x337/2.jpg" width="269" height="345" alt="img"/> </div>
-              <div class="details-review">
-                <p>Interd umli Aliquam scelerisque. In sollicd itudin gravida tortor. Class aptent tacitd sociosqu ad litoracel torquent. Suspendisse vehicula rhoncus leo. Integer ante bio nunc accumsan sed tempus rutrum. </p>
-                <div class="autor-date"> <i class="fa fa-quote-left"></i>
-                  <h5>Pergo coctione</h5>
-                  <p>Member of the Club</p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="avatar-review "> <img    
-          src="media/270x337/3.jpg" width="269" height="345" alt="img"/> </div>
-              <div class="details-review">
-                <p>Interd umli Aliquam scelerisque. In sollicd itudin gravida tortor. Class aptent tacitd sociosqu ad litoracel torquent. Suspendisse vehicula rhoncus leo. Integer ante bio nunc accumsan sed tempus rutrum. </p>
-                <div class="autor-date"> <i class="fa fa-quote-left"></i>
-                  <h5>Pergo coctione</h5>
-                  <p>Member of the Club</p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="avatar-review "> <img    
-          src="media/270x337/4.jpg" width="269" height="345" alt="img"/> </div>
-              <div class="details-review">
-                <p>Interd umli Aliquam scelerisque. In sollicd itudin gravida tortor. Class aptent tacitd sociosqu ad litoracel torquent. Suspendisse vehicula rhoncus leo. Integer ante bio nunc accumsan sed tempus rutrum. </p>
-                <div class="autor-date"> <i class="fa fa-quote-left"></i>
-                  <h5>Pergo coctione</h5>
-                  <p>Member of the Club</p>
-                </div>
-              </div>
-            </li>
+			<?php }?>
           </ul>
         </div>
         <div class="x-navigation navigation"> <a href="javascript:void(0);" class="btn slider-direction prev-page disabled"><i class="icomoon-arrow-left2"></i></a> <a href="javascript:void(0);" class="btn  slider-direction next-page"><i class="icomoon-arrow-right2"></i></a> </div>
@@ -1422,144 +883,6 @@ $('[data-countdown]').each(function() {
     </div>
   </div>
 </section>
-
-<!-- SECTION -->
-
-<section  class="home-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <div class="heading-wrap animated"  data-animation="bounceInUp" >
-          <div class="small-logo"><img width="106" height="36" alt="logo" src="img/logo-black.png"></div>
-          <h2 class="section-heading">SUBSCRIPTION PLANS</h2>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="price-table">
-        <div class="ptable-heading">
-          <div class="ptable-our-packet" ><i class="fa fa-arrow-circle-down"></i> OUR PACKAGES</div>
-          <div class="ptable-more-info"> FOR MORE INFORMATION & 
-            CUSTOM PLANS PLEASE CALL </div>
-          <div class="ptable-phone">0200-123-45678</div>
-        </div>
-        <div class="table-line">
-          <div class="price-plan-wrap">
-            <h3> 1  WEEK </h3>
-            <div class="price-plan"> $69.00 </div>
-          </div>
-          <div class="ptable-offer-item">
-            <div class="flex-item"> <strong>6</strong> CLASSES
-              PER WEEK </div>
-          </div>
-          <div class="ptable-offer-item">
-            <div class="flex-item"> <strong>12</strong> DEDICATED
-              TRAINER </div>
-          </div>
-          <div class="ptable-offer-item">
-            <div class="flex-item"> <strong>4</strong> MORNING
-              CLASSES</div>
-          </div>
-          <div class="ptable-offer-item">
-            <div class="flex-item"> <strong>30</strong> SPORTS
-              PRACTICES </div>
-          </div>
-          <div class="ptable-offer-item">
-            <div class="flex-item"> <strong>2</strong> CLUB
-              DISCOUNTS </div>
-          </div>
-          <div class="ptable-offer-button"> <a href="#">SUBSCRIBE <small>*some other info</small> </a> </div>
-        </div>
-        <div class="table-line">
-          <div class="price-plan-wrap">
-            <h3> 1  MONTH</h3>
-            <div class="price-plan"> $119.00 </div>
-          </div>
-          <div class="ptable-offer-item">
-            <div class="flex-item"> <strong>23</strong> CLASSES
-              PER WEEK </div>
-          </div>
-          <div class="ptable-offer-item">
-            <div class="flex-item"> <strong>12</strong> DEDICATED
-              TRAINER </div>
-          </div>
-          <div class="ptable-offer-item">
-            <div class="flex-item"> <strong>14</strong> MORNING
-              CLASSES</div>
-          </div>
-          <div class="ptable-offer-item">
-            <div class="flex-item"> <strong>23</strong> SPORTS
-              PRACTICES </div>
-          </div>
-          <div class="ptable-offer-item">
-            <div class="flex-item"> <strong>23</strong> CLUB
-              DISCOUNTS </div>
-          </div>
-          <div class="ptable-offer-button"> <a href="#">SUBSCRIBE <small>*some other info</small> </a> </div>
-        </div>
-        <div class="table-line active">
-          <div class="price-plan-wrap">
-            <h3> 6  MONTHS</h3>
-            <div class="price-plan"> $189.00 </div>
-          </div>
-          <div class="ptable-offer-item">
-            <div class="flex-item"> <strong>23</strong> CLASSES
-              PER WEEK </div>
-          </div>
-          <div class="ptable-offer-item">
-            <div class="flex-item"> <strong>12</strong> DEDICATED
-              TRAINER </div>
-          </div>
-          <div class="ptable-offer-item">
-            <div class="flex-item"> <strong>14</strong> MORNING
-              CLASSES</div>
-          </div>
-          <div class="ptable-offer-item">
-            <div class="flex-item"> <strong>23</strong> SPORTS
-              PRACTICES </div>
-          </div>
-          <div class="ptable-offer-item">
-            <div class="flex-item"> <strong>23</strong> CLUB
-              DISCOUNTS </div>
-          </div>
-          <div class="ptable-offer-button"> <a href="#">SUBSCRIBE <small>*some other info</small> </a> </div>
-        </div>
-        <div class="table-line">
-          <div class="price-plan-wrap">
-            <h3> 1 YEAR</h3>
-            <div class="price-plan"> $189.00 </div>
-          </div>
-          <div class="ptable-offer-item">
-            <div class="flex-item"> <strong>343</strong> CLASSES
-              PER WEEK </div>
-          </div>
-          <div class="ptable-offer-item">
-            <div class="flex-item"> <strong>342</strong> DEDICATED
-              TRAINER </div>
-          </div>
-          <div class="ptable-offer-item">
-            <div class="flex-item"> <strong>344</strong> MORNING
-              CLASSES</div>
-          </div>
-          <div class="ptable-offer-item">
-            <div class="flex-item"> <strong>243</strong> SPORTS
-              PRACTICES </div>
-          </div>
-          <div class="ptable-offer-item">
-            <div class="flex-item"> <strong>343</strong> CLUB
-              DISCOUNTS </div>
-          </div>
-          <div class="ptable-offer-button"> <a href="#">SUBSCRIBE <small>*some other info</small> </a> </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION -->
-
 <section class="no-bg-color-parallax parallax-black home-section text-center" style="background-image:url(media/bg/7.jpg)">
   <ul class="bg-slideshow">
     <li>
@@ -1569,28 +892,8 @@ $('[data-countdown]').each(function() {
       <div class="bg-slide" style="background-image:url(media/bg/4.jpg)"></div>
     </li>
   </ul>
-  <div class="container">
-    <div class="col-lg-12">
-      <div class="cd-form-wrapper cd-container">
-        <div class="heading-wrap animated"  data-animation="bounceInUp" >
-          <div class="small-logo"><img width="106" height="36" alt="logo" src="img/logo-white.png"></div>
-          <h2 class="section-heading">SUBSCRIBE TO <strong>CLUB NEWSLETTER</strong></h2>
-          <p>Lacus sit amet aliquet cons equate metus eros volutpat leo id ms auctor elit lorem eu orci. Suspendisse ante cras pedey</p>
-        </div>
-        <form class="cd-form">
-          <input type="email" id="cd-email" class="cd-email" name="cd-email" placeholder="Enter your email address">
-          <input type="submit" class="cd-submit" value="Submit">
-          <div class="cd-loading"></div>
-        </form>
-        <div data-type="message" class="cd-response cd-response-error">Ops! Error message here</div>
-        <div data-type="message" class="cd-response-success">
-          <p>Great! Success message here</p>
-        </div>
-        <div data-type="message" class="cd-response cd-response-notification">Hey! Notification message here</div>
-      </div>
-    </div>
-  </div>
-</section>
+  
+</section></br>
 
 
 <!-- SECTION -->

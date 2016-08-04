@@ -122,4 +122,21 @@ function insertsponserData($conn,$event_id,$spon_name,$spon_logo,$spon_no,$spon_
 	$resultArray = $conn -> insertQuery($sqlInsert);
 	
 }
+function insertContactData($conn,$con_dtl,$con_address,$con_phone,$con_email)
+{
+	$sqlInsert = "INSERT INTO contact_dtl(contact_dtl,contact_address,contact_phone,contact_email) VALUES  ('".$con_dtl."','".$con_address."','".$con_phone."','".$con_email."')";
+	$resultArray = $conn -> insertQuery($sqlInsert);
+}
+//insert achive data
+function insertachiveData($conn,$name,$desc,$img,$is_display,$cur_date)
+{
+	$sqlInsert = "INSERT INTO achivement_mst(achive_name,achive_desc,achive_img,is_display,created_at) VALUES ('".$name."','".$desc."','".$img."','".$is_display."','".$cur_date."')";
+	$resultArray = $conn -> insertQuery($sqlInsert);
+}
+//insert testimonial data
+function inserttestData($conn,$desc,$img,$is_display,$cur_date)
+{
+	$sqlInsert = "INSERT INTO testimonial_mst(testimonial_desc,testimonial_img,is_display,created_at) VALUES ('".$desc."','".$img."','".$is_display."','".$cur_date."')";
+	$resultArray = $conn -> insertQuery($sqlInsert);
+}
 ?>

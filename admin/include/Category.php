@@ -2,7 +2,14 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
+<!-- jQuery-->
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
 
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modernizr.js"></script>
 
 </head>
 <body class="animated-all">
@@ -74,14 +81,7 @@
 </main>
 </br>
 
-<!-- jQuery-->
-<script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/jquery-migrate-1.2.1.min.js"></script>
-<script src="js/jquery-ui.min.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-<script src="js/modernizr.js"></script>
 <script src="plugins/smart-menu/smart-menu.js"></script> 
 <!--Scripts-->
 <script type="text/javascript" src="js/scripts.js"></script> 

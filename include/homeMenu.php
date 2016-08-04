@@ -90,10 +90,10 @@
 		  <li><a href="gallery.php">Gallery</a></li>
           <li><a href="blog.php">Blog</a></li>
           <li><a href="event.php">Event</a></li>
-         <li><a href="about.php">About Us</a></li>
+		  <li><a href="about.php">About Us</a></li>
 		  <li><a href="contactus.php">Contact Us</a></li>
           <!-- Classic dropdown -->
-          <!--<li class="dropdown yamm-classic"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Classic<b class="caret"></b></a>
+         <!-- <li class="dropdown yamm-classic"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Classic<b class="caret"></b></a>
             <ul class="dropdown-menu ">
               <li><a  href="#"> QUECHUA FORCLAZ 500 SOFTSHELL HIKING WEAR </a></li>
               <li><a  href="#"> FORCLAZ GOFTSHELL HIKING WEAR</a></li>

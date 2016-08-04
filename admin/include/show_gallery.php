@@ -12,7 +12,7 @@
 							
 			<td><a onclick="editCategory('<?php echo $rowgallery[$i]['gallery_id'];?>','<?php echo $rowgallery[$i]['gallary_img_name'];?>','<?php echo $rowgallery[$i]['is_display'];?>')" name="<?php echo $rowgallery[$i]['gallery_id'];?>"><i class="fa fa-pencil fa-fw"></i></a></td>
 				 
-			<td><a onClick="return confirm('are you sure you want to delete this?');" href="<?php echo DIR_INCLUDES.'gallery_post.php';?>?id=<?php echo $rowgallery[$i]['gallery_id'];?>&action=remove"><i class="fa fa-trash-o"></i></a></td>
+			<td><a onclick="removegall('<?php echo $rowgallery[$i]['gallery_id'];?>','<?php echo $rowgallery[$i]['gallary_img_name'] ?>')"><i class="fa fa-trash-o"></a></td>
 			</tr>
 		<?php
 			

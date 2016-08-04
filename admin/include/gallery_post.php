@@ -5,20 +5,22 @@ include('./header.php');
 ?>
 
 <?php
- if($_REQUEST['action']=="remove")
+ if(isset($_POST['remove']))
 {
-	$resultArray = removegallery($conn,$_REQUEST['id']);
-	
+
+	$resultArray = removegallery($conn,$_POST['gallery_id']);
+include('show_gallery.php');	
 }
-header("Location: ".HTTP_SERVER."index.php?url=GALLERY");
+//header("Location: ".HTTP_SERVER."index.php?url=GALLERY");
 ?>
 
 <?php
 if(isset($_POST['isDisplay']))
 {
-	$resultgallerydisplay=UpdateGallery($conn,$_POST['value'],$_POST['catId'],$cur_date);
+	$resultgallerydisplay=UpdateGallery($conn,$_POST['value'],$_POST['catId']);
 	include('show_gallery.php');
 }
+
 ?>
 
 <?php
@@ -72,6 +74,7 @@ if(isset($_FILES['upload_img']['name']))
 					
 				}
 		}
+		include('show_gallery.php');
 }
 ?>
 

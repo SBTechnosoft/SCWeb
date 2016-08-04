@@ -136,6 +136,13 @@ function updateGalleryMstData($conn,$gallary_img_name,$is_display,$id)
 	 $sqlUpdate="update gallery_mst set	gallary_img_name='".$gallary_img_name."',is_display='".$is_display."' where gallery_id='".$id."'";
 	return $conn -> insertQuery($sqlUpdate);
 }
+//update gallary  display
+function UpdateGallery($conn,$is_display,$id)
+{
+	 $sqlUpdate="update `gallery_mst` set
+	is_display='".$is_display."' where gallery_id='".$id."'";
+	return $conn -> insertQuery($sqlUpdate);
+}
 //update services data
 function UpdateServicesData($conn,$services_name,$services_price,$is_display,$cur_date,$id)
 {
@@ -144,6 +151,14 @@ function UpdateServicesData($conn,$services_name,$services_price,$is_display,$cu
 	services_price='".$services_price."',
 	is_display='".$is_display."',
 	update_at='".$cur_date."' where services_id='".$id."'";
+	return $conn -> insertQuery($sqlUpdate);
+}
+//update services display
+function UpdateservicesDisplay($conn,$is_display,$id,$cur_date)
+{
+	 $sqlUpdate="update `services_dtl` set
+	is_display='".$is_display."',
+	update_at='".$cur_date."'  where services_id='".$id."'";
 	return $conn -> insertQuery($sqlUpdate);
 }
 
@@ -226,4 +241,48 @@ function UpdateGalleryData1($conn,$event_gallery_dtl,$id)
 	
 	return $conn -> insertQuery($sqlUpdate);
 }
+
+//update achive
+function UpdateachiveData($conn,$name,$desc,$is_display,$cur_date,$id)
+{
+	 $sqlUpdate="update `achivement_mst` set achive_name='".$name."',achive_desc='".$desc."',is_display='".$is_display."',update_at='".$cur_date."' where achive_id='".$id."'";
+	return $conn -> insertQuery($sqlUpdate);
+}
+//update achive display
+function UpdateachiveDisplay($conn,$is_display,$id,$cur_date)
+{
+	 $sqlUpdate="update `achivement_mst` set is_display='".$is_display."',update_at='".$cur_date."' where achive_id='".$id."'";
+	return $conn -> insertQuery($sqlUpdate);
+}
+//update achive image
+function UpdateAchiveData1($conn,$achive_img,$cur_date,$id)
+{
+	 $sqlUpdate="update `achivement_mst` set
+	achive_img='".$achive_img."',
+	update_at='".$cur_date."' where achive_id='".$id."'";
+	
+	return $conn -> insertQuery($sqlUpdate);
+}
+//update testimonial
+function UpdatetestData($conn,$desc,$is_display,$cur_date,$id)
+{
+	 $sqlUpdate="update `testimonial_mst` set testimonial_desc='".$desc."',is_display='".$is_display."',update_at='".$cur_date."' where testimonial_id='".$id."'";
+	return $conn -> insertQuery($sqlUpdate);
+}
+//update testimonial display
+function UpdatetestDisplay($conn,$is_display,$id,$cur_date)
+{
+	 $sqlUpdate="update `testimonial_mst` set is_display='".$is_display."',update_at='".$cur_date."' where testimonial_id='".$id."'";
+	return $conn -> insertQuery($sqlUpdate);
+}
+//update testimonial image
+function UpdatetestData1($conn,$test_img,$cur_date,$id)
+{
+	 $sqlUpdate="update `testimonial_mst` set
+	testimonial_img='".$achive_img."',
+	update_at='".$cur_date."' where testimonial_id='".$id."'";
+	
+	return $conn -> insertQuery($sqlUpdate);
+}
+
 ?>

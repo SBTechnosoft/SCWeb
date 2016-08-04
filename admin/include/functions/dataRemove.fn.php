@@ -45,4 +45,16 @@ function removeEventData($conn,$id,$cur_date)
 	 $sqlremove="update `event_mst` set deleted_at='".$cur_date."' where event_id='".$id."'";
 	return $conn -> insertQuery($sqlremove);
 }
+//remove achive data
+function removeachiveData($conn,$id,$cur_date)
+{
+	 $sqlremove="update `achivement_mst` set deleted_at='".$cur_date."' where achive_id='".$id."'";
+	return $conn -> insertQuery($sqlremove);
+}
+//remove testimonial data
+function removetestData($conn,$id,$cur_date)
+{
+	 $sqlremove="update `testimonial_mst` set deleted_at='".$cur_date."' where testimonial_id='".$id."'";
+	return $conn -> insertQuery($sqlremove);
+}
 ?>

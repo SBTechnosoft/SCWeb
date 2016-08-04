@@ -65,21 +65,39 @@ if(isset($_POST['add']) )
 	echo json_encode($c);
 	 	 
 	 $resultArrayorg=insertOrganizerData($conn,$event_id,$_REQUEST['org_name'],$new_img2,$_REQUEST['org_no'],$_REQUEST['org_website']);
-	 
-	 $d = array();	
-	$fileName3=$_FILES['spon_logo']['name'];
-	$fileType3=$_FILES['spon_logo']['type'];
-	$fileError3=$_FILES['spon_logo']['error'];
-	$fileContent3=$_FILES['spon_logo']['tmp_name'];
-
-	$path3 = "../upload/sponserlogo";
-	$new_img3=date('ymdhis').".".pathinfo($_FILES['spon_logo']['name'], PATHINFO_EXTENSION);
-	move_uploaded_file($fileContent3,$path3."/".$new_img3);
-  
-   echo json_encode($d);
-	 	 
-	 $resultArraysponser=insertsponserData($conn,$event_id,$_REQUEST['spon_name'],$new_img3,$_REQUEST['spon_no'],$_REQUEST['spon_website']);
-	include('show_event.php');
+	 //Sponsers
+	if(isset($_POST['spon_name']))
+	{
+		for($i=0;$i<count($_POST['spon_name']);$i++)
+		{
+			$spon_name=$_POST['spon_name'][$i];
+			$spon_website=$_POST['spon_website'][$i];
+			$spon_no=$_POST['spon_no'][$i];
+			$sponserlogo_name="";
+			// if(isset($_FILES['sponserlogo']['name'][$i]))
+			// {
+				$sponserlogo_name=$_FILES['spon_logo']['name'][$i];
+				$sponserlogo_tmp_name=$_FILES['spon_logo']['tmp_name'][$i];
+				$sponserlogo_type=$_FILES['spon_logo']['type'][$i];
+				if (!file_exists('../upload/sponserlogo'))
+				{
+					mkdir('../upload/sponserlogo', 0777, true);
+					$location = '../upload/sponserlogo';
+					
+				}
+				else
+				{	
+					$location = '../upload/sponserlogo';
+				}	
+				$sponserlogo_name=uploadimage($sponserlogo_name,$sponserlogo_name,$sponserlogo_tmp_name,$sponserlogo_type,$location,2000,2000,"");
+			// }
+			
+			$resultArraysponser=insertsponserData($conn,$event_id,$_REQUEST['spon_name'],$sponserlogo_name,$_REQUEST['spon_no'],$_REQUEST['spon_website']);
+			include('show_event.php');
+		}
+	}
+	
+	include('show_event.php'); 
 			
 }
 

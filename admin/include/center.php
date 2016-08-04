@@ -1,10 +1,11 @@
 <?php
 $url='';
- 
-if (isset($_GET['url']))
-{
-	switch(strtoupper($_GET['url']))
-      {
+ if(isset($_SESSION['login-user-id']) && ($_SESSION['login-user-id']!=''))
+ {
+	if (isset($_GET['url']))
+	{
+		switch(strtoupper($_GET['url']))
+			{
 				case 'PROD':
                     $url = FILENAME_PRODUCT;
                     break;
@@ -35,18 +36,37 @@ if (isset($_GET['url']))
 				case 'EVENT':
                     $url = FILENAME_EVENT;
                     break;
+				case 'CONTACT':
+                    $url = FILENAME_CONTACT;
+                    break;
+				case 'LGP':
+                    $url = FILENAME_LOGINPOST;
+                    break;
+				case 'LGO':
+                    $url = FILENAME_LOGOUT;
+                    break;
+				case 'ACHIVE':
+                    $url = FILENAME_ACHIVE;
+                    break;
+				case 'TEST':
+                    $url = FILENAME_TESTIMONIAL;
+                    break;
 				default:
-				$url= FILENAME_PRODUCT;
+				$url= FILENAME_ACHIVE;
 				break;
 				
-		}
-}
-else
-{
-	$url=FILENAME_PRODUCT;
+			}
+	}
+	else
+	{
+		$url=FILENAME_ACHIVE;
+	}
+	include_once($url);
 }
 
-include_once($url);
- 
+else
+{
+	header("Location:login.php");
+}
   
 ?>

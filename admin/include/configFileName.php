@@ -14,4 +14,10 @@ define('FILENAME_BLOG',DIR_WS_INCLUDES.'blog.php');
 define('FILENAME_GALLERY',DIR_WS_INCLUDES.'gallery.php');
 define('FILENAME_SERVICES',DIR_WS_INCLUDES.'services.php');
 define('FILENAME_EVENT',DIR_WS_INCLUDES.'event.php');
+define('FILENAME_CONTACT',DIR_WS_INCLUDES.'contact_us.php');
+define('FILENAME_LOGIN',DIR_WS_INCLUDES.'login.php');
+define('FILENAME_LOGINPOST',DIR_WS_INCLUDES.'loginPost.php');
+define('FILENAME_LOGOUT',DIR_WS_INCLUDES.'logout.php');
+define('FILENAME_ACHIVE',DIR_WS_INCLUDES.'our_achive.php');
+define('FILENAME_TESTIMONIAL',DIR_WS_INCLUDES.'testimonial.php');
 ?>

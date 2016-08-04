@@ -11,64 +11,17 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 <script src="js/modernizr.js"></script>
-
-
-
-
-<!-- Switcher Only -->
-
-
-<link rel="stylesheet" id="switcher-css" type="text/css" href="plugins/switcher/css/switcher.css" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/pink.css" title="pink" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/purple.css" title="purple" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/blue.css" title="blue" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/green.css" title="green" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/red.css" title="red" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/yellow.css" title="yellow" media="all" />
-
-
-<!-- Switcher Only -->
-
-
 </head>
 
 <body class="animated-all">
-
-
-<!-- Start Switcher -->
-<div class="demo_changer">
-  <div class="demo-icon"> <i class="fa fa-cog fa-spin fa-2x"></i> </div>
-  <!-- end opener icon -->
-  <div class="form_holder">
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="predefined_styles">
-          <h4>Color Skins </h4>
-          <!-- MODULE #3 --> 
-          <a href="" rel="pink" class="styleswitch"><img src="plugins/switcher/images/icons/pink.png" alt="img"></a> <a href="" rel="purple" class="styleswitch"><img src="plugins/switcher/images/icons/purple.png" alt="img"></a> <a href="" rel="blue" class="styleswitch"><img src="plugins/switcher/images/icons/blue.png" alt="img"></a> <a href="" rel="green" class="styleswitch"><img src="plugins/switcher/images/icons/green.png" alt="img"></a> <a href="" rel="red" class="styleswitch"><img src="plugins/switcher/images/icons/red.png" alt="img"></a> <a href="" rel="yellow" class="styleswitch"><img src="plugins/switcher/images/icons/yellow.png" alt="img"></a> 
-          <!-- END MODULE #3 --> 
-          
-        </div>
-        <!-- end predefined_styles --> 
-      </div>
-      <!-- end col --> 
-      
-      <!-- end col --> 
-    </div>
-    <!-- end row --> 
-  </div>
-  <!-- end form_holder --> 
-</div>
-<!-- end demo_changer --> 
-<!-- End Switcher -->
 <?php include(FILENAME_HOMEMENU);?>	
 
 <div class="page-header">
   <div class="container">
-    <h3 class="page-title float-left">Shop</h3>
+    <h3 class="page-title float-left">Product Deatil</h3>
     <ol class="breadcrumb float-right">
-      <li><a href="#">Shop</a></li>
-      <li class="active">catalog</li>
+      <li><a href="product.php">Product</a></li>
+      <li class="active">Product Datail</li>
     </ol>
   </div>
 </div>
@@ -76,8 +29,8 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-        <div class="pull-left"> <a href="shop.html" class="btn-arrow"> BACK TO CATEGORY</a> </div>
-        <div class="pull-right"> <a href="#" class="btn btn-arrow-left"><span class="icomoon-arrow-left"></span></a><a class="btn btn-arrow-right" href="#"><span class="icomoon-arrow-right"></span></a> </div>
+        <div class="pull-left"> <a href="product.php" class="btn-arrow"> BACK TO PRODUCTS</a> </div>
+        
       </div>
     </div>
   </div>
@@ -91,7 +44,10 @@
 					$rowMainCategory=getSingleProduct($conn);
 					$countCat=count($rowMainCategory);
 					for($i=0;$i<$countCat;$i++)
-						{ ?>
+						{ 
+					$company_id=$rowMainCategory[$i]['company_id'];
+					$cat_id=$rowMainCategory[$i]['cat_id'];
+			?>
           <div class="row">
             <div class="col-md-5">
               <div class="product-image-left animated" data-animation="bounceInUp">
@@ -107,16 +63,8 @@
 				  
                   <div id="carousel" class="flexslider">
                     <ul class="slides">
-                      <li> <img src="media/item/4/1.jpg" width="600" height="700" alt="img"/> </li>
-                      <li> <img src="media/item/4/2.jpg" width="600" height="700" alt="img"/> </li>
-                      <li> <img src="media/item/4/3.jpg" width="600" height="700" alt="img"/> </li>
-                      <li> <img src="media/item/4/4.jpg" width="600" height="700" alt="img"/></li>
-                      <li> <img src="media/item/4/5.jpg" width="600" height="700" alt="img"/></li>
-                      <li> <img src="media/item/4/1.jpg" width="600" height="700" alt="img"/> </li>
-                      <li> <img src="media/item/4/2.jpg" width="600" height="700" alt="img"/> </li>
-                      <li> <img src="media/item/4/3.jpg" width="600" height="700" alt="img"/> </li>
-                      <li> <img src="media/item/4/4.jpg" width="600" height="700" alt="img"/></li>
-                      <li> <img src="media/item/4/5.jpg" width="600" height="700" alt="img"/></li>
+                      <li> <img src="<?php echo DIR_PRODUCT.$rowMainCategory[$i]['prod_img_dtl'];?>" width="600" height="700" alt="img"/> </li>
+                      
                     </ul>
                   </div>
                 </div>
@@ -131,34 +79,12 @@
                 <hr>
                 <div class="price-box"> <span class="price-regular-single">Rs.<?php echo $rowMainCategory[$i]['prod_prize'];?></span> </div>
                 <hr>
-                <div class="product-button-group">
-                  <div class="qty"> <a class="minus_btn"><i class="fa fa-minus"></i> </a>
-                    <input type="text" class="txtbox" placeholder="1" >
-                    <a class="plus_btn"><i class="fa fa-plus"></i></a> </div>
-                  <div class="btn-group cart">
-                    <button type="button" class="btn btn-success"> Add to cart </button>
-                  </div>
-                  <div class="btn-group wishlist">
-                    <button type="button" class="btn btn-danger"> Add to wishlist </button>
-                  </div>
-                </div>
-                <hr>
                 <div class="shorty-desc">
                   <p> <?php echo $rowMainCategory[$i]['prod_desc'];?></p>
                 </div>
                 <hr>
                 <div class="footer-panel">
-                  <ul class="tag-cloud unstyled clearfix">
-                    <li><a href="#">Creative</a></li>
-                    <li><a href="#">Responsive</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">HTML</a></li>
-                    <li><a href="#">CSS</a></li>
-                    <li><a href="#">Retina</a></li>
-                    <li><a href="#">Clean</a></li>
-                  </ul>
-                  <hr>
-                  <div class="social-box">
+                   <div class="social-box">
                     <h4>SHARE THIS STORY</h4>
                     <ul class="social-links">
                       <li><a href="https://www.facebook.com/" target="_blank"><i class="icomoon-facebook"></i></a></li>
@@ -168,7 +94,7 @@
                     </ul>
                   </div>
                 </div>
-                <div class="product-label"> <img src="media/label/guarantee.png" alt="img"/> </div>
+               
               </div>
             </div>
            </div>
@@ -347,72 +273,25 @@
               <div class="widget widget-special">
                 <h3 class="widget-title"><span>Similar Products</span></h3>
                 <ul class="entry-list unstyled verticale-carousel">
+				<?php
+					$rowMain=getsimilarProduct($conn,$company_id);
+					$count1=count($rowMain);
+					for($i=0;$i<$count1;$i++)
+						{ 
+				?>
+						
                   <li>
-                    <div class="entry-thumbnail"> <a href="#" class="img"> <img src="media/item/4/1.jpg" width="600" height="700" alt=""/></a> </div>
+                    <div class="entry-thumbnail">  <img src="<?php echo DIR_PRODUCT.$rowMain[$i]['prod_img_dtl'];?>" width="600" height="700" alt=""/> </div>
                     <div class="entry-main">
                       <div class="entry-header">
-                        <h5 class="entry-title"><a href="#">Phasellus vehicula</a></h5>
+                        <h5 class="entry-title"><a href="product_detail.php?id=<?php echo $rowMain[$i]['prod_img_id'];?>"><?php echo $rowMain[$i]['prod_name'];?></a></h5>
                       </div>
                       <div class="entry-meta">
-                        <div class="price-box"> <span class="price-regular-single">$120.00</span> <span class="price-reduction">70%</span> </div>
+                        <div class="price-box"> <span class="price-regular-single">Rs.<?php echo $rowMain[$i]['prod_prize'];?></span> </div>
                       </div>
                     </div>
                   </li>
-                  <li>
-                    <div class="entry-thumbnail"> <a href="#" class="img"> <img src="media/item/4/4.jpg" width="600" height="700" alt=""/></a> </div>
-                    <div class="entry-header">
-                      <h5 class="entry-title"><a href="#">Cras temnpus.</a></h5>
-                    </div>
-                    <div class="entry-main">
-                      <div class="entry-meta">
-                        <div class="price-box"> <span class="price-regular-single">$120.00</span> </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="entry-thumbnail"> <a href="#" class="img"> <img src="media/item/5/1.jpg" width="600" height="700" alt=""/></a> </div>
-                    <div class="entry-main">
-                      <div class="entry-header">
-                        <h5 class="entry-title"><a href="#"> Aliquam interdum .</a></h5>
-                      </div>
-                      <div class="entry-meta">
-                        <div class="price-box"> <span class="price-regular-single">$120.00</span> <span class="price-old">$200.00</span> </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="entry-thumbnail"> <a href="#" class="img"> <img src="media/item/5/1.jpg" width="600" height="700" alt=""/></a> </div>
-                    <div class="entry-main">
-                      <div class="entry-header">
-                        <h5 class="entry-title"><a href="#">Phasellus vehicula</a></h5>
-                      </div>
-                      <div class="entry-meta">
-                        <div class="price-box"> <span class="price-regular-single">$120.00</span> <span class="price-reduction">70%</span> </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="entry-thumbnail"> <a href="#" class="img"> <img src="media/item/5/2.jpg" width="600" height="700" alt=""/></a> </div>
-                    <div class="entry-header">
-                      <h5 class="entry-title"><a href="#">Cras temnpus.</a></h5>
-                    </div>
-                    <div class="entry-main">
-                      <div class="entry-meta">
-                        <div class="price-box"> <span class="price-regular-single">$120.00</span> </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="entry-thumbnail"> <a href="#" class="img"> <img src="media/item/7/1.jpg" width="600" height="700" alt="img"/></a> </div>
-                    <div class="entry-main">
-                      <div class="entry-header">
-                        <h5 class="entry-title"><a href="#"> Aliquam interdum .</a></h5>
-                      </div>
-                      <div class="entry-meta">
-                        <div class="price-box"> <span class="price-regular">$120.00</span> <span class="price-old">$200.00</span> </div>
-                      </div>
-                    </div>
-                  </li>
+						<?php }?>
                 </ul>
               </div>
             </div>
@@ -443,351 +322,30 @@
       <section class="xcarousel-4 animated " data-animation="bounceInUp">
         <div class="x-frame" >
           <ul class="x-slider product-grid ">
+		  <?php
+					$rowMain1=getsimilarCatProduct($conn,$cat_id);
+					$count2=count($rowMain1);
+					for($i=0;$i<$count2;$i++)
+						{ 
+				?>
+				
             <li>
               <div class="product-container">
-                <div class="product-image"> <span class="label-sale">sale</span>
-                  <div class="btn-action-item"> <a href="product.html" class="btn-cart  x-hover"> <i class="fa fa-shopping-cart"></i></a> <a href="product.html"> <i class="icomoon-heart"></i></a> <a  href="include/product-only-content.html" data-toggle="modal" data-target="#quick-view-id47" > <i class="icomoon-search"></i></a> <a href="media/item/4/2.jpg" class="magnific"> <i class="icomoon-eye-open"></i></a> </div>
-                  <a href="product.html"> <img   
-         src="media/item/4/2.jpg" width="600" height="700" alt="img"/></a> <a href="product.html"> <img  class="b-lazy slider_img"  
-         src="media/item/4/3.jpg" width="600" height="700" alt="img"/></a> </div>
+                <div class="product-image"> 
+                  <div class="btn-action-item"> <a href="<?php echo DIR_PRODUCT.$rowMain1[$i]['prod_img_dtl'];?>" class="magnific"> <i class="icomoon-eye-open"></i></a> </div>
+                  <a href="product_detail.php?id=<?php echo $rowMain1[$i]['prod_img_id'];?>"> <img   
+					src="<?php echo DIR_PRODUCT.$rowMain1[$i]['prod_img_dtl'];?>" width="600" height="700" alt="img"/></a> </div>
                 <div class="product-bottom">
-                  <h3 class="product-name x-hover"><span class="x-hover-text">QUECHUA FORCLAZ 
-                    500 SOFTSHELL HIKING WEAR</span></h3>
-                  <div class="price-box"> <span class="price-regular">$120.00</span> <span class="price-old">$200.00</span> </div>
-                  <div class="only-list-view">
-                    <div class="product-desc">
-                      <p>Quod satis pecuniae sempiternum. Ut sciat oportet motum. Nunquam invenies eum. Hic de tabula. Ego vivere, ut debui, et nunc fiant. Istuc quod opus non est. Lorem ipsum occurrebat pragmaticam semper ut, si quis ita velim tibi bene recognoscere. Quorum duo te mihi videtur. </p>
-                    </div>
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-danger"> Add to cart </button>
-                    </div>
-                    <div class="btn-group"> <a class="btn "  href="#product.html">View more</a> </div>
-                  </div>
-                </div>
+                  <h3 class="product-name x-hover"><span class="x-hover-text"><?php echo $rowMain1[$i]['prod_name'];?></span></h3>
+                  <div class="price-box"> <span class="price-regular">Rs.<?php echo $rowMain1[$i]['prod_prize'];?></span> </div>
+                  
               </div>
             </li>
-            <li>
-              <div class="product-container ">
-                <div class="product-image"> <span class="label-hot">HOT</span>
-                  <div class="btn-action-item"> <a href="product.html" class="btn-cart  x-hover"> <i class="fa fa-shopping-cart"></i></a> <a href="product.html"> <i class="icomoon-heart"></i></a> <a  href="include/product-only-content.html" data-toggle="modal" data-target="#quick-view-id47" > <i class="icomoon-search"></i></a> <a href="media/item/4/5.jpg" class="magnific"> <i class="icomoon-eye-open"></i></a> </div>
-                  <img   
-         src="media/item/4/4.jpg" width="600" height="700" alt="img"/> <img  class="b-lazy slider_img"  
-         src="media/item/4/5.jpg" width="600" height="700" alt="img"/> </div>
-                <div class="product-bottom">
-                  <h3 class="product-name x-hover"><span class="x-hover-text">FORCLAZ 
-                    GOFTSHELL HIKING WEAR</span></h3>
-                  <div class="price-box"> <span class="price-regular">$5420.00</span> <span class="price-reduction">70%</span> </div>
-                  <div class="only-list-view">
-                    <div class="product-desc">
-                      <p>Quod satis pecuniae sempiternum. Ut sciat oportet motum. Nunquam invenies eum. Hic de tabula. Ego vivere, ut debui, et nunc fiant. Istuc quod opus non est. Lorem ipsum occurrebat pragmaticam semper ut, si quis ita velim tibi bene recognoscere. Quorum duo te mihi videtur. </p>
-                    </div>
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-danger"> Add to cart </button>
-                    </div>
-                    <div class="btn-group"> <a class="btn "  href="#product.html">View more</a> </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="product-container">
-                <div class="product-image"> <span class="label-sale">sale</span>
-                  <div class="btn-action-item"> <a href="product.html" class="btn-cart  x-hover"> <i class="fa fa-shopping-cart"></i></a> <a href="product.html"> <i class="icomoon-heart"></i></a> <a  href="include/product-only-content.html" data-toggle="modal" data-target="#quick-view-id47" > <i class="icomoon-search"></i></a> <a href="media/item/5/1.jpg" class="magnific"> <i class="icomoon-eye-open"></i></a> </div>
-                  <a href="product.html"> <img   
-         src="media/item/5/1.jpg" width="600" height="700" alt="img"/></a> <a href="product.html"> <img  class="b-lazy slider_img"  
-         src="media/item/5/1.jpg" width="600" height="700" alt="img"/></a> </div>
-                <div class="product-bottom">
-                  <h3 class="product-name x-hover"><span class="x-hover-text">SOFTSHELL HIKING 300 WEAR</span></h3>
-                  <div class="price-box"> <span class="price-regular">$220.00</span> <span class="price-old">$700.00</span> </div>
-                  <div class="only-list-view">
-                    <div class="product-desc">
-                      <p>Quod satis pecuniae sempiternum. Ut sciat oportet motum. Nunquam invenies eum. Hic de tabula. Ego vivere, ut debui, et nunc fiant. Istuc quod opus non est. Lorem ipsum occurrebat pragmaticam semper ut, si quis ita velim tibi bene recognoscere. Quorum duo te mihi videtur. </p>
-                    </div>
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-danger"> Add to cart </button>
-                    </div>
-                    <div class="btn-group"> <a class="btn "  href="#product.html">View more</a> </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="product-container">
-                <div class="product-image">
-                  <div class="btn-action-item"> <a href="product.html" class="btn-cart  x-hover"> <i class="fa fa-shopping-cart"></i></a> <a href="product.html"> <i class="icomoon-heart"></i></a> <a  href="include/product-only-content.html" data-toggle="modal" data-target="#quick-view-id47" > <i class="icomoon-search"></i></a> <a href="media/item/6/26.jpg" class="magnific"> <i class="icomoon-eye-open"></i></a> </div>
-                  <img   
-         src="media/item/6/26.jpg" width="600" height="700" alt="img"/> <img  class="b-lazy slider_img"  
-         src="media/item/6/27.jpg" width="600" height="700" alt="img"/> </div>
-                <div class="product-bottom">
-                  <h3 class="product-name x-hover"><span class="x-hover-text">Paenitet me789 quod tultus plastic</span></h3>
-                  <div class="price-box"> <span class="price-regular">$220.00</span> </div>
-                  <div class="only-list-view">
-                    <div class="product-desc">
-                      <p>Quod satis pecuniae sempiternum. Ut sciat oportet motum. Nunquam invenies eum. Hic de tabula. Ego vivere, ut debui, et nunc fiant. Istuc quod opus non est. Lorem ipsum occurrebat pragmaticam semper ut, si quis ita velim tibi bene recognoscere. Quorum duo te mihi videtur. </p>
-                    </div>
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-danger"> Add to cart </button>
-                    </div>
-                    <div class="btn-group"> <a class="btn "  href="#product.html">View more</a> </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="product-container label-hot-active">
-                <div class="product-image"> <span class="label-best">BESTSELLER</span> <div class="label-star">
-                    <div  class="starrr" data-rating='4'></div>
-                    </div>
-                    <div class="btn-action-item"> <a href="product.html" class="btn-cart  x-hover"> <i class="fa fa-shopping-cart"></i></a> <a href="product.html"> <i class="icomoon-heart"></i></a> <a  href="include/product-only-content.html" data-toggle="modal" data-target="#quick-view-id47" > <i class="icomoon-search"></i></a> <a href="media/item/8/1.jpg" class="magnific"> <i class="icomoon-eye-open"></i></a> </div>
-                    <img   
-         src="media/item/8/1.jpg" width="600" height="700" alt="img"/> <img  class="b-lazy slider_img"  
-         src="media/item/8/2.jpg" width="600" height="700" alt="img"/> </div>
-                <div class="product-bottom">
-                  <h3 class="product-name x-hover"><span class="x-hover-text">FORCLAZ 
-                    500 SOFTSHELL HIKING WEAR</span></h3>
-                  <div class="price-box"> <span class="price-regular">$820.00</span> <span class="price-reduction">70%</span> </div>
-                  <div class="only-list-view">
-                    <div class="product-desc">
-                      <p>Quod satis pecuniae sempiternum. Ut sciat oportet motum. Nunquam invenies eum. Hic de tabula. Ego vivere, ut debui, et nunc fiant. Istuc quod opus non est. Lorem ipsum occurrebat pragmaticam semper ut, si quis ita velim tibi bene recognoscere. Quorum duo te mihi videtur. </p>
-                    </div>
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-danger"> Add to cart </button>
-                    </div>
-                    <div class="btn-group"> <a class="btn "  href="#product.html">View more</a> </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="product-container">
-                <div class="product-image">
-                  <div class="btn-action-item"> <a href="product.html" class="btn-cart  x-hover"> <i class="fa fa-shopping-cart"></i></a> <a href="product.html"> <i class="icomoon-heart"></i></a> <a  href="include/product-only-content.html" data-toggle="modal" data-target="#quick-view-id47" > <i class="icomoon-search"></i></a> <a href="media/item/7/1.jpg" class="magnific"> <i class="icomoon-eye-open"></i></a> </div>
-                  <a href="product.html"> <img   
-         src="media/item/7/1.jpg" width="600" height="700" alt="img"/></a> <a href="product.html"> <img  class="b-lazy slider_img"  
-         src="media/item/7/2.jpg" width="600" height="700" alt="img"/></a> </div>
-                <div class="product-bottom">
-                  <h3 class="product-name x-hover"><span class="x-hover-text">QUECHUA FORCLAZ 
-                    500LL HIKING WEAR</span></h3>
-                  <div class="price-box"> <span class="price-regular">$170.00</span> </div>
-                  <div class="only-list-view">
-                    <div class="product-desc">
-                      <p>Quod satis pecuniae sempiternum. Ut sciat oportet motum. Nunquam invenies eum. Hic de tabula. Ego vivere, ut debui, et nunc fiant. Istuc quod opus non est. Lorem ipsum occurrebat pragmaticam semper ut, si quis ita velim tibi bene recognoscere. Quorum duo te mihi videtur. </p>
-                    </div>
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-danger"> Add to cart </button>
-                    </div>
-                    <div class="btn-group"> <a class="btn "  href="#product.html">View more</a> </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="product-container">
-                <div class="product-image"> <span class="label-sale">sale</span>
-                  <div class="btn-action-item"> <a href="product.html" class="btn-cart  x-hover"> <i class="fa fa-shopping-cart"></i></a> <a href="product.html"> <i class="icomoon-heart"></i></a> <a  href="include/product-only-content.html" data-toggle="modal" data-target="#quick-view-id47" > <i class="icomoon-search"></i></a> <a href="media/item/4/2.jpg" class="magnific"> <i class="icomoon-eye-open"></i></a> </div>
-                  <a href="product.html"> <img   
-         src="media/item/4/2.jpg" width="600" height="700" alt="img"/></a> <a href="product.html"> <img  class="b-lazy slider_img"  
-         src="media/item/4/3.jpg" width="600" height="700" alt="img"/></a> </div>
-                <div class="only-list-view">
-                  <div class="product-desc">
-                    <p>Quod satis pecuniae sempiternum. Ut sciat oportet motum. Nunquam invenies eum. Hic de tabula. Ego vivere, ut debui, et nunc fiant. Istuc quod opus non est. Lorem ipsum occurrebat pragmaticam semper ut, si quis ita velim tibi bene recognoscere. Quorum duo te mihi videtur. </p>
-                  </div>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-danger"> Add to cart </button>
-                  </div>
-                  <div class="btn-group"> <a class="btn "  href="#product.html">View more</a> </div>
-                </div>
-                <div class="product-bottom">
-                  <h3 class="product-name x-hover"><span class="x-hover-text">QUECHUA FORCLAZ 
-                    500 SOFTSHELL HIKING WEAR</span></h3>
-                  <div class="price-box"> <span class="price-regular">$120.00</span> <span class="price-old">$200.00</span> </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="product-container">
-                <div class="product-image">
-                  <div class="btn-action-item"> <a href="product.html" class="btn-cart  x-hover"> <i class="fa fa-shopping-cart"></i></a> <a href="product.html"> <i class="icomoon-heart"></i></a> <a  href="include/product-only-content.html" data-toggle="modal" data-target="#quick-view-id47" > <i class="icomoon-search"></i></a> <a href="media/item/4/5.jpg" class="magnific"> <i class="icomoon-eye-open"></i></a> </div>
-                  <img   
-         src="media/item/4/4.jpg" width="600" height="700" alt="img"/> <img  class="b-lazy slider_img"  
-         src="media/item/4/5.jpg" width="600" height="700" alt="img"/> </div>
-                <div class="product-bottom">
-                  <h3 class="product-name x-hover"><span class="x-hover-text">FORCLAZ 
-                    500 SOFTSHELL HIKING WEAR</span></h3>
-                  <div class="price-box"> <span class="price-regular">$120.00</span> <span class="price-reduction">70%</span> </div>
-                  <div class="only-list-view">
-                    <div class="product-desc">
-                      <p>Quod satis pecuniae sempiternum. Ut sciat oportet motum. Nunquam invenies eum. Hic de tabula. Ego vivere, ut debui, et nunc fiant. Istuc quod opus non est. Lorem ipsum occurrebat pragmaticam semper ut, si quis ita velim tibi bene recognoscere. Quorum duo te mihi videtur. </p>
-                    </div>
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-danger"> Add to cart </button>
-                    </div>
-                    <div class="btn-group"> <a class="btn "  href="#product.html">View more</a> </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="product-container label-not-available-active">
-                <div class="product-image"> <span class="label-not-available">not available</span>
-                  <div class="btn-action-item"> <a href="product.html" class="btn-cart  x-hover"> <i class="fa fa-shopping-cart"></i></a> <a href="product.html"> <i class="icomoon-heart"></i></a> <a  href="include/product-only-content.html" data-toggle="modal" data-target="#quick-view-id47" > <i class="icomoon-search"></i></a> <a href="media/item/5/1.jpg" class="magnific"> <i class="icomoon-eye-open"></i></a> </div>
-                  <a href="product.html"> <img   
-         src="media/item/5/1.jpg" width="600" height="700" alt="img"/></a> <a href="product.html"> <img  class="b-lazy slider_img"  
-         src="media/item/5/1.jpg" width="600" height="700" alt="img"/></a> </div>
-                <div class="product-bottom">
-                  <h3 class="product-name x-hover"><span class="x-hover-text">SOFTSHELL HIKING 300 WEAR</span></h3>
-                  <div class="price-box"> <span class="price-regular">$420.00</span> <span class="price-old">$700.00</span> </div>
-                  <div class="only-list-view">
-                    <div class="product-desc">
-                      <p>Quod satis pecuniae sempiternum. Ut sciat oportet motum. Nunquam invenies eum. Hic de tabula. Ego vivere, ut debui, et nunc fiant. Istuc quod opus non est. Lorem ipsum occurrebat pragmaticam semper ut, si quis ita velim tibi bene recognoscere. Quorum duo te mihi videtur. </p>
-                    </div>
-                    <div class="btn-group">
-                      <button type="button" disabled class="btn btn-danger"> Add to cart </button>
-                    </div>
-                    <div class="btn-group"> <a class="btn "  href="#product.html">View more</a> </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="product-container label-hot-active ">
-                <div class="product-image"> <span class="label-hot">HOT</span>
-                  <div class="btn-action-item"> <a href="product.html" class="btn-cart  x-hover"> <i class="fa fa-shopping-cart"></i></a> <a href="product.html"> <i class="icomoon-heart"></i></a> <a  href="include/product-only-content.html" data-toggle="modal" data-target="#quick-view-id47" > <i class="icomoon-search"></i></a> <a href="media/item/8/1.jpg" class="magnific"> <i class="icomoon-eye-open"></i></a> </div>
-                  <img   
-         src="media/item/8/1.jpg" width="600" height="700" alt="img"/> <img  class="b-lazy slider_img"  
-         src="media/item/8/2.jpg" width="600" height="700" alt="img"/> </div>
-                <div class="product-bottom">
-                  <h3 class="product-name x-hover"><span class="x-hover-text">FORCLAZ 
-                    500 SOFTSHELL HIKING WEAR</span></h3>
-                  <div class="price-box"> <span class="price-regular">$120.00</span> <span class="price-reduction">70%</span> </div>
-                  <div class="only-list-view">
-                    <div class="product-desc">
-                      <p>Quod satis pecuniae sempiternum. Ut sciat oportet motum. Nunquam invenies eum. Hic de tabula. Ego vivere, ut debui, et nunc fiant. Istuc quod opus non est. Lorem ipsum occurrebat pragmaticam semper ut, si quis ita velim tibi bene recognoscere. Quorum duo te mihi videtur. </p>
-                    </div>
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-danger"> Add to cart </button>
-                    </div>
-                    <div class="btn-group"> <a class="btn "  href="#product.html">View more</a> </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="product-container">
-                <div class="product-image">
-                  <div class="btn-action-item"> <a href="product.html" class="btn-cart  x-hover"> <i class="fa fa-shopping-cart"></i></a> <a href="product.html"> <i class="icomoon-heart"></i></a> <a  href="include/product-only-content.html" data-toggle="modal" data-target="#quick-view-id47" > <i class="icomoon-search"></i></a> <a href="media/item/6/26.jpg" class="magnific"> <i class="icomoon-eye-open"></i></a> </div>
-                  <img   
-         src="media/item/6/26.jpg" width="600" height="700" alt="img"/> <img  class="b-lazy slider_img"  
-         src="media/item/6/27.jpg" width="600" height="700" alt="img"/> </div>
-                <div class="product-bottom">
-                  <h3 class="product-name x-hover"><span class="x-hover-text">Paenitet me789 quod tultus plastic</span></h3>
-                  <div class="price-box"> <span class="price-regular">$220.00</span> </div>
-                  <div class="only-list-view">
-                    <div class="product-desc">
-                      <p>Quod satis pecuniae sempiternum. Ut sciat oportet motum. Nunquam invenies eum. Hic de tabula. Ego vivere, ut debui, et nunc fiant. Istuc quod opus non est. Lorem ipsum occurrebat pragmaticam semper ut, si quis ita velim tibi bene recognoscere. Quorum duo te mihi videtur. </p>
-                    </div>
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-danger"> Add to cart </button>
-                    </div>
-                    <div class="btn-group"> <a class="btn "  href="#product.html">View more</a> </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="product-container">
-                <div class="product-image">
-                  <div class="btn-action-item"> <a href="product.html" class="btn-cart  x-hover"> <i class="fa fa-shopping-cart"></i></a> <a href="product.html"> <i class="icomoon-heart"></i></a> <a  href="include/product-only-content.html" data-toggle="modal" data-target="#quick-view-id47" > <i class="icomoon-search"></i></a> <a href="media/item/7/1.jpg" class="magnific"> <i class="icomoon-eye-open"></i></a> </div>
-                  <a href="product.html"> <img   
-         src="media/item/7/1.jpg" width="600" height="700" alt="img"/></a> <a href="product.html"> <img  class="b-lazy slider_img"  
-         src="media/item/7/2.jpg" width="600" height="700" alt="img"/></a> </div>
-                <div class="product-bottom">
-                  <h3 class="product-name x-hover"><span class="x-hover-text">QUECHUA FORCLAZ 
-                    500LL HIKING WEAR</span></h3>
-                  <div class="price-box"> <span class="price-regular">$170.00</span> </div>
-                  <div class="only-list-view">
-                    <div class="product-desc">
-                      <p>Quod satis pecuniae sempiternum. Ut sciat oportet motum. Nunquam invenies eum. Hic de tabula. Ego vivere, ut debui, et nunc fiant. Istuc quod opus non est. Lorem ipsum occurrebat pragmaticam semper ut, si quis ita velim tibi bene recognoscere. Quorum duo te mihi videtur. </p>
-                    </div>
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-danger"> Add to cart </button>
-                    </div>
-                    <div class="btn-group"> <a class="btn "  href="#product.html">View more</a> </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="product-container">
-                <div class="product-image"> <span class="label-sale">sale</span>
-                  <div class="btn-action-item"> <a href="product.html" class="btn-cart  x-hover"> <i class="fa fa-shopping-cart"></i></a> <a href="product.html"> <i class="icomoon-heart"></i></a> <a  href="include/product-only-content.html" data-toggle="modal" data-target="#quick-view-id47" > <i class="icomoon-search"></i></a> <a href="media/item/4/2.jpg" class="magnific"> <i class="icomoon-eye-open"></i></a> </div>
-                  <a href="product.html"> <img   
-         src="media/item/4/2.jpg" width="600" height="700" alt="img"/></a> <a href="product.html"> <img  class="b-lazy slider_img"  
-         src="media/item/4/3.jpg" width="600" height="700" alt="img"/></a> </div>
-                <div class="product-bottom">
-                  <h3 class="product-name x-hover"><span class="x-hover-text">QUECHUA FORCLAZ 
-                    500 SOFTSHELL HIKING WEAR</span></h3>
-                  <div class="price-box"> <span class="price-regular">$120.00</span> <span class="price-old">$200.00</span> </div>
-                  <div class="only-list-view">
-                    <div class="product-desc">
-                      <p>Quod satis pecuniae sempiternum. Ut sciat oportet motum. Nunquam invenies eum. Hic de tabula. Ego vivere, ut debui, et nunc fiant. Istuc quod opus non est. Lorem ipsum occurrebat pragmaticam semper ut, si quis ita velim tibi bene recognoscere. Quorum duo te mihi videtur. </p>
-                    </div>
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-danger"> Add to cart </button>
-                    </div>
-                    <div class="btn-group"> <a class="btn "  href="#product.html">View more</a> </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="product-container ">
-                <div class="product-image"> <span class="label-hot">HOT</span>
-                  <div class="btn-action-item"> <a href="product.html" class="btn-cart  x-hover"> <i class="fa fa-shopping-cart"></i></a> <a href="product.html"> <i class="icomoon-heart"></i></a> <a  href="include/product-only-content.html" data-toggle="modal" data-target="#quick-view-id47" > <i class="icomoon-search"></i></a> <a href="media/item/4/5.jpg" class="magnific"> <i class="icomoon-eye-open"></i></a> </div>
-                  <img   
-         src="media/item/4/4.jpg" width="600" height="700" alt="img"/> <img  class="b-lazy slider_img"  
-         src="media/item/4/5.jpg" width="600" height="700" alt="img"/> </div>
-                <div class="product-bottom">
-                  <h3 class="product-name x-hover"><span class="x-hover-text">FORCLAZ 
-                    GOFTSHELL HIKING WEAR</span></h3>
-                  <div class="price-box"> <span class="price-regular">$5420.00</span> <span class="price-reduction">70%</span> </div>
-                  <div class="only-list-view">
-                    <div class="product-desc">
-                      <p>Quod satis pecuniae sempiternum. Ut sciat oportet motum. Nunquam invenies eum. Hic de tabula. Ego vivere, ut debui, et nunc fiant. Istuc quod opus non est. Lorem ipsum occurrebat pragmaticam semper ut, si quis ita velim tibi bene recognoscere. Quorum duo te mihi videtur. </p>
-                    </div>
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-danger"> Add to cart </button>
-                    </div>
-                    <div class="btn-group"> <a class="btn "  href="#product.html">View more</a> </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="product-container">
-                <div class="product-image"> <span class="label-sale">sale</span>
-                  <div class="btn-action-item"> <a href="product.html" class="btn-cart  x-hover"> <i class="fa fa-shopping-cart"></i></a> <a href="product.html"> <i class="icomoon-heart"></i></a> <a  href="include/product-only-content.html" data-toggle="modal" data-target="#quick-view-id47" > <i class="icomoon-search"></i></a> <a href="media/item/5/1.jpg" class="magnific"> <i class="icomoon-eye-open"></i></a> </div>
-                  <a href="product.html"> <img   
-         src="media/item/5/1.jpg" width="600" height="700" alt="img"/></a> <a href="product.html"> <img  class="b-lazy slider_img"  
-         src="media/item/5/1.jpg" width="600" height="700" alt="img"/></a> </div>
-                <div class="product-bottom">
-                  <h3 class="product-name x-hover"><span class="x-hover-text">SOFTSHELL HIKING 300 WEAR</span></h3>
-                  <div class="price-box"> <span class="price-regular">$220.00</span> <span class="price-old">$700.00</span> </div>
-                  <div class="only-list-view">
-                    <div class="product-desc">
-                      <p>Quod satis pecuniae sempiternum. Ut sciat oportet motum. Nunquam invenies eum. Hic de tabula. Ego vivere, ut debui, et nunc fiant. Istuc quod opus non est. Lorem ipsum occurrebat pragmaticam semper ut, si quis ita velim tibi bene recognoscere. Quorum duo te mihi videtur. </p>
-                    </div>
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-danger"> Add to cart </button>
-                    </div>
-                    <div class="btn-group"> <a class="btn "  href="#product.html">View more</a> </div>
-                  </div>
-                </div>
-              </div>
-            </li>
+						<?php }?>     
+            
           </ul>
         </div>
-        <div class="x-navigation navigation"> <a href="javascript:void(0);" class="btn slider-direction prev-page disabled"><i class="icomoon-arrow-left2"></i></a> <a href="javascript:void(0);" class="btn  slider-direction next-page"><i class="icomoon-arrow-right2"></i></a> </div>
+        
       </section>
     </div>
   </div>
@@ -841,14 +399,7 @@
 
 
 <?php include(FILENAME_FOOTER);?>	
-<div class="footer-absolute">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12  mobile-center"> <img src="img/pay.png" width="244" height="23" alt="pay"/> </div>
-      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right  mobile-center"> <img src="img/fot-logo-small.png" width="175" height="38" alt="logo"/> </div>
-    </div>
-  </div>
-  <a href="#" class="scroll-top "><span class="icomoon-arrow-up2"></span></a> </div>
+
 
 
 

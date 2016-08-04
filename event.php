@@ -12,59 +12,10 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 <script src="js/modernizr.js"></script>
-
-
-
-
-<!-- Switcher Only -->
-
-
-<link rel="stylesheet" id="switcher-css" type="text/css" href="plugins/switcher/css/switcher.css" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/pink.css" title="pink" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/purple.css" title="purple" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/blue.css" title="blue" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/green.css" title="green" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/red.css" title="red" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/yellow.css" title="yellow" media="all" />
-
-
-<!-- Switcher Only -->
-
-
-
 </head>
 
 <body class="animated-all">
-
-
-<!-- Start Switcher -->
-<div class="demo_changer">
-  <div class="demo-icon"> <i class="fa fa-cog fa-spin fa-2x"></i> </div>
-  <!-- end opener icon -->
-  <div class="form_holder">
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="predefined_styles">
-          <h4>Color Skins </h4>
-          <!-- MODULE #3 --> 
-          <a href="" rel="pink" class="styleswitch"><img src="plugins/switcher/images/icons/pink.png" alt="img"></a> <a href="" rel="purple" class="styleswitch"><img src="plugins/switcher/images/icons/purple.png" alt="img"></a> <a href="" rel="blue" class="styleswitch"><img src="plugins/switcher/images/icons/blue.png" alt="img"></a> <a href="" rel="green" class="styleswitch"><img src="plugins/switcher/images/icons/green.png" alt="img"></a> <a href="" rel="red" class="styleswitch"><img src="plugins/switcher/images/icons/red.png" alt="img"></a> <a href="" rel="yellow" class="styleswitch"><img src="plugins/switcher/images/icons/yellow.png" alt="img"></a> 
-          <!-- END MODULE #3 --> 
-          
-        </div>
-        <!-- end predefined_styles --> 
-      </div>
-      <!-- end col --> 
-      
-      <!-- end col --> 
-    </div>
-    <!-- end row --> 
-  </div>
-  <!-- end form_holder --> 
-</div>
-<!-- end demo_changer --> 
-<!-- End Switcher -->
-
-<div i<?php include(FILENAME_HOMEMENU);?>	
+	<?php include(FILENAME_HOMEMENU);?>
 
   <div class="page-header">
   <div class="container">
@@ -134,132 +85,62 @@
           <!-- TABBED CONTENT WIDGET -->
           <div class="widget widget-tabbed">
             <ul class="nav nav-tabs">
-              <li class="active"><a data-toggle="tab" href="#tab-popular">popular</a></li>
+              <li class="active"><a data-toggle="tab" href="#tab-popular">Upcoming</a></li>
               <li><a data-toggle="tab" href="#tab-recent2">recent</a></li>
-              <li><a data-toggle="tab" href="#tab-comments">comments</a></li>
+              
             </ul>
             <div class="tab-content">
               <div id="tab-popular" class="tab-pane active">
                 <ul class="entry-list unstyled">
+				<?php
+			$rowMainEventUp=getEventUp($conn);
+			$countEvent=count($rowMainEventUp);
+			for($i=0;$i<$countEvent;$i++)
+			{ 
+		?>
                   <li>
-                    <div class="entry-thumbnail"> <a class="img" href="#"> <img src="media/270x337/1.jpg" width="269" height="345" alt="img"/></a> </div>
+                    <div class="entry-thumbnail"> <a class="img" href=""> <img src="<?php echo DIR_EVENTBANER.$rowMainEventUp[$i]['event_baner_dtl'];?>" width="269" height="345" alt="img"/></a> </div>
                     <div class="entry-main">
                       <div class="entry-header">
-                        <h5 class="entry-title"><a href="#">Phasellus vehicula auctor nisi.</a></h5>
+                        <h5 class="entry-title"><a href="event_detail.php?id=<?php echo $rowMainEventUp[$i]['event_id'];?>"><?php echo $rowMainEventUp[$i]['event_name']; ?> </a></h5>
                       </div>
                       <div class="entry-meta">
-                        <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 27 March , 2020</a> </time>
+                        <time title="" datetime="" class="entry-datetime"><span class="icon-clock" aria-hidden="true"></span> <?php echo date('d-m-y',strtotime($rowMainEventUp[$i]['start_date_time'])); ?> </time>
                       </div>
                     </div>
                     <div class="clearfix"></div>
                   </li>
-                  <li>
-                    <div class="entry-thumbnail"> <a class="img" href="#"> <img src="media/270x337/2.jpg" width="269" height="345" alt="img"/></a> </div>
-                    <div class="entry-header">
-                      <h5 class="entry-title"><a href="#">Cras temnpus dolor Donec eget ligula</a></h5>
-                    </div>
-                    <div class="entry-main">
-                      <div class="entry-meta">
-                        <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 12 March , 2020</a> </time>
-                      </div>
-                    </div>
-                    <div class="clearfix"></div>
-                  </li>
-                  <li>
-                    <div class="entry-thumbnail"> <a class="img" href="#"> <img src="media/270x337/3.jpg" width="269" height="345" alt="img"/></a> </div>
-                    <div class="entry-main">
-                      <div class="entry-header">
-                        <h5 class="entry-title"><a href="#"> Aliquam interdum  eget sagittis eget eros.</a></h5>
-                      </div>
-                      <div class="entry-meta">
-                        <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 7 March , 2020</a> </time>
-                      </div>
-                    </div>
-                    <div class="clearfix"></div>
-                  </li>
+			<?php }?>
+                 
                 </ul>
               </div>
               <div id="tab-recent2" class="tab-pane">
                 <ul class="entry-list unstyled">
+				<?php
+			$rowMainEventnow=getEventNow($conn);
+			$countEvent=count($rowMainEventnow);
+			for($i=0;$i<$countEvent;$i++)
+			{ 
+		?>
                   <li>
-                    <div class="entry-thumbnail"> <a class="img" href="#"> <img src="media/270x337/3.jpg" width="269" height="345" alt="img"/></a> </div>
+                    <div class="entry-thumbnail"> <a class="img" > <img src="<?php echo DIR_EVENTBANER.$rowMainEventnow[$i]['event_baner_dtl'];?>" width="269" height="345" alt="img"/></a> </div>
                     <div class="entry-main">
                       <div class="entry-header">
-                        <h5 class="entry-title"><a href="#"> Aliquam interdum  eget sagittis eget eros.</a></h5>
+                        <h5 class="entry-title"><a href="event_detail.php?id=<?php echo $rowMainEventnow[$i]['event_id'];?>"> <?php echo $rowMainEventnow[$i]['event_name']; ?></a></h5>
                       </div>
                       <div class="entry-meta">
-                        <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 7 March , 2020</a> </time>
+                        <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <span class="icon-clock" aria-hidden="true"></span><?php echo date('d-m-y',strtotime($rowMainEventnow[$i]['start_date_time'])); ?> </time>
                       </div>
                     </div>
                     <div class="clearfix"></div>
                   </li>
-                  <li>
-                    <div class="entry-thumbnail"> <a class="img" href="#"> <img src="media/270x337/1.jpg" width="269" height="345" alt="img"/></a> </div>
-                    <div class="entry-main">
-                      <div class="entry-header">
-                        <h5 class="entry-title"><a href="#">Phasellus vehicula auctor nisi.</a></h5>
-                      </div>
-                      <div class="entry-meta">
-                        <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 27 March , 2020</a> </time>
-                      </div>
-                    </div>
-                    <div class="clearfix"></div>
-                  </li>
-                  <li>
-                    <div class="entry-thumbnail"> <a class="img" href="#"> <img src="media/270x337/2.jpg" width="269" height="345" alt="img"/></a> </div>
-                    <div class="entry-header">
-                      <h5 class="entry-title"><a href="#">Cras temnpus dolor Donec eget ligula</a></h5>
-                    </div>
-                    <div class="entry-main">
-                      <div class="entry-meta">
-                        <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 12 March , 2020</a> </time>
-                      </div>
-                    </div>
-                    <div class="clearfix"></div>
-                  </li>
+			<?php }?>
+                 
+                  
                 </ul>
               </div>
               
-              <div id="tab-comments" class="tab-pane">
-                <ul class="entry-list unstyled">
-                  <li>
-                    <div class="entry-thumbnail"> <a class="img" href="#"> <img src="media/270x337/1.jpg" width="269" height="345" alt="img"/></a> </div>
-                    <div class="entry-main">
-                      <div class="entry-header">
-                        <h5 class="entry-title"><a href="#">Phasellus vehicula auctor nisi.</a></h5>
-                      </div>
-                      <div class="entry-meta">
-                        <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 27 March , 2020</a> </time>
-                      </div>
-                    </div>
-                    <div class="clearfix"></div>
-                  </li>
               
-                  <li>
-                    <div class="entry-thumbnail"> <a class="img" href="#"> <img src="media/270x337/3.jpg" width="269" height="345" alt="img"/></a> </div>
-                    <div class="entry-main">
-                      <div class="entry-header">
-                        <h5 class="entry-title"><a href="#"> Aliquam interdum  eget sagittis eget eros.</a></h5>
-                      </div>
-                      <div class="entry-meta">
-                        <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 7 March , 2020</a> </time>
-                      </div>
-                    </div>
-                    <div class="clearfix"></div>
-                  </li>   <li>
-                  <div class="entry-thumbnail"> <a class="img" href="#"> <img src="media/270x337/2.jpg" width="269" height="345" alt="img"/></a> </div>
-                  <div class="entry-header">
-                    <h5 class="entry-title"><a href="#">Cras temnpus dolor Donec eget ligula</a></h5>
-                  </div>
-                  <div class="entry-main">
-                    <div class="entry-meta">
-                      <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 12 March , 2020</a> </time>
-                    </div>
-                  </div>
-                  <div class="clearfix"></div>
-                  </li>
-                </ul>
-              </div>
               
             </div>
           </div>

@@ -12,58 +12,9 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 <script src="js/modernizr.js"></script>
-
-
-
-
-<!-- Switcher Only -->
-
-
-<link rel="stylesheet" id="switcher-css" type="text/css" href="plugins/switcher/css/switcher.css" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/pink.css" title="pink" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/purple.css" title="purple" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/blue.css" title="blue" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/green.css" title="green" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/red.css" title="red" media="all" />
-<link rel="alternate stylesheet" type="text/css" href="plugins/switcher/css/yellow.css" title="yellow" media="all" />
-
-
-<!-- Switcher Only -->
-
-
 </head>
 
 <body class="animated-all">
-
-
-
-<!-- Start Switcher -->
-<div class="demo_changer">
-  <div class="demo-icon"> <i class="fa fa-cog fa-spin fa-2x"></i> </div>
-  <!-- end opener icon -->
-  <div class="form_holder">
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="predefined_styles">
-          <h4>Color Skins </h4>
-          <!-- MODULE #3 --> 
-          <a href="" rel="pink" class="styleswitch"><img src="plugins/switcher/images/icons/pink.png" alt="img"></a> <a href="" rel="purple" class="styleswitch"><img src="plugins/switcher/images/icons/purple.png" alt="img"></a> <a href="" rel="blue" class="styleswitch"><img src="plugins/switcher/images/icons/blue.png" alt="img"></a> <a href="" rel="green" class="styleswitch"><img src="plugins/switcher/images/icons/green.png" alt="img"></a> <a href="" rel="red" class="styleswitch"><img src="plugins/switcher/images/icons/red.png" alt="img"></a> <a href="" rel="yellow" class="styleswitch"><img src="plugins/switcher/images/icons/yellow.png" alt="img"></a> 
-          <!-- END MODULE #3 --> 
-          
-        </div>
-        <!-- end predefined_styles --> 
-      </div>
-      <!-- end col --> 
-      
-      <!-- end col --> 
-    </div>
-    <!-- end row --> 
-  </div>
-  <!-- end form_holder --> 
-</div>
-<!-- end demo_changer --> 
-<!-- End Switcher -->
-
 <?php include(FILENAME_HOMEMENU);?>	
 
 <div class="page-header">
@@ -83,13 +34,13 @@
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-9">
         <section class="main-content" role="main">
-		
-          <article class="post media-image   format-image animated" data-animation="bounceInUp">
-		  <?php
+		 <?php
 						$rowslider=getSingleEvent($conn);
 						$countslider=count($rowslider);
 						for($i=0;$i<$countslider;$i++)
 						{ ?>
+          <article class="post media-image   format-image animated" data-animation="">
+		 
             <div class="entry-media">
               <div class="box-date-post"> <span class="date-1"><?php echo date('d',strtotime($rowslider[$i]['start_date_time'])); ?> </span> <span class="date-2"><?php echo date('M',strtotime($rowslider[$i]['start_date_time'])); ?></span> </div>
               <div class="entry-thumbnail">
@@ -98,6 +49,7 @@
                 <div class="img-overlay "> <a  href="media/830x400/1.jpg" class="link-view-more magnific"></a> </div>
                 <img src="<?php echo DIR_EVENTBANER.$rowslider[$i]['event_baner_dtl'];?>" width="830" height="400" alt=""/> </div>
             </div>
+			 
             <div class="entry-main">
               <h3 class="entry-title"> <?php echo $rowslider[$i]['event_name']; ?> </h3>
               <div class="entry-content">
@@ -105,7 +57,7 @@
 					                                            
               </div>
             </div>
-						<?php }?>
+			
 			<div class="col-md-9  col-sm-9 product-info animated" data-animation="bounceInUp">
               <div id="tab-info-anchore"></div>
               
@@ -118,38 +70,63 @@
               <!-- Tab panes -->
               <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="tab1">
-                  <p>Pergo coctione, et ego, et tu oblivisci Pinkman. Obliviscendum hoc unquam factum. Intelligamus hoc in sola SINGULTO multo aliter atque fructuosa negotium structura. Malo B. Option. </p>
-                  <p>Ille vivere. Ut ad te quaerebam ... purgare caeli. Sunt uh ... nonnullus propter errorem qui de rebus inter nos et iacere puto suus in causa, id est in mensa. Levir meus, priusquam oppugnarent tempus quis, admonere dicitur. Credo quod idem mihi praesidium.</p>
-                  <p>&nbsp;</p>
+                  
                   <div class="row">
                     <div class="col-md-6 col-sm-6">
-                      <h4><i class="fa fa-flag"></i> One Font, 479 Icons</h4>
-                      In a single collection, Font Awesome is a pictographic language of web-related actions.
+                      <h4><i class="fa fa-flag"></i>Palce</h4>
+                     <?php echo $rowslider[$i]['event_place']; ?>
                       <hr>
                     </div>
                     
                     <div class="col-md-6 col-sm-6">
-                      <h4><i class="fa fa-pencil"></i> CSS Control</h4>
-                      Easily style icon color, size, shadow, and anything that's possible with CSS.
+                      <h4><i class="fa fa-pencil"></i>Time</h4>
+                      <?php echo date('h-i A',strtotime($rowslider[$i]['start_date_time'])); ?>
                       <hr>
                     </div>
-                    <div class="col-md-6 col-sm-6">
-                      <h4><i class="fa fa-eye"></i> Perfect on Retina Displays</h4>
-                      Font Awesome icons are vectors, which mean they're gorgeous on high-resolution displays.
-                      
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                      <h4><i class="fa fa-desktop"></i> Desktop Friendly</h4>
-                      To use on the desktop or for a complete set of vectors,
-                      check out the <a href="./cheatsheet/">cheatsheet</a>. </div>
-                    
-                  </div>
+                   
                 </div>
                 
                
               </div>
             </div>
-    <div class="footer-panel">  
+			
+    
+        <section class="about-autor">
+          
+             <div class="comments-header"><span>Organizer</span> </div>
+				<article class="comment img">
+                    <div class="avatar-placeholder"> <img width="269" height="345" alt="img" src="<?php echo DIR_EVENTORG.$rowslider[$i]['org_logo_dtl'];?>"></div>
+                    <header class="comment-header"> <cite class="comment-author"><?php echo $rowslider[$i]['org_name']; ?></cite>
+                      
+                    </header>
+                    <div class="comment-body">
+                      <p><?php echo $rowslider[$i]['org_contact']; ?></p></br>
+					  <p><?php echo $rowslider[$i]['org_website']; ?></p>
+                      
+                    </div>
+                 </article>
+				 <div class="comments-header"><span>Sponcer</span> </div>
+				<article class="comment img">
+                    <div class="avatar-placeholder"> <img width="269" height="345" alt="img" src="<?php echo DIR_EVENTSPON.$rowslider[$i]['spon_logo'];?>"></div>
+                    <header class="comment-header"> <cite class="comment-author"><?php echo $rowslider[$i]['spon_name']; ?></cite>
+                      
+                    </header>
+                    <div class="comment-body">
+                      <p><?php echo $rowslider[$i]['spon_no']; ?></p></br>
+					  <p><?php echo $rowslider[$i]['spon_website']; ?></p>
+                      
+                    </div>
+                 </article>
+          
+          </section>
+         
+         
+            
+            
+          </article>
+          
+          <?php }?>
+          <div class="footer-panel">  
        <div class="social-box">
            <h4>SHARE THIS STORY</h4>  
               <ul class="social-links">
@@ -160,138 +137,6 @@
               </ul>
         </div>
     </div>
-        <section class="about-autor">
-          
-             <div class="comments-header"><span>Organizer</span>  </div>
-				<article class="comment img">
-                    <div class="avatar-placeholder"> <img width="269" height="345" alt="img" src="media/270x337/1.jpg"></div>
-                    <header class="comment-header"> <cite class="comment-author">Rosie Thompson</cite>
-                      <time datetime="2012-10-27 15:20" class="comment-datetime"><span aria-hidden="true" class="icon-clock"></span> 27 October 2013, 15:20</time>
-                    </header>
-                    <div class="comment-body">
-                      <p>Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque.</p>
-                      <div class="transform-revers comment-reply"> <i class="fa fa-share"></i> <a href="#"> Reply </a></div>
-                    </div>
-                 </article>
-          
-          </section>
-          
-          <section class="section-comment">
-              <div class="comments-header"><span>Comments <a href="#">(6)</a></span>  </div>
-              
-              <!-- COMMENT LIST -->
-              <ul class="comments-list unstyled clearfix">
-                <li class="animated"  data-animation="bounceInUp">
-                  <article class="comment img">
-                    <div class="avatar-placeholder"> <img src="media/270x337/1.jpg" width="269" height="345" alt="img"/></div>
-                    <header class="comment-header"> <cite class="comment-author">Rosie Thompson</cite>
-                      <time class="comment-datetime" datetime="2012-10-27 15:20"><span class="icon-clock" aria-hidden="true"></span> 27 October 2013, 15:20</time>
-                    </header>
-                    <div class="comment-body">
-                      <p>Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque.</p>
-                      <div class="transform-revers comment-reply"> <i class="fa fa-share"></i> <a href="#"> Reply </a></div>
-                    </div>
-                  </article>
-                  <ul class="children clearfix">
-                    <li>
-                      <article class="comment img">
-                   <div class="avatar-placeholder"> <img src="media/270x337/2.jpg" width="269" height="345" alt="img"/></div>
-                        <header class="comment-header"> <cite class="comment-author">Rosie Thompson</cite>
-                          <time class="comment-datetime" datetime="2012-10-27 15:20"><span class="icon-clock" aria-hidden="true"></span> 27 October 2013, 15:20</time>
-                        </header>
-                        <div class="comment-body">
-                          <p>Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque.</p>
-                          <div class="transform-revers comment-reply"> <i class="fa fa-share"></i> <a href="#"> Reply </a></div>
-                        </div>
-                      </article>
-                      <ul class="children clearfix">
-                        <li>
-                          <article class="comment img">
-                             <div class="avatar-placeholder"> <img src="media/270x337/3.jpg" width="269" height="345" alt="img"/></div>
-                            <header class="comment-header"> <cite class="comment-author">Rosie Thompson</cite>
-                              <time class="comment-datetime" datetime="2012-10-27 15:20"><span class="icon-clock" aria-hidden="true"></span> 27 October 2013, 15:20</time>
-                            </header>
-                            <div class="comment-body">
-                              <p>Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque.</p>
-                              <div class="transform-revers comment-reply"> <i class="fa fa-share"></i> <a href="#"> Reply </a></div>
-                            </div>
-                          </article>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <article class="comment img">
-                        <div class="avatar-placeholder">  <img src="media/270x337/1.jpg" width="269" height="345" alt="img"/> </div>
-                        <header class="comment-header"> <cite class="comment-author">Rosie Thompson</cite>
-                          <time class="comment-datetime" datetime="2012-10-27 15:20"><span class="icon-clock" aria-hidden="true"></span> 27 October 2013, 15:20</time>
-                        </header>
-                        <div class="comment-body">
-                          <p>Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque.</p>
-                          <div class="transform-revers comment-reply"> <i class="fa fa-share"></i> <a href="#"> Reply </a></div>
-                        </div>
-                      </article>
-                    </li>
-                  </ul>
-                </li>
-                <li class="animated"  data-animation="bounceInUp">
-                  <article class="comment img">
-                    <div class="avatar-placeholder">  <img src="media/270x337/2.jpg" width="269" height="345" alt="img"/> </div>
-                    <header class="comment-header"> <cite class="comment-author">Rosie Thompson</cite>
-                      <time class="comment-datetime" datetime="2012-10-27 15:20"><span class="icon-clock" aria-hidden="true"></span> 27 October 2013, 15:20</time>
-                    </header>
-                    <div class="comment-body">
-                      <p>Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque.</p>
-                      <div class="transform-revers comment-reply"> <i class="fa fa-share"></i> <a href="#"> Reply </a></div>
-                    </div>
-                  </article>
-                </li>
-              </ul>
-              <!-- // COMMENT LIST --> 
-              
-              <!-- COMMENT REPLY -->
-              
-              <form action="#" method="post" id="comment-reply-form" class="form-full-width">
-                <div class="comments-header"><span>Leave a Comment<a href="#">(6)</a></span> 
-                
-                 </div>
-                <div class="row">
-                  <div class="col-sm-12 col-md-4">
-                    <div class="form-group">
-                      <input type="text" placeholder="Your Name" id="comment-author" name="author" required >
-                    </div>
-                  </div>
-                  <div class="col-sm-12 col-md-4">
-                    <div class="form-group">
-                      <input type="email" id="comment-email" name="email" required placeholder="Your Email">
-                    </div>
-                  </div>
-                  <div class="col-sm-12 col-md-4">
-                    <div class="form-group">
-                      <input type="text" id="comment-website" name="website" placeholder="Website" >
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-12 col-sm-12">
-                    <div class="form-group">
-                      <textarea id="comment-text" name="comment" required placeholder="Your Message"></textarea>
-                    </div>
-                  </div>
-                  <div class="space30 clearfix"></div>
-                  <div class="col-xs-12 col-sm-12 text-right">
-                    <button class="btn btn-main btn-primary btn-lg uppercase" id="contact-submit"><span>SUBMIT REPLY</span></button>
-                  </div>
-                </div>
-              </form>
-              <!-- // COMMENT REPLY --> 
-              
-            </section>
-            
-            
-          </article>
-          
-          
-          
         </section>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-3">
@@ -306,136 +151,65 @@
           
          
           <!-- TABBED CONTENT WIDGET -->
-          <div class="widget widget-tabbed">
+           <div class="widget widget-tabbed">
             <ul class="nav nav-tabs">
-              <li class="active"><a data-toggle="tab" href="#tab-popular">popular</a></li>
+              <li class="active"><a data-toggle="tab" href="#tab-popular">Upcoming</a></li>
               <li><a data-toggle="tab" href="#tab-recent2">recent</a></li>
-              <li><a data-toggle="tab" href="#tab-comments">comments</a></li>
+              
             </ul>
             <div class="tab-content">
               <div id="tab-popular" class="tab-pane active">
                 <ul class="entry-list unstyled">
-                  <li>
-                    <div class="entry-thumbnail"> <a class="img" href="#"> <img src="media/270x337/1.jpg" width="269" height="345" alt="img"/></a> </div>
+				<?php
+			$rowMainEventUp=getEventUp($conn);
+			$countEvent=count($rowMainEventUp);
+			for($i=0;$i<$countEvent;$i++)
+			{ 
+		?>
+              <li>
+                 <div class="entry-thumbnail"> <a class="img" href=""> <img src="<?php echo DIR_EVENTBANER.$rowMainEventUp[$i]['event_baner_dtl'];?>" width="269" height="345" alt="img"/></a> </div>
                     <div class="entry-main">
                       <div class="entry-header">
-                        <h5 class="entry-title"><a href="#">Phasellus vehicula auctor nisi.</a></h5>
+                        <h5 class="entry-title"><a href="event_detail.php?id=<?php echo $rowMainEventUp[$i]['event_id'];?>"><?php echo $rowMainEventUp[$i]['event_name']; ?> </a></h5>
                       </div>
                       <div class="entry-meta">
-                        <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 27 March , 2020</a> </time>
+                        <time title="" datetime="" class="entry-datetime"><span class="icon-clock" aria-hidden="true"></span> <?php echo date('d-m-y',strtotime($rowMainEventUp[$i]['start_date_time'])); ?> </time>
                       </div>
                     </div>
                     <div class="clearfix"></div>
                   </li>
-                  <li>
-                    <div class="entry-thumbnail"> <a class="img" href="#"> <img src="media/270x337/2.jpg" width="269" height="345" alt="img"/></a> </div>
-                    <div class="entry-header">
-                      <h5 class="entry-title"><a href="#">Cras temnpus dolor Donec eget ligula</a></h5>
-                    </div>
-                    <div class="entry-main">
-                      <div class="entry-meta">
-                        <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 12 March , 2020</a> </time>
-                      </div>
-                    </div>
-                    <div class="clearfix"></div>
-                  </li>
-                  <li>
-                    <div class="entry-thumbnail"> <a class="img" href="#"> <img src="media/270x337/3.jpg" width="269" height="345" alt="img"/></a> </div>
-                    <div class="entry-main">
-                      <div class="entry-header">
-                        <h5 class="entry-title"><a href="#"> Aliquam interdum  eget sagittis eget eros.</a></h5>
-                      </div>
-                      <div class="entry-meta">
-                        <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 7 March , 2020</a> </time>
-                      </div>
-                    </div>
-                    <div class="clearfix"></div>
-                  </li>
+			<?php }?>
+                 
                 </ul>
               </div>
               <div id="tab-recent2" class="tab-pane">
                 <ul class="entry-list unstyled">
+				<?php
+			$rowMainEventnow=getEventNow($conn);
+			$countEvent=count($rowMainEventnow);
+			for($i=0;$i<$countEvent;$i++)
+			{ 
+		?>
                   <li>
-                    <div class="entry-thumbnail"> <a class="img" href="#"> <img src="media/270x337/3.jpg" width="269" height="345" alt="img"/></a> </div>
+                    <div class="entry-thumbnail"> <a class="img" > <img src="<?php echo DIR_EVENTBANER.$rowMainEventnow[$i]['event_baner_dtl'];?>" width="269" height="345" alt="img"/></a> </div>
                     <div class="entry-main">
                       <div class="entry-header">
-                        <h5 class="entry-title"><a href="#"> Aliquam interdum  eget sagittis eget eros.</a></h5>
+                        <h5 class="entry-title"><a href="event_detail.php?id=<?php echo $rowMainEventnow[$i]['event_id'];?>"> <?php echo $rowMainEventnow[$i]['event_name']; ?></a></h5>
                       </div>
                       <div class="entry-meta">
-                        <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 7 March , 2020</a> </time>
+                        <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <span class="icon-clock" aria-hidden="true"></span><?php echo date('d-m-y',strtotime($rowMainEventnow[$i]['start_date_time'])); ?> </time>
                       </div>
                     </div>
                     <div class="clearfix"></div>
                   </li>
-                  <li>
-                    <div class="entry-thumbnail"> <a class="img" href="#"> <img src="media/270x337/1.jpg" width="269" height="345" alt="img"/></a> </div>
-                    <div class="entry-main">
-                      <div class="entry-header">
-                        <h5 class="entry-title"><a href="#">Phasellus vehicula auctor nisi.</a></h5>
-                      </div>
-                      <div class="entry-meta">
-                        <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 27 March , 2020</a> </time>
-                      </div>
-                    </div>
-                    <div class="clearfix"></div>
-                  </li>
-                  <li>
-                    <div class="entry-thumbnail"> <a class="img" href="#"> <img src="media/270x337/2.jpg" width="269" height="345" alt="img"/></a> </div>
-                    <div class="entry-header">
-                      <h5 class="entry-title"><a href="#">Cras temnpus dolor Donec eget ligula</a></h5>
-                    </div>
-                    <div class="entry-main">
-                      <div class="entry-meta">
-                        <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 12 March , 2020</a> </time>
-                      </div>
-                    </div>
-                    <div class="clearfix"></div>
-                  </li>
-                </ul>
-              </div>
-              <div id="tab-comments" class="tab-pane">
-                <ul class="entry-list unstyled">
-                  <li>
-                    <div class="entry-thumbnail"> <a class="img" href="#"> <img src="media/270x337/1.jpg" width="269" height="345" alt="img"/></a> </div>
-                    <div class="entry-main">
-                      <div class="entry-header">
-                        <h5 class="entry-title"><a href="#">Phasellus vehicula auctor nisi.</a></h5>
-                      </div>
-                      <div class="entry-meta">
-                        <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 27 March , 2020</a> </time>
-                      </div>
-                    </div>
-                    <div class="clearfix"></div>
-                  </li>
-                  <li>
-                
-                    <div class="entry-thumbnail"> <a class="img" href="#"> <img src="media/270x337/3.jpg" width="269" height="345" alt="img"/></a> </div>
-                    <div class="entry-main">
-                      <div class="entry-header">
-                        <h5 class="entry-title"><a href="#"> Aliquam interdum  eget sagittis eget eros.</a></h5>
-                      </div>
-                      <div class="entry-meta">
-                        <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 7 March , 2020</a> </time>
-                      </div>
-                    </div>
-                    <div class="clearfix"></div>
-                  </li>  <li>
-                  <div class="entry-thumbnail"> <a class="img" href="#"> <img src="media/270x337/2.jpg" width="269" height="345" alt="img"/></a> </div>
-                  <div class="entry-header">
-                    <h5 class="entry-title"><a href="#">Cras temnpus dolor Donec eget ligula</a></h5>
-                  </div>
-                  <div class="entry-main">
-                    <div class="entry-meta">
-                      <time title="2020-10-27" datetime="2020-10-27" class="entry-datetime"> <a href="#"><span class="icon-clock" aria-hidden="true"></span> 12 March , 2020</a> </time>
-                    </div>
-                  </div>
-                  <div class="clearfix"></div>
-
-                  </li>
-                  
+			<?php }?>
+                 
                   
                 </ul>
               </div>
+              
+              
+              
             </div>
           </div>
        </aside>

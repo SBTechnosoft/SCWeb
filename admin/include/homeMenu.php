@@ -11,24 +11,31 @@
 
 
   
-  
-  <div class="navbar yamm navbar-default">
+ <div class="header header-home">
+  <div class="navbar yamm navbar-default ">
     <div class="container">
       <nav id="navbar-collapse-1" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="index.php" class="active">Home</a></li>
-          <li class="dropdown yamm-classic"><a href="" data-toggle="dropdown" class="dropdown-toggle">Product<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-			  <li><a  href="<?php echo HTTP_SERVER.'index.php?url=CAT';?>">Add Category</a></li>
-              <li><a  href="<?php echo HTTP_SERVER.'index.php?url=COMP';?>">Add Company</a></li>
-              <li><a  href="<?php echo HTTP_SERVER.'index.php?url=PROD';?>">Add Product</a></li>
-			  <li><a  href="<?php echo HTTP_SERVER.'index.php?url=PRODALL';?>">Product View</a></li>
-              
-              
+         <li class="dropdown yamm-classic" id="a3"><a href="" data-toggle="dropdown" class="dropdown-toggle">HOME<b class="caret"></b></a>
+            <ul class="dropdown-menu ">
+			  <li><a  href="<?php echo HTTP_SERVER.'index.php?url=ACHIVE';?>">Add Achivement</a></li>
+			  <li><a  href="<?php echo HTTP_SERVER.'index.php?url=TEST';?>">Add Testimonial</a></li>
+                        
             </ul>
           </li>
-          <li class="dropdown yamm-classic"><a href="" data-toggle="dropdown" class="dropdown-toggle">Blog<b class="caret"></b></a>
-            <ul class="dropdown-menu">
+          <li class="dropdown yamm-classic " id="a1"><a href="" data-toggle="dropdown" class="dropdown-toggle">Product<b class="caret"></b></a>
+            <ul class="dropdown-menu " >
+			
+			  <li><a href="<?php echo HTTP_SERVER.'index.php?url=CAT';?>">Add Category</a></li>
+              <li><a href="<?php echo HTTP_SERVER.'index.php?url=COMP';?>">Add Company</a></li>
+              <li><a href="<?php echo HTTP_SERVER.'index.php?url=PROD';?>">Add Product</a></li>
+			  <li><a href="<?php echo HTTP_SERVER.'index.php?url=PRODALL';?>">Product View</a></li>
+              
+             
+            </ul>
+          </li>
+          <li class="dropdown yamm-classic" id="a2"><a href="" data-toggle="dropdown" class="dropdown-toggle">Blog<b class="caret"></b></a>
+            <ul class="dropdown-menu ">
 			  <li><a  href="<?php echo HTTP_SERVER.'index.php?url=BCAT';?>">Add Blog Category</a></li>
               <li><a  href="<?php echo HTTP_SERVER.'index.php?url=BTAG';?>">Add Blog Tag</a></li>
               <li><a  href="<?php echo HTTP_SERVER.'index.php?url=BLOG';?>">Add Blog</a></li>
@@ -40,9 +47,10 @@
 		   <li><a href="<?php echo HTTP_SERVER.'index.php?url=GALLERY';?>">Gallery</a></li>
            <li><a href="<?php echo HTTP_SERVER.'index.php?url=SERV';?>">Services</a></li>
 		   <li><a href="<?php echo HTTP_SERVER.'index.php?url=EVENT';?>">Event</a></li>
-         <li><a href="about.php">About Us</a></li>
-		  <li><a href="contactus.php">Contact Us</a></li>
-		  
+		   
+		   <li><a href="about.php">About Us</a></li>
+		   <li><a href="<?php echo HTTP_SERVER.'index.php?url=CONTACT';?>">Contact Us</a></li>
+		   <li> <a href="<?php echo HTTP_SERVER_INCLUDES.'logout.php';?>"> Log Out</a></li>
           <!-- Classic dropdown -->
         
           <!-- Pictures -->
@@ -105,4 +113,4 @@
       </nav>
     </div>
   </div>
-
+</div>

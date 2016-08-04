@@ -2,9 +2,7 @@
 /* CUSTOM FORM ELEMENT */
 /*//////////////////////////////////////////////////////////////////////////////////////////*/
 
-input[type=checkbox] {
-	visibility: hidden;
-}
+
 /* SLIDE ONE */
 .slideOne {
 	width: 50px;

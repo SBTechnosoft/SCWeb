@@ -53,13 +53,13 @@ function getProductArray($conn,$id)
 //Get Blog Category Data
 function showBlogCategoryData($conn)
 {
-	$sqlFetch="select blog_cat_id,blog_cat_name,blog_cat_desc,is_display from blog_category_mst where deleted_at='0000-00-00 00:00:00'";
+	$sqlFetch="select blog_cat_id,blog_cat_name,blog_cat_desc,is_display from blog_category_mst where deleted_at='0000-00-00 00:00:00' and is_display=0";
 	return $conn -> getResultArray($sqlFetch);
 }
 //get tag data
 function showTagData($conn)
 {
-	$sqlFetch="select blog_tag_id,blog_tag_name,blog_tag_desc,is_display from blog_tag_mst where deleted_at='0000-00-00 00:00:00'";
+	$sqlFetch="select blog_tag_id,blog_tag_name,blog_tag_desc,is_display from blog_tag_mst where deleted_at='0000-00-00 00:00:00' and is_display=0";
 	return $conn -> getResultArray($sqlFetch);
 }
 //Get Blog Category At Blog page
@@ -71,7 +71,7 @@ function showBlogCatData($conn)
 //get tag data
 function showTagData1($conn)
 {
-	$sqlFetch="select blog_tag_id,blog_tag_name,blog_tag_desc,is_display from blog_tag_mst where deleted_at='0000-00-00 00:00:00'";
+	$sqlFetch="select blog_tag_id,blog_tag_name,blog_tag_desc,is_display from blog_tag_mst where deleted_at='0000-00-00 00:00:00' and is_display=0";
 	return $conn -> getResultArray($sqlFetch);
 }
 //get blog data
@@ -129,6 +129,24 @@ function latestevent($conn)
 function latestevent1($conn)
 {
 	$sqlFetch="select * from event_mst e,event_gallery g where g.event_id=e.event_id LIMIT 1";
+	 return $conn -> getResultArray($sqlFetch);
+}
+//Get Login Data
+function getLoginData($conn,$user,$pass)
+{
+	$sqlFetch="select admin_id,admin_name,admin_password from admin_mst where admin_name='".$user."' and admin_password='".$pass."'";
+	return $conn -> getResultArray($sqlFetch);
+}
+//get achivement data
+function getachive($conn)
+{
+	$sqlFetch="select * from achivement_mst";
+	 return $conn -> getResultArray($sqlFetch);
+}
+//get testimonial data
+function gettest($conn)
+{
+	$sqlFetch="select * from testimonial_mst";
 	 return $conn -> getResultArray($sqlFetch);
 }
 ?>

@@ -26,7 +26,7 @@
 					}
 					$temp++;
 				}?></td>
-			<td><input type="checkbox" name="chkIsDisplayed" <?php if($resultArray[$i]['is_display']==0){?>checked="checked"<?php } ?>onclick="isDisplay(<?php echo $resultArray[$i]['blog_post_id']?>,<?php echo $resultArray[$i]['is_display'] ?>)"/></td>
+			<td><input type="checkbox" name="chkIsDisplayed" <?php if($resultArray[$i]['is_display']==0){?>checked="checked"<?php } ?>onclick="isDisplay(<?php echo $resultArray[$i]['blog_post_id']?>,<?php echo $resultArray[$i]['is_display'] ?>)" /></td>
 			<td><a onclick="editBlog('<?php echo $resultArray[$i]['blog_post_id'];?>','<?php echo $resultArray[$i]['blog_post_name'] ?>','<?php echo $resultArray[$i]['blog_post_desc'];?>','<?php echo $resultArray[$i]['blog_cat_id'];?>','<?php echo $resultArray[$i]['is_display'];?>')"><i class="fa fa-pencil fa-fw"></i></a></td>
 			<td><a onclick="removeBlog('<?php echo $resultArray[$i]['blog_post_id'];?>')"><i class="fa fa-trash-o"></a></td>
 			</tr>
