@@ -4,6 +4,7 @@ include('./header.php');
   
 if(isset($_POST['add']) )
 {
+	
 	$a = array();	
 	$fileName=$_FILES['logo_dtl']['name'];
 	$fileType=$_FILES['logo_dtl']['type'];
@@ -74,8 +75,11 @@ if(isset($_POST['add']) )
 			$spon_website=$_POST['spon_website'][$i];
 			$spon_no=$_POST['spon_no'][$i];
 			$sponserlogo_name="";
-			// if(isset($_FILES['sponserlogo']['name'][$i]))
-			// {
+			if(isset($_FILES['spon_logo']['name'][$i]))
+			 {
+				for($i=0;$i<count($_FILES['spon_logo']['name']);$i++)
+				{	
+					
 				$sponserlogo_name=$_FILES['spon_logo']['name'][$i];
 				$sponserlogo_tmp_name=$_FILES['spon_logo']['tmp_name'][$i];
 				$sponserlogo_type=$_FILES['spon_logo']['type'][$i];
@@ -90,10 +94,10 @@ if(isset($_POST['add']) )
 					$location = '../upload/sponserlogo';
 				}	
 				$sponserlogo_name=uploadimage($sponserlogo_name,$sponserlogo_name,$sponserlogo_tmp_name,$sponserlogo_type,$location,2000,2000,"");
-			// }
+			 }
+			 }
+			$resultArraysponser=insertsponserData($conn,$event_id,$spon_name,$sponserlogo_name,$spon_no,$spon_website);
 			
-			$resultArraysponser=insertsponserData($conn,$event_id,$_REQUEST['spon_name'],$sponserlogo_name,$_REQUEST['spon_no'],$_REQUEST['spon_website']);
-			include('show_event.php');
 		}
 	}
 	

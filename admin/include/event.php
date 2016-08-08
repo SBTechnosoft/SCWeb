@@ -221,20 +221,15 @@ function addSponsers()
 	var spon_website=$('#spon_website').val();
 	var spon_no=$('#spon_no').val();
 	var spon_logo=$('#spon_logo').prop('files')[0];
-	if(spon_name=="")
-	{
-		alert("Please enter required fields");
-	}
-	else
-	{
-		var div = '<tr id="sponserrow'+sponserCount+'" ><td>'+sponserCount+'</td><td>'+spon_name+'</td><td>'+spon_website+'</td><td>'+spon_no+'</td><td>'+spon_logo+'</td><td><a href="#" id="'+sponserCount+'" class="removesponser">Remove</a></td><td><input type="hidden" name="sponsernamehidden" class="sponsernameclass" value="'+spon_name+'"/><input type="hidden" name="sponserwebsitehidden" class="sponserwebsiteclass" value="'+spon_website+'"/><input type="hidden" name="sponsernohidden" class="sponsernoclass" value="'+spon_no+'"/><input type="hidden" name="sponserlogohidden" class="sponserlogoclass" value="'+spon_logo+'"/></td></tr>';	
+	//console.log($('#spon_logo').prop('files')[0]);
+	var div = '<tr id="sponserrow'+sponserCount+'" ><td>'+sponserCount+'</td><td>'+spon_name+'</td><td>'+spon_website+'</td><td>'+spon_no+'</td><td>'+spon_logo+'</td><td><a href="#" id="'+sponserCount+'" class="removesponser">Remove</a></td><td><input type="hidden" name="sponsernamehidden" class="sponsernameclass" value="'+spon_name+'"/><input type="hidden" name="sponserwebsitehidden" class="sponserwebsiteclass" value="'+spon_website+'"/><input type="hidden" name="sponsernohidden" class="sponsernoclass" value="'+spon_no+'"/><input type="hidden" name="sponserlogohidden" class="sponserlogoclass" value="'+spon_logo+'"/></td></tr>';	
 		sponserCount=sponserCount+1;
 		$('#showSponersData').append(div);
 		$('#spon_name').val("");
 		$('#spon_website').val("");
 		$('#spon_no').val("");
-		$('#spon_logo').val("");
-	}
+		//$('#spon_logo').prop('files')[0];
+	
 }
 //Remove Sponsers
 $(document).on('click','.removesponser',function() {
@@ -281,20 +276,27 @@ function postData()
 	var spon_no=[];
 	$("input[name='sponsernohidden']").each(function() {
 		spon_no.push($(this).val());
+		
 	});
 	for(var i = 0; i < spon_no.length; ++i) 
 	{
 		file.append('spon_no['+i+']', spon_no[i]);
 	}
 	var spon_logo=[];	
+	
 	$("input[name='sponserlogohidden']").each(function() {
-		spon_logo.push($(this).val());
+	spon_logo.push($(this).val());
+	
 	});
 	for(var i = 0; i < spon_logo.length; ++i) 
 	{
-		file.append('spon_logo['+i+']', spon_logo[i]);	
+		//var img_name1=$('#spon_logo').prop('files')[i];
+		//spon_logo.push($(this).val());
+		file.append('spon_logo['+i+']',spon_logo[i]);
+			
+		
 	}
-	
+	//console.log(img_name1);
 
         file.append('logo_dtl', $('#logo_dtl')[0].files[0]);
 		file.append('baner_dtl', $('#baner_dtl')[0].files[0]);
@@ -303,8 +305,10 @@ function postData()
 		for(var i = 0; i < $('#gallery_dtl').get(0).files.length; ++i) 
 	{
 		var img_name=$('#gallery_dtl').prop('files')[i];
-		file.append('gallery_dtl['+i+']', img_name);	
+		file.append('gallery_dtl['+i+']', img_name);
+	
 	}
+	
 		//file.append('spon_logo', $('#spon_logo')[0].files[0]);
 		
 		 file.append('event_name', event_name);
