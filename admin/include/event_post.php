@@ -238,10 +238,10 @@ if(isset($_POST['isDisplay']))
    include('show_event.php');
 }
 
-if($_REQUEST['action']=="remove")
+if(isset($_POST['remove']))
 {
-	$resultArray = removeEventData($conn,$_REQUEST['id'],$cur_date);
-	
+	$resultremove = removeEventData($conn,$_POST['E_Id'],$cur_date);
+	 include('show_event.php');
 }
-header("Location: ".HTTP_SERVER."index.php?url=EVENT");
+//header("Location: ".HTTP_SERVER."index.php?url=EVENT");
 ?>

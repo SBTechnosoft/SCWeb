@@ -49,7 +49,7 @@
 									<div class="form-group">
 										<div class="col-md-6">
 											<div class="inputs">
-												<input type="text" class="field" name="desc" value="" placeholder="Enter Service Detail"/>
+												<input type="text" class="field" name="desc" value="" placeholder="Enter Service Detail" id="desc"/>
 											</div>
 										</div>
 										<div class="col-md-1">
@@ -170,6 +170,7 @@ function postData()
 			  'edit' : 1,
 			 'services_name':services_name,
 			 'services_price':services_price,
+			 'desc':desc,
 			 'is_display':is_display,
 			 'editservid':editservid,
 		 },
@@ -179,6 +180,8 @@ function postData()
 		 }
 		});
 	}
+	$("input#desc").remove();
+		$('#multiple1').before("<input class='field' id='desc' name='desc' type='text' placeholder='' value='' />");
 	 document.getElementById("service_form").reset();
 	 document.getElementById('service_submit').value="Save";
 }
@@ -241,8 +244,18 @@ function removeservice(ser_id)
 </script>
 <script type="text/javascript">
 //Edit Category
-function editServices(editservid,service_name,service_price,isd)
+function editServices(editservid,service_name,service_price,desc_data,desc1,isd)
 {
+	count_desc1 = desc1;
+	
+	res = count_desc1.split("#"); 
+	
+	$('input#desc').remove();
+	for(var j=0;j<desc_data;j++)
+	{
+		
+	$('#multiple1').before("<input id='desc' name='desc' type='text' value='"+res[j]+"' class='field' placeholder='' />");
+	}
 	$('#services_name').val(service_name);
 	$('#services_price').val(service_price);
 	//$('#desc').val(desc);

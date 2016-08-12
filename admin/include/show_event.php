@@ -25,7 +25,7 @@
 										{ 
 										echo $rowevent1[$j]['event_gallery_dtl']; }?>')" ><i class="fa fa-pencil fa-fw"></a></td>
 				 
-							<td><a onClick="return confirm('are you sure you want to delete this?');" href="<?php echo DIR_INCLUDES.'event_post.php';?>?id=<?php echo $rowevent[$i]['event_id'];?>&action=remove"><i class="fa fa-trash-o"></i></a></td>
+							<td><a onClick="removeEvent('<?php echo $rowevent[$i]['event_id'];?>')"><i class="fa fa-trash-o"></i></a></td>
 							</tr>
 							
 							

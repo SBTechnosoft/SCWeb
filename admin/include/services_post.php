@@ -10,7 +10,8 @@ if(isset($_POST['add']))
 }
 if(isset($_POST['edit']))
  {
-   $resultArrayser = UpdateServicesData($conn,$_REQUEST['services_name'],$_REQUEST['services_price'],$_REQUEST['is_display'],$cur_date,$_REQUEST['editservid']);
+	  $json_desc = json_encode($_POST['desc']);
+   $resultArrayser = UpdateServicesData($conn,$_REQUEST['services_name'],$_REQUEST['services_price'],$json_desc,$_REQUEST['is_display'],$cur_date,$_REQUEST['editservid']);
    include('show_services.php');
 }
 //Change Display Status

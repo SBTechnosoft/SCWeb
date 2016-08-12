@@ -144,11 +144,12 @@ function UpdateGallery($conn,$is_display,$id)
 	return $conn -> insertQuery($sqlUpdate);
 }
 //update services data
-function UpdateServicesData($conn,$services_name,$services_price,$is_display,$cur_date,$id)
+function UpdateServicesData($conn,$services_name,$services_price,$desc,$is_display,$cur_date,$id)
 {
 	 $sqlUpdate="update `services_dtl` set
 	services_name='".$services_name."',
 	services_price='".$services_price."',
+	services_detail='".$desc."',
 	is_display='".$is_display."',
 	update_at='".$cur_date."' where services_id='".$id."'";
 	return $conn -> insertQuery($sqlUpdate);

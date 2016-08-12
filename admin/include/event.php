@@ -405,9 +405,9 @@ function isDisplay(catId,value)
 	//window.location.reload();
 }
 
-function removeCat(catId)
+function removeEvent(E_Id)
 {
-	var catId=catId;
+	var E_Id=E_Id;
 
 	if (confirm("Are you sure you want to delete this?"))
 	{
@@ -415,11 +415,12 @@ function removeCat(catId)
 		 type: "POST",
 		 async : false,
 		 url:'<?php echo DIR_INCLUDES.'event_post.php';?>',
-		
+		data:{
 			  'remove' : 1,
-			  'catId':catId,
-		
+			  'E_Id':E_Id,
+		},
 		 success: function(data){
+			 
 			  alert("Record deleted Successfully!!!");
 			   $("#showEvent").html(data);
 		 }
@@ -429,7 +430,7 @@ function removeCat(catId)
 	{
 		return false;
 	}
-	//window.location.reload();
+
 }
 
 
